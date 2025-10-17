@@ -1,0 +1,288 @@
+/* أمثلة إضافية لتنسيق عناصر li في التنقل - بدون استخدام ::after و ::before */
+
+/* مثال 1: تنسيق بسيط مع تأثيرات لونية */
+.nav-style-1 ul li {
+    /* جميع الخصائص الأساسية */
+    position: relative;
+    display: inline-block;
+    margin: 0 8px;
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* تأثيرات التفاعل */
+    &:hover {
+        background-color: #007bff;
+        color: white;
+        border-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+    
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+    }
+}
+
+/* مثال 2: تنسيق مع خلفية متدرجة */
+.nav-style-2 ul li {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    
+    &:hover {
+        background: linear-gradient(45deg, #764ba2 0%, #667eea 100%);
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+/* مثال 3: تنسيق مع حدود ملونة */
+.nav-style-3 ul li {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 18px;
+    background-color: transparent;
+    border: 3px solid #28a745;
+    border-radius: 0;
+    color: #28a745;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background-color: #28a745;
+        color: white;
+        border-color: #1e7e34;
+        transform: skew(-5deg);
+        box-shadow: 5px 5px 0 #1e7e34;
+    }
+    
+    &:active {
+        transform: skew(-5deg) scale(0.95);
+        box-shadow: 2px 2px 0 #1e7e34;
+    }
+}
+
+/* مثال 4: تنسيق مع ظلال متقدمة */
+.nav-style-4 ul li {
+    position: relative;
+    display: inline-block;
+    margin: 0 12px;
+    padding: 14px 22px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    color: #495057;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+        background: #ffffff;
+        color: #007bff;
+        border-color: #007bff;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+    }
+    
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+}
+
+/* مثال 5: تنسيق مع تأثيرات نيون */
+.nav-style-5 ul li {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    padding: 12px 24px;
+    background: #1a1a1a;
+    border: 2px solid #00ff88;
+    border-radius: 6px;
+    color: #00ff88;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    
+    &:hover {
+        background: #00ff88;
+        color: #1a1a1a;
+        border-color: #00cc6a;
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+    }
+    
+    &:active {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+    }
+}
+
+/* مثال 6: تنسيق مع تأثيرات ثلاثية الأبعاد */
+.nav-style-6 ul li {
+    position: relative;
+    display: inline-block;
+    margin: 0 8px;
+    padding: 16px 28px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    border: none;
+    border-radius: 15px;
+    color: #333;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    
+    &:hover {
+        background: linear-gradient(145deg, #cacaca, #f0f0f0);
+        transform: translate(-2px, -2px);
+        box-shadow: 12px 12px 20px #bebebe, -12px -12px 20px #ffffff;
+    }
+    
+    &:active {
+        background: linear-gradient(145deg, #bebebe, #e0e0e0);
+        transform: translate(0, 0);
+        box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+    }
+}
+
+/* مثال 7: تنسيق مع تأثيرات الموجات */
+.nav-style-7 ul li {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 14px 26px;
+    background: #6c5ce7;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    
+    &:hover {
+        background: #5f3dc4;
+        transform: scale(1.08);
+        box-shadow: 0 0 0 10px rgba(108, 92, 231, 0.2),
+                    0 0 0 20px rgba(108, 92, 231, 0.1),
+                    0 0 0 30px rgba(108, 92, 231, 0.05);
+    }
+    
+    &:active {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 5px rgba(108, 92, 231, 0.3);
+    }
+}
+
+/* مثال 8: تنسيق للقوائم الفرعية مع تأثيرات خاصة */
+.submenu-style-1 li {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 3px 0;
+    padding: 0;
+    background: #ffffff;
+    border: none;
+    border-left: 4px solid transparent;
+    border-radius: 0 8px 8px 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background: linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%);
+        border-left-color: #007bff;
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+    }
+    
+    a {
+        display: block;
+        padding: 12px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            color: #007bff;
+            padding-left: 30px;
+        }
+    }
+}
+
+/* تنسيقات متجاوبة للأمثلة */
+@media (max-width: 768px) {
+    .nav-style-1 ul li,
+    .nav-style-2 ul li,
+    .nav-style-3 ul li,
+    .nav-style-4 ul li,
+    .nav-style-5 ul li,
+    .nav-style-6 ul li,
+    .nav-style-7 ul li {
+        margin: 5px 2px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .nav-style-2 ul li:hover,
+    .nav-style-3 ul li:hover {
+        transform: scale(1.02);
+    }
+    
+    .nav-style-6 ul li:hover {
+        transform: translate(-1px, -1px);
+    }
+    
+    .nav-style-7 ul li:hover {
+        transform: scale(1.05);
+    }
+}
+
+/* تحسينات الأداء */
+.nav-style-1 ul li,
+.nav-style-2 ul li,
+.nav-style-3 ul li,
+.nav-style-4 ul li,
+.nav-style-5 ul li,
+.nav-style-6 ul li,
+.nav-style-7 ul li,
+.submenu-style-1 li {
+    will-change: transform, box-shadow, background;
+    backface-visibility: hidden;
+}

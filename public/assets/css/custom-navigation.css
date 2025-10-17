@@ -1,0 +1,244 @@
+/* تنسيقات مخصصة للتنقل - تطبيق جميع التنسيقات ما عدا ::after و ::before */
+
+:root {
+    --color-primary-rgb: 74, 108, 247; /* تحديد قيم RGB للون الأساسي */
+    --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --nav-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --nav-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* تنسيقات عامة لعناصر التنقل */
+.nav-area ul li.main-nav {
+    /* تطبيق جميع الخصائص ما عدا pseudo-elements */
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: none;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.4;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    word-spacing: normal;
+    white-space: nowrap;
+    overflow: visible;
+    cursor: pointer;
+    transition: var(--nav-transition);
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+    
+    /* تأثيرات التفاعل */
+    &:hover {
+        background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.1) 0%, rgba(var(--color-primary-rgb), 0.05) 100%);
+        border-color: rgba(var(--color-primary-rgb), 0.2);
+        box-shadow: var(--nav-hover-shadow);
+        transform: translateY(-3px) scale(1.02);
+    }
+    
+    &:active {
+        transform: translateY(-1px) scale(0.98);
+        box-shadow: var(--nav-shadow);
+    }
+    
+    &:focus {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 3px;
+        background: rgba(var(--color-primary-rgb), 0.08);
+    }
+    
+    /* تنسيقات الروابط */
+    a {
+        color: #1C2539;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        transition: var(--nav-transition);
+        border-radius: inherit;
+        
+        &:hover {
+            color: var(--color-primary);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        &:focus {
+            outline: none;
+            color: var(--color-primary);
+        }
+    }
+}
+
+/* تنسيقات القوائم الفرعية */
+.submenu.parent-nav li {
+    /* تطبيق جميع التنسيقات ما عدا pseudo-elements */
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 2px 0;
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 500;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--nav-transition);
+    transform: translateX(0);
+    opacity: 1;
+    
+    /* تأثيرات التفاعل للقوائم الفرعية */
+    &:hover {
+        background: linear-gradient(90deg, #f8f9ff 0%, #ffffff 100%);
+        border-color: rgba(var(--color-primary-rgb), 0.2);
+        box-shadow: 0 3px 12px rgba(var(--color-primary-rgb), 0.15);
+        transform: translateX(8px) scale(1.01);
+    }
+    
+    &:active {
+        transform: translateX(4px) scale(0.99);
+        background: rgba(var(--color-primary-rgb), 0.05);
+    }
+    
+    &:focus-within {
+        background: #f8f9ff;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+    }
+    
+    /* تنسيقات روابط القوائم الفرعية */
+    a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 0;
+        transition: var(--nav-transition);
+        border-radius: inherit;
+        border-left: 4px solid transparent;
+        
+        &:hover {
+            color: var(--color-primary);
+            border-left-color: var(--color-primary);
+            background: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.1) 0%, transparent 100%);
+            padding-left: 24px;
+        }
+        
+        &:focus {
+            outline: none;
+            color: var(--color-primary);
+            border-left-color: var(--color-primary);
+            background: rgba(var(--color-primary-rgb), 0.08);
+        }
+        
+        &:active {
+            background: rgba(var(--color-primary-rgb), 0.15);
+            transform: scale(0.98);
+        }
+    }
+}
+
+/* تنسيقات خاصة للقوائم الضخمة */
+.mega-menu-item.parent-nav li {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    margin: 8px 0;
+    transition: var(--nav-transition);
+    
+    &:hover {
+        background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        border-color: rgba(var(--color-primary-rgb), 0.3);
+        box-shadow: 0 8px 25px rgba(var(--color-primary-rgb), 0.15);
+        transform: translateY(-2px) scale(1.02);
+    }
+    
+    a {
+        padding: 16px 20px;
+        border-radius: 8px;
+        
+        &:hover {
+            background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.1) 0%, rgba(var(--color-primary-rgb), 0.05) 100%);
+        }
+    }
+}
+
+/* تنسيقات متجاوبة */
+@media (max-width: 768px) {
+    .nav-area ul li.main-nav {
+        margin: 5px 0;
+        padding: 12px 16px;
+        font-size: 14px;
+        
+        &:hover {
+            transform: translateY(-2px) scale(1.01);
+        }
+    }
+    
+    .submenu.parent-nav li {
+        margin: 1px 0;
+        
+        a {
+            padding: 10px 16px;
+            font-size: 13px;
+        }
+    }
+}
+
+/* تنسيقات للوضع المظلم */
+@media (prefers-color-scheme: dark) {
+    .nav-area ul li.main-nav {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+        border-color: rgba(255, 255, 255, 0.1);
+        
+        a {
+            color: #ffffff;
+        }
+    }
+    
+    .submenu.parent-nav li {
+        background: #2a2a2a;
+        border-color: rgba(255, 255, 255, 0.1);
+        
+        a {
+            color: #ffffff;
+        }
+    }
+}
+
+/* تأثيرات الحركة المتقدمة */
+@keyframes navItemPulse {
+    0% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(var(--color-primary-rgb), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0); }
+}
+
+.nav-area ul li.main-nav:focus {
+    animation: navItemPulse 1.5s infinite;
+}
+
+/* تحسينات الأداء */
+.nav-area ul li.main-nav,
+.submenu.parent-nav li {
+    will-change: transform, box-shadow, background;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

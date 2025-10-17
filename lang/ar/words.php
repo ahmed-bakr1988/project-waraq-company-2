@@ -1,0 +1,218 @@
+<?php
+
+return [
+    // Example translations from the Welcome file
+    'name_compony' => ' ورق ',
+    'welcome' => 'مرحبا',
+    'hello' => 'أهلاً',
+    'login' => 'تسجيل الدخول',
+    'register' => 'تسجيل',
+    'logout' => 'تسجيل الخروج',
+    'home' => 'الرئيسية',
+    'about' => 'حول',
+    'contact' => 'اتصل بنا',
+    'dashboard' => 'لوحة التحكم',
+    'profile' => 'الملف الشخصي',
+    'settings' => 'الإعدادات',
+    'language' => 'اللغة',
+    'submit' => 'إرسال',
+    'cancel' => 'إلغاء',
+    'save' => 'حفظ',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    // Add more words/sentences from the Welcome file as needed
+
+    // Welcome Page Translations
+    'get_consultant' => 'احصل على استشارة',
+    'year_of_experience' => 'سنة من الخبرة',
+    'about_us' => 'من نحن',
+    'more_about_us' => 'المزيد عنا',
+    'empowering_you' => 'نمكنك لتشعر بأفضل حالاتك كل يوم',
+    'about_desc' => 'بورتتيتور تزيين تخمير أليكام فاريترا لتسهيل الحمل جرافيدا ريسوس سوسيبت. دوى فوسيه كونيوبيا ريديكيولوس تريستيك بارتيوريانت ناتوك فولبوتات ريسو.',
+    'call_services' => 'خدمات الاتصال متاحة 24/7',
+    'skilled_consultant' => 'استشاري ماهر',
+    'expert_team' => 'فريق خبراء',
+    'call_us_anytime' => 'اتصل بنا في أي وقت',
+    'contact_us' => 'اتصل بنا',
+    'services' => 'الخدمات',
+    'our_service' => 'خدمتنا',
+    'high_quality_services' => 'خدمات عالية الجودة',
+    'business_planning' => 'تخطيط الأعمال',
+    'process_development' => 'تطوير العمليات',
+    'strategy_planning' => 'التخطيط والاستراتيجية',
+    'business_goal' => 'هدف العمل',
+    'read_more' => 'اقرأ المزيد',
+    'lets_work_together' => 'دعنا نعمل معًا',
+    'just_a_consultancy' => 'مجرد استشارة',
+    'manage_business_globally' => 'نحن نعرف كيف ندير الأعمال عالميًا',
+    'best_business_consulting' => 'أفضل استشارات الأعمال',
+    'customer_support' => 'دعم العملاء 24/7',
+    'successful_projects' => 'مشاريع ناجحة',
+    'media_activities' => 'أنشطة إعلامية',
+    'skilled_experts' => 'خبراء ماهرون',
+    'happy_clients' => 'عملاء سعداء',
+    'projects' => 'المشاريع',
+    'popular_projects' => 'مشاريع شائعة',
+    'completed_projects' => 'مشاريعنا المكتملة',
+    'business_growth' => 'نمو الأعمال',
+    'startup_solution' => 'حلول الشركات الناشئة',
+    'marketing_growth' => 'نمو التسويق',
+    'business_strategy' => 'استراتيجية الأعمال',
+    'trusted_clients' => 'عملاؤنا الموثوقون',
+    'members' => 'الأعضاء',
+    'expert_members' => 'أعضاء خبراء',
+    'professionals_team' => 'فريق محترفين',
+    'founder' => 'المؤسس',
+    'cofounder' => 'المؤسس المشارك',
+    'deputy_manager' => 'نائب المدير',
+    'finance_manager' => 'مدير مالي',
+    'review' => 'مراجعة',
+    'our_testimonial' => 'شهاداتنا',
+    'client_reviews' => 'آراء عملائنا',
+    'designer_at' => 'مصمم في',
+    'hello' => 'مرحبًا',
+    'make_appointment' => 'حدد موعدًا',
+    'request_quote' => 'اطلب عرض سعر مجاني',
+    'your_name' => 'اسمك',
+    'your_email' => 'بريدك الإلكتروني',
+    'subject' => 'الموضوع',
+    'type_message' => 'اكتب رسالتك',
+    'submit_message' => 'إرسال الرسالة',
+    'blog' => 'مدونة',
+    'blog_news' => 'مدونة وأخبار',
+    'recent_blog_post' => 'أحدث منشورات المدونة',
+    'business_solution' => 'حلول الأعمال',
+    'by_author' => 'بواسطة :author',
+    'building_brand' => 'بناء علامة تجارية من قادة السوق',
+    'transforming_business' => 'تحويل أفضل نهج لعملك',
+    'quick_settle_tips' => 'نصائح التسوية السريعة لعصر جديد',
+    // New translations for pages
+    'about_title' => 'من نحن',
+    'about_description' => 'نحن شركة رائدة في مجال التعبئة والتغليف الصديقة للبيئة.',
+    'services_title' => 'خدماتنا',
+    'service1' => 'تصميم العبوات',
+    'service1_desc' => 'تصميم عبوات مبتكرة وصديقة للبيئة',
+    'service2' => 'طباعة مستدامة',
+    'service2_desc' => 'طباعة عالية الجودة باستخدام أحبار صديقة للبيئة',
+    'service3' => 'حلول التغليف',
+    'service3_desc' => 'حلول تغليف مبتكرة تحمي المنتجات وتقلل الهدر',
+    'contact_title' => 'اتصل بنا',
+    'contact_info' => 'معلومات التواصل',
+    'contact_address' => '123 شارع التعبئة، القاهرة، مصر',
+    'contact_phone' => '+20 100 000 0000',
+    'contact_email' => 'info@waraq.com',
+    'contact_form_title' => 'أرسل لنا رسالة',
+    'trusted_clients_title' => 'عملاؤنا الثقة',
+
+    // Navigation System Translations
+    'nav_home' => 'الرئيسية',
+    'nav_products' => 'المنتجات',
+    'nav_services' => 'خدماتنا',
+    'nav_about' => 'من نحن - ورق',
+    'nav_news' => 'الأخبار والمقالات',
+    'nav_sustainability' => 'الاستدامة',
+    'nav_contact' => 'تواصل معنا',
+
+    // Products Menu
+    'products_paper' => 'منتجات الورق',
+    'packaging_paper' => 'ورق التغليف',
+    'printing_paper' => 'ورق الطباعة',
+    'cardboard_paper' => 'ورق الكرتون',
+    'newspaper_paper' => 'ورق الصحف',
+    'magazine_paper' => 'ورق المجلات',
+
+    'specialized_products' => 'منتجات متخصصة',
+    'waterproof_paper' => 'ورق مقاوم للماء',
+    'eco_friendly_paper' => 'ورق صديق للبيئة',
+    'high_quality_paper' => 'ورق عالي الجودة',
+    'recycled_paper' => 'ورق مُعاد التدوير',
+    'custom_paper' => 'ورق مخصص',
+
+    'additional_services' => 'خدمات إضافية',
+    'request_samples' => 'طلب عينات',
+    'request_quote' => 'طلب عرض سعر',
+    'product_catalog' => 'كتالوج المنتجات',
+    'technical_specs' => 'مواصفات تقنية',
+    'quality_certificates' => 'شهادات الجودة',
+
+    'featured_product' => 'منتج مميز',
+    'advanced_technology' => 'تقنية متطورة',
+    'quality_assurance' => 'ضمان الجودة',
+
+    // Services Menu
+    'manufacturing_production' => 'فلوت فاخر',
+    'manufacturing_desc' => 'يتميز الفلوتينج الفاخر بقوة الضفط في الطبقة المضلعه لصندوق الكرتون',
+    'quality_control' => 'فلوت عادي',
+    'quality_control_desc' => ' يتميز الفلوتينج العادي لدينا بنعومة الورقة لوجود الكليندر الذي يعمل بدورة على الورقه مما يسهل الطباعه عليه',
+    // 'custom_manufacturing' => 'التصنيع المخصص',
+    // 'custom_manufacturing_desc' => 'إنتاج ورق مخصص حسب المواصفات والمتطلبات الخاصة بالعملاء',
+    'shipping_delivery' => 'التست لاينر المعالج',
+    'shipping_delivery_desc' => 'يتميز التست لاينر المعالج وجهين لدينا بقوة الشد والانفجار وتحقيق اعلي المواصفات المطلوبة',
+    'technical_support' => 'تست غير معالج',
+    'technical_support_desc' => 'دعم فني متخصص ومتاح على مدار الساعة لحل جميع الاستفسارات',
+    // 'free_consultation' => 'استشارة مجانية',
+    // 'free_consultation_desc' => 'احصل على استشارة مجانية من خبرائنا لاختيار أفضل المنتجات',
+
+    // About Menu
+    'company_history' => 'تاريخ الشركة',
+    'vision_mission' => 'رؤيتنا ورسالتنا',
+    'our_team' => 'فريق العمل',
+    'quality_certificates_menu' => 'شهادات الجودة',
+    'social_responsibility' => 'المسؤولية الاجتماعية',
+    'awards_recognition' => 'الجوائز والتقديرات',
+
+    // News Menu
+    'company_news' => 'أخبار الشركة',
+    'technical_articles' => 'مقالات تقنية',
+    'tips_guidelines' => 'نصائح وإرشادات',
+    'exhibitions_events' => 'معارض وفعاليات',
+
+    // Contact Menu
+    'contact_info' => 'معلومات التواصل',
+    'quote_request' => 'الوظائف',
+    'customer_service' => 'خدمة العملاء',
+    'complaints_suggestions' => 'الشكاوى والاقتراحات',
+
+    // Button Text
+    'get_quote' => 'طلب عينة الان',
+
+    // banner
+    'welcome_banner' => 'منتجات بجودة عالمية من ألياف محلية معاد تدويرها ',
+    'banner_title_1' => 'ابدأ معنا رحلة التغيير الأخضر!',
+    'banner_title_2' => 'معنا اكتشف  ',
+    'banner_title_2_2' => 'النهاية  الى من',
+    'banner_title_2_3' => 'WARAQCO في',
+    'banner_desc' => 'في WARAQCO، نمنح الأوراق المستعملة فرصة جديدة لتُصبح جزءًا من حل بيئي مستدام، ونقود التغيير نحو مجتمع واعٍ، واقتصاد دائري ينهض بالصناعة ويصون الطبيعة.',
+
+    // Button Text banner
+    'get_quote_banner' => 'اكتشف رسالتنا',
+    'Read_More' => 'اقرأ المزيد',
+
+    // section 2 banner
+    'Our_process' => 'عمليتنا بسيطة',
+    'Our_process_title_1' => 'أكتشف حلول إعادة تدوير الورق',
+    'Our_process_title_2' => 'تحويل نفايات الورق إلى ثروة مجتمعية',
+    'Our_process_desc' => 'نجمع الأوراق المستعملة من المصانع والشركات وال_inds_ ونقوم بفرزها وتنظيفها ونعيد تدويرها في مطحنة خبراء لتصبح أليافًا جديدة. ثم نقوم بتصنيع هذه الألياف في مطحنة أخرى لتصبح ورقًا جديدًا. نقوم بتصنيع هذا الورق في مطحنة أخرى لتصبح ورقًا جديدًا.     ',
+
+    // section 2 banner Our process is simple
+    'Our_process_Collect_it_1' => 'اجمعها',
+    'Our_process_Recycle_it_2' => 'أعد تدويرها',
+    'Our_process_Ship_it_3' => 'اشحنها',
+    'Our_process_Collect_it_desc_1' => ' نقوم بجمع مخلفات الورق من مصادر متنوعة قبل بدء عملية إعادة التدوير.',
+    'Our_process_Recycle_desc_2' => 'يتم فرز الورق ومعالجته داخل خطوط إنتاج مخصصة لإعادة التدوير.',
+    'Our_process_Ship_it_desc_3' => 'نقوم بشحن المنتجات الورقية إلى جميع انحاء العالم بأمان وكفاءة',
+
+    // side bar area
+    'side_bar_area_desc' => 'ورق هي شركة متخصصة في إعادة تدوير الورق، تأسست برؤية واضحة: تحويل النفايات الورقية إلى منتجات ذات قيمة، وبناء نموذج صناعي يحترم البيئة ويخدم الإنسان.
+نعمل بشغف منذ أكثر من 30 عامًا، نعيد تشكيل الورق المستعمل بعمليات تقنية متقدمة، وننتج مواد تغليف عالية الجودة تدعم الاستدامة في سلاسل التوريد والصناعات المتنوعة.',
+
+    // Products Section
+    'our_products' => 'منتجاتنا',
+    'company_products' => 'الشركة منتجات ',
+    'learn_more' => 'اعرف المزيد',
+
+    'features' => 'المميزات',
+
+    'all_products' => 'جميع المنتجات',
+
+];
