@@ -1,0 +1,119 @@
+/* Contact Us Section Styles */
+.map-area-main-wrapper {
+    position: relative;
+    z-index: 1;
+    /* margin-top: -310px; */
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-area-main-footer-two {
+    width: 100%;
+    height: 100%;
+    min-height: 625px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.map-area-main-footer-two iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.map-information-2-footer {
+    padding: 40px;
+    background: #fff;
+    height: 100%;
+}
+
+.map-information-2-footer .title-main {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1C2539;
+}
+
+.map-information-2-footer .line {
+    margin-bottom: 30px;
+}
+
+.contact-information-main-wrapper .signle-contact-information {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.contact-information-main-wrapper .signle-contact-information:last-child {
+    margin-bottom: 0;
+}
+
+.contact-information-main-wrapper .icon {
+    width: 50px;
+    height: 50px;
+    background: #F6F6F6 !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: #1C2539;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-information-main-wrapper .signle-contact-information:hover .icon {
+    background: hsl(116, 86%, 20%) !important;  
+    color: #fff !important;
+}
+
+.contact-information-main-wrapper .information-wrapper span {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.contact-information-main-wrapper .information-wrapper .title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C2539;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-information-main-wrapper .information-wrapper a:hover .title {
+    color: #FF4A17;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .map-area-main-wrapper {
+        margin-top: 0;
+    }
+    
+    .map-area-main-footer-two {
+        min-height: 400px;
+    }
+    
+    .map-information-2-footer {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .map-area-main-wrapper {
+        padding: 15px;
+    }
+    
+    .map-area-main-footer-two {
+        min-height: 300px;
+    }
+    
+    .map-information-2-footer {
+        padding: 20px;
+    }
+} 
+

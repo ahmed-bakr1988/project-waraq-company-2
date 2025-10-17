@@ -1,0 +1,120 @@
+/* Arabic Text Animation Support */
+
+/* Ensure proper RTL text direction for Arabic animated elements */
+.rts-text-anime-style-1[dir="rtl"],
+.rts-text-anime-style-1:lang(ar) {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Arabic word animation styling */
+.split-word-ar {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    /* Preserve Arabic character connections */
+    font-feature-settings: "liga" 1, "calt" 1;
+    /* Enable Arabic contextual forms */
+    font-variant-ligatures: contextual;
+}
+
+/* Ensure proper Arabic font rendering during animation */
+.rts-text-anime-style-1 .split-word-ar {
+    /* Maintain proper Arabic text shaping */
+    text-rendering: optimizeLegibility;
+    /* Prevent text breaking during animation */
+    word-break: keep-all;
+    /* Smooth animation transitions */
+    transition: all 0.3s ease;
+}
+
+/* Arabic line styling */
+.rts-text-anime-style-1 .split-line {
+    display: block;
+    overflow: hidden;
+}
+
+/* Ensure proper spacing for Arabic words during animation */
+.rts-text-anime-style-1[dir="rtl"] .split-word-ar,
+.rts-text-anime-style-1:lang(ar) .split-word-ar {
+    margin-left: 0.2em;
+    margin-right: 0;
+}
+
+/* First word in RTL should not have right margin */
+.rts-text-anime-style-1[dir="rtl"] .split-word-ar:first-child,
+.rts-text-anime-style-1:lang(ar) .split-word-ar:first-child {
+    margin-left: 0;
+}
+
+/* Enhanced Arabic typography */
+.rts-text-anime-style-1:lang(ar) {
+    /* Better Arabic font stack */
+    font-family: 'Noto Sans Arabic', 'Cairo', 'Amiri', 'Scheherazade New', 'Arial Unicode MS', sans-serif;
+    /* Improved line height for Arabic */
+    line-height: 1.6;
+    /* Better letter spacing for Arabic */
+    letter-spacing: 0.02em;
+}
+
+/* Animation performance optimization */
+.split-word-ar {
+    /* GPU acceleration for smoother animations */
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+/* Responsive adjustments for Arabic text */
+@media (max-width: 768px) {
+    .rts-text-anime-style-1:lang(ar) {
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+    
+    .rts-text-anime-style-1[dir="rtl"] .split-word-ar,
+    .rts-text-anime-style-1:lang(ar) .split-word-ar {
+        margin-left: 0.15em;
+    }
+}
+
+/* Support for mixed content (Arabic + English) */
+.rts-text-anime-style-1 .split-word-ar[data-lang="mixed"] {
+    /* Handle mixed language content */
+    unicode-bidi: embed;
+}
+
+/* Fallback for browsers that don't support Arabic features */
+@supports not (font-feature-settings: "liga" 1) {
+    .split-word-ar {
+        /* Fallback styling */
+        font-variant-ligatures: normal;
+    }
+}
+
+/* Dark mode support for Arabic text animation */
+@media (prefers-color-scheme: dark) {
+    .rts-text-anime-style-1:lang(ar) {
+        /* Ensure good contrast in dark mode */
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Print styles - disable animations */
+@media print {
+    .rts-text-anime-style-1 .split-word-ar,
+    .rts-text-anime-style-1 .split-line {
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
+    }
+}
+
+/* Accessibility - respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .rts-text-anime-style-1 .split-word-ar {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
