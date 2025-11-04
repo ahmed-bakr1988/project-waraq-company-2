@@ -10,7 +10,7 @@ class EnsureApiToken
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $expected = (string) config('app.api_token', env('API_TOKEN'));
+        $expected = (string) config('app.api_token');
 
         $provided = (string) $request->header('X-API-Token', '');
 

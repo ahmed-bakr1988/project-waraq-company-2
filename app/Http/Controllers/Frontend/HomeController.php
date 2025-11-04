@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\ProductCategory;
 
 class HomeController extends Controller
 {
     public function index()
     {
         try {
-            $products = Product::active()->ordered()->get();
+            $products = ProductCategory::active()->ordered()->get();
         } catch (\Throwable $e) {
             $products = collect();
         }

@@ -2,12 +2,13 @@
 
 namespace App\Filament\Resources\ProductCategories\Schemas;
 
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Schema;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
+use Filament\Forms\Components\FileUpload;
 
 class ProductCategoryForm
 {
@@ -17,6 +18,7 @@ class ProductCategoryForm
             ->components([
                 Section::make('Category')
                     ->schema([
+                        FileUpload::make('image'),
                         Grid::make(2)->schema([
                             TextInput::make('name')->required()->maxLength(255),
                             TextInput::make('slug')->required()->unique(ignoreRecord: true)->maxLength(255),

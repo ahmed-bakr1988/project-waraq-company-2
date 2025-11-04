@@ -3,11 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends Factory<Product>
- */
+/** @extends Factory<Product> */
 class ProductFactory extends Factory
 {
     protected $model = Product::class;
@@ -15,10 +14,20 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => 'assets/images/gallery/images-products/Picture'.fake()->numberBetween(1, 9).'.webp',
+            'product_category_id' => ProductCategory::query()->inRandomOrder()->value('id') ?? null,
+            'image' => 'assets/images/banner/21.webp',
             'logo' => null,
             'url' => null,
-            'order' => fake()->numberBetween(1, 100),
+            'summary' => $this->faker->sentence(12),
+            'specs' => [
+                'gsm_range' => [120, 300],
+                'fiber' => $this->faker->randomElement(['recycled', 'virgin']),
+                'width_mm' => [1200, 1800],
+            ],
+            'downloads' => [
+                'spec_pdf' => 'https://example.com/spec.pdf',
+            ],
+            'order' => $this->faker->numberBetween(0, 10),
             'is_active' => true,
         ];
     }

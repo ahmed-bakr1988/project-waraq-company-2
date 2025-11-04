@@ -1,0 +1,6 @@
+{
+  "contentSecurityPolicy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';",
+  "devConnectSrcAdditions": ["ws://localhost:8000", "http://localhost:8000", "ws://localhost:5173", "http://localhost:5173"],
+  "hsts": "max-age=31536000; includeSubDomains; preload (production HTTPS)"
+}
+

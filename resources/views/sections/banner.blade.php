@@ -1,6 +1,6 @@
     <div class="banner-service-wrapper-bg">
         <!-- rts banner area start -->
-        <div class="rts-banner-hr rts-section-gap bg_image">
+        <div class="rts-banner-hr rts-section-gap bg_image" style="background-image: url('{{ asset('assets/images/banner/30.webp') }}');">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

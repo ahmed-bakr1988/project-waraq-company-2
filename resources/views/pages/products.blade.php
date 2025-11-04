@@ -6,7 +6,7 @@
             @foreach($products as $product)
                 <a href="{{ route('products.show', $product->id) }}" class="block group">
                     <div class="bg-white rounded-lg shadow overflow-hidden">
-                        <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" loading="lazy" width="600" height="400" class="w-full h-48 object-cover">
+                        <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" loading="lazy" decoding="async" width="600" height="400" class="w-full h-48 object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw">
                         <div class="p-4">
                             <div class="text-sm text-gray-500">{{ optional($product->productCategory)->name }}</div>
                             <h2 class="font-semibold group-hover:underline">{{ $product->name }}</h2>
@@ -18,4 +18,3 @@
         </div>
     </div>
 </x-app-layout>
-

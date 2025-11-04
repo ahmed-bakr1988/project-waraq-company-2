@@ -1,0 +1,85 @@
+
+  GET|HEAD   / .................................................................. home ΓÇ║ Frontend\HomeController@index
+  POST       _boost/browser-logs .................................................................. boost.browser-logs
+  GET|HEAD   about ............................................................. about ΓÇ║ Frontend\AboutController@show
+  GET|HEAD   admin ....................................... filament.admin.pages.dashboard ΓÇ║ Filament\Pages ΓÇ║ Dashboard
+  GET|HEAD   admin/careers . filament.admin.resources.careers.index ΓÇ║ App\Filament\Resources\Careers\Pages\ListCareers
+  GET|HEAD   admin/careers/create filament.admin.resources.careers.create ΓÇ║ App\Filament\Resources\Careers\Pages\CreaΓÇª
+  GET|HEAD   admin/careers/{record} filament.admin.resources.careers.view ΓÇ║ App\Filament\Resources\Careers\Pages\ViewΓÇª
+  GET|HEAD   admin/careers/{record}/edit filament.admin.resources.careers.edit ΓÇ║ App\Filament\Resources\Careers\PagesΓÇª
+  GET|HEAD   admin/login ........................................... filament.admin.auth.login ΓÇ║ Filament\Auth ΓÇ║ Login
+  POST       admin/logout .............................. filament.admin.auth.logout ΓÇ║ Filament\Auth ΓÇ║ LogoutController
+  GET|HEAD   admin/media-items filament.admin.resources.media-items.index ΓÇ║ App\Filament\Resources\MediaItems\Pages\LΓÇª
+  GET|HEAD   admin/media-items/create filament.admin.resources.media-items.create ΓÇ║ App\Filament\Resources\MediaItemsΓÇª
+  GET|HEAD   admin/media-items/{record} filament.admin.resources.media-items.view ΓÇ║ App\Filament\Resources\MediaItemsΓÇª
+  GET|HEAD   admin/media-items/{record}/edit filament.admin.resources.media-items.edit ΓÇ║ App\Filament\Resources\MediaΓÇª
+  GET|HEAD   admin/news-posts filament.admin.resources.news-posts.index ΓÇ║ App\Filament\Resources\NewsPosts\Pages\ListΓÇª
+  GET|HEAD   admin/news-posts/create filament.admin.resources.news-posts.create ΓÇ║ App\Filament\Resources\NewsPosts\PaΓÇª
+  GET|HEAD   admin/news-posts/{record} filament.admin.resources.news-posts.view ΓÇ║ App\Filament\Resources\NewsPosts\PaΓÇª
+  GET|HEAD   admin/news-posts/{record}/edit filament.admin.resources.news-posts.edit ΓÇ║ App\Filament\Resources\NewsPosΓÇª
+  GET|HEAD   admin/pages ......... filament.admin.resources.pages.index ΓÇ║ App\Filament\Resources\Pages\Pages\ListPages
+  GET|HEAD   admin/pages/create filament.admin.resources.pages.create ΓÇ║ App\Filament\Resources\Pages\Pages\CreatePage
+  GET|HEAD   admin/pages/{record} .. filament.admin.resources.pages.view ΓÇ║ App\Filament\Resources\Pages\Pages\ViewPage
+  GET|HEAD   admin/pages/{record}/edit filament.admin.resources.pages.edit ΓÇ║ App\Filament\Resources\Pages\Pages\EditPΓÇª
+  GET|HEAD   admin/product-categories filament.admin.resources.product-categories.index ΓÇ║ App\Filament\Resources\ProdΓÇª
+  GET|HEAD   admin/product-categories/create filament.admin.resources.product-categories.create ΓÇ║ App\Filament\ResourΓÇª
+  GET|HEAD   admin/product-categories/{record} filament.admin.resources.product-categories.view ΓÇ║ App\Filament\ResourΓÇª
+  GET|HEAD   admin/product-categories/{record}/edit filament.admin.resources.product-categories.edit ΓÇ║ App\Filament\RΓÇª
+  GET|HEAD   admin/products filament.admin.resources.products.index ΓÇ║ App\Filament\Resources\Products\Pages\ListProduΓÇª
+  GET|HEAD   admin/products/create filament.admin.resources.products.create ΓÇ║ App\Filament\Resources\Products\Pages\CΓÇª
+  GET|HEAD   admin/products/{record} filament.admin.resources.products.view ΓÇ║ App\Filament\Resources\Products\Pages\VΓÇª
+  GET|HEAD   admin/products/{record}/edit filament.admin.resources.products.edit ΓÇ║ App\Filament\Resources\Products\PaΓÇª
+  GET|HEAD   admin/settings .............................. filament.admin.pages.settings ΓÇ║ App\Filament\Pages\Settings
+  GET|HEAD   admin/team-members filament.admin.resources.team-members.index ΓÇ║ App\Filament\Resources\TeamMembers\PageΓÇª
+  GET|HEAD   admin/team-members/create filament.admin.resources.team-members.create ΓÇ║ App\Filament\Resources\TeamMembΓÇª
+  GET|HEAD   admin/team-members/{record} filament.admin.resources.team-members.view ΓÇ║ App\Filament\Resources\TeamMembΓÇª
+  GET|HEAD   admin/team-members/{record}/edit filament.admin.resources.team-members.edit ΓÇ║ App\Filament\Resources\TeaΓÇª
+  POST       api/v1/alerts/test ............................................................ Api\AlertsController@test
+  POST       api/v1/analytics/event .................................................... Api\AnalyticsController@event
+  POST       api/v1/datasets/upsert ..................................................... Api\DatasetController@upsert
+  POST       api/v1/metrics/query ........................................................ Api\MetricsController@query
+  POST       api/v1/products/upsert ............................................... Api\ProductUpsertController@upsert
+  GET|HEAD   awards-recognition ................................................................... awards-recognition
+  GET|HEAD   careers ................................................. careers.index ΓÇ║ Frontend\CareerController@index
+  GET|HEAD   careers/{id} .............................................. careers.show ΓÇ║ Frontend\CareerController@show
+  GET|HEAD   company-history ......................................................................... company-history
+  GET|HEAD   company-news ............................................................................... company-news
+  GET|HEAD   complaints-suggestions ........................................................... complaints-suggestions
+  POST       contact ................................................ contact.store ΓÇ║ Frontend\ContactController@store
+  GET|HEAD   contact-info ............................................................................... contact-info
+  GET|HEAD   customer-service ....................................................................... customer-service
+  GET|HEAD   dashboards/{id} ......................................................................... dashboards.show
+  GET|HEAD   environment ........................................... environment ΓÇ║ Frontend\EnvironmentController@show
+  GET|HEAD   exhibitions-events ................................................................... exhibitions-events
+  GET|HEAD   factory ....................................................... factory ΓÇ║ Frontend\FactoryController@show
+  GET|HEAD   filament/exports/{export}/download ........ filament.exports.download ΓÇ║ Filament\Actions ΓÇ║ DownloadExport
+  GET|HEAD   filament/imports/{import}/failed-rows/download filament.imports.failed-rows.download ΓÇ║ Filament\Actions ΓÇª
+  GET|HEAD   livewire/livewire.js ........................ Livewire\Mechanisms ΓÇ║ FrontendAssets@returnJavaScriptAsFile
+  GET|HEAD   livewire/livewire.min.js.map .................................. Livewire\Mechanisms ΓÇ║ FrontendAssets@maps
+  GET|HEAD   livewire/preview-file/{filename} livewire.preview-file ΓÇ║ Livewire\Features ΓÇ║ FilePreviewController@handle
+  POST       livewire/update ..................... livewire.update ΓÇ║ Livewire\Mechanisms ΓÇ║ HandleRequests@handleUpdate
+  POST       livewire/upload-file ............. livewire.upload-file ΓÇ║ Livewire\Features ΓÇ║ FileUploadController@handle
+  GET|HEAD   news ......................................................... news.index ΓÇ║ Frontend\NewsController@index
+  GET|HEAD   news/{slug} .................................................... news.show ΓÇ║ Frontend\NewsController@show
+  POST       newsletter ..................................... newsletter.store ΓÇ║ Frontend\ContactController@newsletter
+  GET|HEAD   our-team ....................................................................................... our-team
+  GET|HEAD   products .............................................. products.index ΓÇ║ Frontend\ProductController@index
+  GET|HEAD   products/categories ................. product-categories.index ΓÇ║ Frontend\ProductCategoryController@index
+  GET|HEAD   products/category/{slug} .............. product-categories.show ΓÇ║ Frontend\ProductCategoryController@show
+  GET|HEAD   products/{product} ...................................... products.show ΓÇ║ Frontend\ProductController@show
+  GET|HEAD   quality-certificates ............................................................... quality-certificates
+  GET|HEAD   quote-request ............................................................................. quote-request
+  POST       quote-request ....................................... quote.store ΓÇ║ Frontend\ContactController@storeQuote
+  GET|HEAD   robots.txt ............................................................ robots ΓÇ║ SitemapController@robots
+  GET|HEAD   sitemap.xml ......................................................... sitemap ΓÇ║ SitemapController@sitemap
+  GET|HEAD   social-responsibility ............................................................. social-responsibility
+  GET|HEAD   storage/{path} ............................................................................ storage.local
+  GET|HEAD   sustainability-activities ..................................................... sustainability-activities
+  GET|HEAD   technical-articles ................................................................... technical-articles
+  GET|HEAD   tips-guidelines ......................................................................... tips-guidelines
+  GET|HEAD   up ...................................................................................................... 
+  GET|HEAD   vision-mission ........................................................................... vision-mission
+
+                                                                                                   Showing [80] routes
+
+

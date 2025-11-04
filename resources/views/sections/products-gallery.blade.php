@@ -45,7 +45,7 @@
         </div>
     </div>
 </div> --}}
-<div class="rts-testimonials-area-five with-bg-shape-image bg_image rts-section-gap">
+<div class="rts-testimonials-area-five with-bg-shape-image bg_image rts-section-gap" style="content-visibility:auto;contain-intrinsic-size:1px 600px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -73,7 +73,10 @@
                             <div class="swiper-slide">
                                 <div class="single-testimonials-style-five">
                                     <div class="thumbnail">
-                                        <img src="{{ $product->image }}" alt="testimoanils">
+                                        <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                             loading="lazy" decoding="async"
+                                             width="600" height="400"
+                                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px">
                                     </div>
                                     <div class="inner-content">
                                         <div class="name-area">

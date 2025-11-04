@@ -1,5 +1,35 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    @production
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    @endproduction
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Initialize GSAP safely -->
+    {{-- <script nonce="{{ csp_nonce() }}">
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined') {
+                // Initialize GSAP animations here after DOM is ready
+                const targets = document.querySelectorAll('[data-gsap]');
+                if (targets.length) {
+                    targets.forEach(target => {
+                        // Safe GSAP initialization per element
+                        const config = JSON.parse(target.dataset.gsap || '{}');
+                        gsap.from(target, config);
+                    });
+                }
+            }
+        });
+    </script> --}}
+</head>
 
 @include('layouts.head')
 

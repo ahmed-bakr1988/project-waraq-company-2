@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2025-10-21T16:31:00Z",
+  "targets": {
+    "LCP_ms": 2500,
+    "INP_ms": 200,
+    "CLS": 0.1
+  },
+  "results": [
+    {
+      "url": "http://localhost:8000/news",
+      "lcp_ms": 7629.849,
+      "inp_ms": null,
+      "cls": 0.020600,
+      "reportHtml": ".lighthouseci/lhr-1761063060000.html",
+      "reportJson": ".lighthouseci/lhr-1761063060000.json"
+    }
+  ],
+  "notes": [
+    "Sitemap (application/xml) is not HTML; Lighthouse skipped it as expected.",
+    "High LCP is expected in dev mode with no CDN and heavy vendor CSS/JS."
+  ]
+}

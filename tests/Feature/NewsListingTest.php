@@ -25,7 +25,9 @@ class NewsListingTest extends TestCase
         $post->published_at = now()->subDay();
         $post->save();
 
-        $this->get('/en/news')->assertStatus(200)->assertSee('Hello World');
+        $this->followingRedirects()->get('/news')
+            ->assertStatus(200)
+            ->assertSee('Hello World');
     }
 
     // Additional show page tests can be added later if needed

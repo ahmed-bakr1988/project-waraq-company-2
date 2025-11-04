@@ -1,0 +1,7 @@
+Expected robots.txt sample:
+User-agent: *
+Disallow:
+Sitemap: BASE_URL/sitemap.xml
+
+To verify, run: curl -s "$BASE_URL/robots.txt"
+

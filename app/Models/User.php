@@ -7,6 +7,7 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -31,7 +32,7 @@ class User extends Authenticatable implements FilamentUser
     // مهم جداً: هذا يسمح للمستخدم بالدخول
     public function canAccessPanel(Panel $panel): bool
     {
-        \Log::info('User trying to access panel', [
+        Log::info('User trying to access panel', [
             'user_id' => $this->id,
             'email' => $this->email,
             'panel' => $panel->getId(),

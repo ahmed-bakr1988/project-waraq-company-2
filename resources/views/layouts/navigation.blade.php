@@ -6,7 +6,7 @@
                     <div class="thumbnail ">
                         <a href="{{ route('home') }}">
                             <img src="{{ asset('assets/images/logo/Logo-1-2.jpg') }}" alt="finbiz-logo"
-                                style="width:149px;" width="149" height="40" lazyload="loading">
+                                style="width:149px;" width="149" height="40" loading="lazy">
                         </a>
                     </div>
                     <div class="main-header ">
@@ -16,10 +16,14 @@
                                 <li class="main-nav has-dropdown">
                                     <a href="{{ route('about') }}">{{ __('words.nav_about') }}</a>
                                     <ul class="submenu parent-nav">
-                                        <li><a href="{{ route('company-history') }}">{{ __('words.company_history') }}</a></li>
+                                        <li><a
+                                                href="{{ route('company-history') }}">{{ __('words.company_history') }}</a>
+                                        </li>
                                         {{-- <li><a href="{{ route('vision-mission') }}">{{ __('words.vision_mission') }}</a></li> --}}
                                         <li><a href="{{ route('our-team') }}">{{ __('words.our_team') }}</a></li>
-                                        <li><a href="{{ route('quality-certificates') }}">{{ __('words.quality_certificates_menu') }}</a></li>
+                                        <li><a
+                                                href="{{ route('quality-certificates') }}">{{ __('words.quality_certificates_menu') }}</a>
+                                        </li>
                                         {{-- <li><a href="{{ route('social-responsibility') }}">{{ __('words.social_responsibility') }}</a></li> --}}
                                         {{-- <li><a href="{{ route('awards-recognition') }}">{{ __('words.awards_recognition') }}</a></li> --}}
                                     </ul>
@@ -33,29 +37,8 @@
                                                 <div class="row g-5">
                                                     <div class="col-lg-4">
                                                         <ul class="mega-menu-item parent-nav">
-                                                            @if(isset($navCategories) && $navCategories->count())
-                                                                @foreach($navCategories as $cat)
-                                                                    <li>
-                                                                        <a href="{{ route('product-categories.show', ['slug' => $cat->slug]) }}">
-                                                                            <div class="single-service-menu">
-                                                                                <div class="icon">
-                                                                                    <img src="{{ asset('assets/images/service/icon/03.svg') }}"
-                                                                                        alt="{{ $cat->name }}">
-                                                                                </div>
-                                                                                <div class="info">
-                                                                                    <h5 class="title">{{ $cat->name }}</h5>
-                                                                                    @if($cat->description)
-                                                                                    <p class="details">{{ Str::limit($cat->description, 80) }}</p>
-                                                                                    @endif
-                                                                                </div>
-                                                                            </div>
-                                                                        </a>
-                                                                    </li>
-                                                                @endforeach
-                                                                <li><a href="{{ route('product-categories.index') }}" class="font-semibold">{{ __('words.all_products') }}</a></li>
-                                                            @endif
-                                                            {{-- <li>
-                                                                <a href="#" >111
+                                                            <li>
+                                                                <a href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
                                                                     <div class="single-service-menu">
                                                                         <div class="icon">
                                                                             <img src="{{ asset('assets/images/project/HP-FLUTE/MG_1728-2-copy-2-150x150.jpg') }}"
@@ -73,7 +56,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
                                                                     <div class="single-service-menu">
                                                                         <div class="icon">
                                                                             <img src="{{ asset('assets/images/project/Picture5.jpg') }}"
@@ -88,13 +71,13 @@
                                                                         </div>
                                                                     </div>
                                                                 </a>
-                                                            </li> --}}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <ul class="mega-menu-item parent-nav">
                                                             <li>
-                                                                <a href="#">
+                                                                <a  href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
                                                                     <div class="single-service-menu">
                                                                         <div class="icon">
                                                                             <img src="{{ asset('assets/images/project/TS-liner/Picture3.jpg') }}"
@@ -112,7 +95,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
                                                                     <div class="single-service-menu">
                                                                         <div class="icon">
                                                                             <img src="{{ asset('assets/images/project/TS-liner/MG_1.jpg') }}"
@@ -133,7 +116,8 @@
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="menu-thumb pl--20">
-                                                            <img src="{{ asset('assets/images/project/products/waraq-co-photo_1.jpg') }}" alt="">
+                                                            <img src="{{ asset('assets/images/project/products/waraq-co-photo_1.jpg') }}"
+                                                                alt="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -145,28 +129,44 @@
                                 <li class="main-nav has-dropdown">
                                     <a href="#">{{ __('words.nav_news') }}</a>
                                     <ul class="submenu parent-nav">
-                                        <li><a href="{{ route('company-news') }}">{{ __('words.company_news') }}</a></li>
-                                        <li><a href="{{ route('technical-articles') }}">{{ __('words.technical_articles') }}</a></li>
-                                        <li><a href="{{ route('tips-guidelines') }}">{{ __('words.tips_guidelines') }}</a></li>
-                                        <li><a href="{{ route('exhibitions-events') }}">{{ __('words.exhibitions_events') }}</a></li>
+                                        <li><a href="{{ route('company-news') }}">{{ __('words.company_news') }}</a>
+                                        </li>
+                                        <li><a
+                                                href="{{ route('technical-articles') }}">{{ __('words.technical_articles') }}</a>
+                                        </li>
+                                        <li><a
+                                                href="{{ route('tips-guidelines') }}">{{ __('words.tips_guidelines') }}</a>
+                                        </li>
+                                        <li><a
+                                                href="{{ route('exhibitions-events') }}">{{ __('words.exhibitions_events') }}</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="main-nav has-dropdown">
-                                    <a href="{{ route('sustainability-activities') }}">{{ __('words.nav_sustainability') }}</a>
+                                    <a
+                                        href="{{ route('sustainability-activities') }}">{{ __('words.nav_sustainability') }}</a>
                                     <ul class="submenu parent-nav">
-                                        <li><a href="{{ route('sustainability-activities') }}">انشطة الاستدامة </a></li>
+                                        <li><a href="{{ route('sustainability-activities') }}">انشطة الاستدامة </a>
+                                        </li>
                                     </ul>
                                 </li>
 
                                 <li class="main-nav has-dropdown">
                                     <a href="{{ route('contact-info') }}">{{ __('words.nav_contact') }}</a>
                                     <ul class="submenu parent-nav">
-                                        <li><a href="{{ route('contact-info') }}">{{ __('words.contact_info') }}</a></li>
+                                        <li><a href="{{ route('contact-info') }}">{{ __('words.contact_info') }}</a>
+                                        </li>
                                         <li><a href="{{ route('careers.index') }}">Careers</a></li>
-                                        <li><a href="{{ route('news.index') }}">{{ __('words.company_news') }}</a></li>
-                                        <li><a href="{{ route('quote-request') }}">{{ __('words.quote_request') }}</a></li>
-                                        <li><a href="{{ route('customer-service') }}">{{ __('words.customer_service') }}</a></li>
-                                        <li><a href="{{ route('complaints-suggestions') }}">{{ __('words.complaints_suggestions') }}</a></li>
+                                        <li><a href="{{ url('/news') }}">{{ __('words.company_news') }}</a>
+                                        </li>
+                                        <li><a href="{{ route('quote-request') }}">{{ __('words.quote_request') }}</a>
+                                        </li>
+                                        <li><a
+                                                href="{{ route('customer-service') }}">{{ __('words.customer_service') }}</a>
+                                        </li>
+                                        <li><a
+                                                href="{{ route('complaints-suggestions') }}">{{ __('words.complaints_suggestions') }}</a>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -178,14 +178,12 @@
                             <div class="loader-section section-right"></div>
                         </div>
                         <div class="button-area">
-                            <a href="#"
-                                class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn"
-                                data-analytics-event="cta_get_quote"
-                                data-analytics-location="header">
+                            <a href="#" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn"
+                                data-analytics-event="cta_get_quote" data-analytics-location="header">
                                 {{ __('words.get_quote') }}
                             </a>
                             <button id="menu-btn" class="menu menu-btn ml--20 ml_sm--5">
-                                <img class="menu-light" src="{{ asset('assets/images/icons/01.svg') }}" alt="Menu-icon">
+                                @svg('heroicon-o-bars-3', 'w-6 h-6')
                             </button>
                         </div>
                         <div class="nav-area"
@@ -219,4 +217,3 @@
         </div>
     </div>
 </div>
-

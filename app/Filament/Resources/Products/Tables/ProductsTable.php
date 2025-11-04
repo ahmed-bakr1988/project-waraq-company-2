@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -18,7 +19,10 @@ class ProductsTable
             ->columns([
                 TextColumn::make('id')->sortable(),
                 TextColumn::make('productCategory.name')->label('Category')->sortable()->toggleable(),
-                TextColumn::make('image')->limit(30),
+                ImageColumn::make('avatar')
+                    ->imageHeight(40)
+                    ->square(true)
+                    ->label('Image'),
                 TextColumn::make('order')->sortable(),
                 IconColumn::make('is_active')->boolean(),
                 TextColumn::make('updated_at')->dateTime()->label('Updated'),

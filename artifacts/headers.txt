@@ -1,0 +1,2 @@
+Run: curl -sI "$BASE_URL" to capture headers in this file.
+

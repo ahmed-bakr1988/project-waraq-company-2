@@ -51,7 +51,7 @@ class SecurityHeaders
         if (app()->environment('local')) {
             $directives = array_map(function (string $d) {
                 if (str_starts_with($d, 'connect-src')) {
-                    return $d.' ws://localhost:8000 http://localhost:8000';
+                    return $d.' ws://localhost:8000 http://localhost:8000 ws://localhost:5173 http://localhost:5173';
                 }
 
                 return $d;

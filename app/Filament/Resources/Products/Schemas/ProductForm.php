@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Products\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -20,12 +21,20 @@ class ProductForm
                 Section::make('Product')
                     ->schema([
                         Grid::make(3)->schema([
-                            Select::make('product_category_id')->relationship('productCategory', 'name')->searchable()->preload()->nullable(),
-                            TextInput::make('order')->numeric()->default(0),
+                            Select::make('product_category_id')
+                                ->relationship('productCategory', 'name')
+                                ->searchable()
+                                ->preload()
+                                ->nullable(),
+                            TextInput::make('order')
+                                ->numeric()
+                                ->default(0),
                             Toggle::make('is_active')->default(true),
                         ]),
-                        Grid::make(3)->schema([
-                            TextInput::make('image')->label('Image Path')->required(),
+                        FileUpload::make('image')
+                            ->label('Image Path')
+                            ->required(),
+                        Grid::make(2)->schema([
                             TextInput::make('logo')->label('Logo Path')->nullable(),
                             TextInput::make('url')->label('External URL')->nullable(),
                         ]),

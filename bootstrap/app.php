@@ -14,6 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         // Add security headers middleware globally
         $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
+        // Add CSP middleware
+        $middleware->append(\App\Http\Middleware\CspMiddleware::class);
         // Trust reverse proxies (load balancers / CDNs)
         $middleware->append(\App\Http\Middleware\TrustProxies::class);
         // Static assets cache/CORS headers
