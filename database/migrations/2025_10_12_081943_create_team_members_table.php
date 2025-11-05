@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('locale', 5)->nullable()->index();
             $table->string('name');
-            $table->string('role');
-            $table->string('photo')->nullable();
+            $table->string('position');
+            $table->string('image')->nullable();
             $table->text('bio')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->integer('order')->default(0);
             $table->timestamps();
         });
@@ -31,3 +33,4 @@ return new class extends Migration
         Schema::dropIfExists('team_members');
     }
 };
+

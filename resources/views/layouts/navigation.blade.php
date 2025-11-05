@@ -35,89 +35,66 @@
                                         <div class="wrapper">
                                             <div class="container">
                                                 <div class="row g-5">
-                                                    <div class="col-lg-4">
-                                                        <ul class="mega-menu-item parent-nav">
-                                                            <li>
-                                                                <a href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
-                                                                    <div class="single-service-menu">
-                                                                        <div class="icon">
-                                                                            <img src="{{ asset('assets/images/project/HP-FLUTE/MG_1728-2-copy-2-150x150.jpg') }}"
-                                                                                alt="service">
-                                                                        </div>
-                                                                        <div class="info">
-                                                                            <h5 class="title">
-                                                                                {{ __('words.manufacturing_production') }}
-                                                                            </h5>
-                                                                            <p class="details">
-                                                                                {{ __('words.manufacturing_desc') }}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
-                                                                    <div class="single-service-menu">
-                                                                        <div class="icon">
-                                                                            <img src="{{ asset('assets/images/project/Picture5.jpg') }}"
-                                                                                alt="service">
-                                                                        </div>
-                                                                        <div class="info">
-                                                                            <h5 class="title">
-                                                                                {{ __('words.quality_control') }}</h5>
-                                                                            <p class="details">
-                                                                                {{ __('words.quality_control_desc') }}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <ul class="mega-menu-item parent-nav">
-                                                            <li>
-                                                                <a  href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
-                                                                    <div class="single-service-menu">
-                                                                        <div class="icon">
-                                                                            <img src="{{ asset('assets/images/project/TS-liner/Picture3.jpg') }}"
-                                                                                alt="service">
-                                                                        </div>
-                                                                        <div class="info">
-                                                                            <h5 class="title">
-                                                                                {{ __('words.shipping_delivery') }}
-                                                                            </h5>
-                                                                            <p class="details">
-                                                                                {{ __('words.shipping_delivery_desc') }}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="{{ route('product-categories.show', ['slug' => 'test-liner-1']) }}">
-                                                                    <div class="single-service-menu">
-                                                                        <div class="icon">
-                                                                            <img src="{{ asset('assets/images/project/TS-liner/MG_1.jpg') }}"
-                                                                                alt="service">
-                                                                        </div>
-                                                                        <div class="info">
-                                                                            <h5 class="title">
-                                                                                {{ __('words.technical_support') }}
-                                                                            </h5>
-                                                                            <p class="details">
-                                                                                {{ __('words.technical_support_desc') }}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                    @php
+                                                        $categories = \App\Models\ProductCategory::active()
+                                                            ->ordered()
+                                                            ->take(4)
+                                                            ->get();
+                                                    @endphp
+                                                    
+                                                    @if($categories->count() > 0)
+                                                        <div class="col-lg-4">
+                                                            <ul class="mega-menu-item parent-nav">
+                                                                @foreach($categories->take(2) as $category)
+                                                                    <li>
+                                                                        <a href="{{ route('product-categories.show', $category->slug) }}">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="{{ asset('assets/images/project/HP-FLUTE/MG_1728-2-copy-2-150x150.jpg') }}"
+                                                                                        alt="{{ $category->name }}">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">{{ $category->name }}</h5>
+                                                                                    <p class="details">{{ Str::limit($category->description, 80) }}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <ul class="mega-menu-item parent-nav">
+                                                                @foreach($categories->skip(2)->take(2) as $category)
+                                                                    <li>
+                                                                        <a href="{{ route('product-categories.show', $category->slug) }}">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="{{ asset('assets/images/project/Picture5.jpg') }}"
+                                                                                        alt="{{ $category->name }}">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">{{ $category->name }}</h5>
+                                                                                    <p class="details">{{ Str::limit($category->description, 80) }}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    @else
+                                                        <div class="col-lg-8">
+                                                            <div class="text-center py-5">
+                                                                <p>{{ __('words.no_categories_available') }}</p>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    
                                                     <div class="col-lg-4">
                                                         <div class="menu-thumb pl--20">
                                                             <img src="{{ asset('assets/images/project/products/waraq-co-photo_1.jpg') }}"
-                                                                alt="">
+                                                                alt="{{ __('words.our_products') }}">
                                                         </div>
                                                     </div>
                                                 </div>

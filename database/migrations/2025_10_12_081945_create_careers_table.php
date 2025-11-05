@@ -14,12 +14,16 @@ return new class extends Migration
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->string('location');
             $table->longText('description');
+            $table->text('requirements')->nullable();
+            $table->string('type')->nullable();
             $table->string('apply_email')->nullable();
             $table->string('form_url')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->timestamp('published_at')->nullable();
+            $table->timestamp('posted_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
             $table->timestamps();
         });
     }
@@ -32,3 +36,4 @@ return new class extends Migration
         Schema::dropIfExists('careers');
     }
 };
+

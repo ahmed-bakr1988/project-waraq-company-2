@@ -215,4 +215,83 @@ return [
 
     'all_products' => 'جميع المنتجات',
 
+    // Additional translations
+    'no_categories_available' => 'لا توجد فئات متاحة',
+    'company_info' => 'معلومات الشركة',
+    'company_name' => 'شركة ورق لصناعة الورق',
+    'company_name_en' => 'Waraq for Paper Industries',
+    'company_description' => 'شركة مصرية رائدة في تصنيع المنتجات الورقية منذ عام 2006',
+    'industrial_zone' => 'المنطقة الصناعية، مصر',
+    'phone_1' => '+20 100 156 8862',
+    'phone_2' => '+20 111 666 0665',
+    'email_address' => 'info@waraqco.com',
+    'working_hours' => 'ساعات العمل',
+    'working_hours_details' => 'الأحد - الخميس: 9 صباحاً - 5 مساءً',
+    'address' => 'العنوان',
+    'phone' => 'الهاتف',
+    'email' => 'البريد الإلكتروني',
+    'send_message' => 'إرسال رسالة',
+    'full_name' => 'الاسم الكامل',
+    'phone_number' => 'رقم الهاتف',
+    'message' => 'الرسالة',
+    'required_field' => 'هذا الحقل مطلوب',
+    'invalid_email' => 'البريد الإلكتروني غير صحيح',
+    'message_sent' => 'تم إرسال رسالتك بنجاح',
+    'message_error' => 'حدث خطأ أثناء إرسال الرسالة',
+    
+    // Company History & About
+    'since_2006' => 'منذ عام 2006',
+    'our_mission' => 'رسالتنا',
+    'our_vision' => 'رؤيتنا',
+    'core_values' => 'قيمنا الأساسية',
+    'quality_value' => 'الجودة',
+    'innovation_value' => 'الابتكار',
+    'sustainability_value' => 'الاستدامة',
+    'customer_focus_value' => 'التركيز على العملاء',
+    'achievements' => 'الإنجازات',
+    'milestones' => 'المعالم البارزة',
+    'production_capacity' => 'الطاقة الإنتاجية',
+    'annual_capacity' => 'الطاقة السنوية: 180,000 طن',
+    'monthly_capacity' => 'الطاقة الشهرية: 15,000 طن',
+    'employees' => 'الموظفون',
+    'over_300_employees' => 'أكثر من 300 موظف ماهر',
+    
+    // Product specifications
+    'specifications' => 'المواصفات',
+    'gsm' => 'الوزن (جرام/متر مربع)',
+    'width' => 'العرض',
+    'thickness' => 'السُمك',
+    'strength' => 'القوة',
+    'applications' => 'التطبيقات',
+    'download_specs' => 'تحميل المواصفات',
+    'request_sample' => 'طلب عينة',
+    'get_price' => 'الحصول على السعر',
+    
+    // News categories
+    'latest_news' => 'آخر الأخبار',
+    'all_news' => 'جميع الأخبار',
+    'read_full_article' => 'اقرأ المقال كاملاً',
+    'published_on' => 'نُشر في',
+    'related_news' => 'أخبار ذات صلة',
+    
+    // Job/Career related
+    'career_opportunities' => 'فرص العمل',
+    'job_openings' => 'الوظائف الشاغرة',
+    'apply_now' => 'قدم الآن',
+    'job_requirements' => 'متطلبات الوظيفة',
+    'job_description' => 'وصف الوظيفة',
+    'job_location' => 'الموقع',
+    'job_type' => 'نوع الوظيفة',
+    'full_time' => 'دوام كامل',
+    'part_time' => 'دوام جزئي',
+    'upload_cv' => 'رفع السيرة الذاتية',
+    'cover_letter' => 'خطاب التقديم',
+    
+    // Form messages
+    'success_message' => 'تم بنجاح!',
+    'error_message' => 'حدث خطأ، يرجى المحاولة مرة أخرى',
+    'validation_error' => 'يرجى التحقق من البيانات المدخلة',
+    'thank_you' => 'شكراً لك!',
+    'we_will_contact_you' => 'سنتواصل معك قريباً',
+
 ];
