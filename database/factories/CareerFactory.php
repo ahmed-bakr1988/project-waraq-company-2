@@ -13,13 +13,18 @@ class CareerFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->jobTitle(),
+            'title' => $title = $this->faker->jobTitle(),
+            'slug' => \Illuminate\Support\Str::slug($title),
             'location' => $this->faker->city(),
+            'requirements' => $this->faker->paragraph(),
+            'type' => $this->faker->randomElement(['Full-time', 'Part-time', 'Contract']),
             'description' => $this->faker->paragraphs(2, true),
             'apply_email' => $this->faker->safeEmail(),
             'form_url' => null,
             'is_active' => true,
-            'published_at' => now()->subDays($this->faker->numberBetween(0, 30)),
+            'posted_at' => now()->subDays($this->faker->numberBetween(0, 30)),
+            'expires_at' => now()->addDays($this->faker->numberBetween(30, 90)),
         ];
     }
 }
+

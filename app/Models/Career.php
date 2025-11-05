@@ -11,11 +11,21 @@ class Career extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'description',
+        'requirements',
         'location',
+        'type',
         'apply_email',
         'form_url',
         'is_active',
-        'published_at',
+        'posted_at',
+        'expires_at',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+        'posted_at' => 'datetime',
+        'expires_at' => 'datetime',
     ];
 }

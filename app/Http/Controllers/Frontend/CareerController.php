@@ -12,7 +12,7 @@ class CareerController extends Controller
     {
         $careers = Career::query()
             ->where('is_active', true)
-            ->orderByDesc('published_at')
+            ->orderByDesc('posted_at')
             ->orderBy('id', 'desc')
             ->paginate(12);
 

@@ -9,7 +9,7 @@
                             <h2 class="font-semibold group-hover:underline">{{ $career->title }}</h2>
                             <p class="text-gray-600 text-sm">{{ $career->location }}</p>
                         </div>
-                        <div class="text-xs text-gray-400">{{ optional($career->published_at)->format('Y-m-d') }}</div>
+                        <div class="text-xs text-gray-400">{{ optional($career->posted_at)->format('Y-m-d') }}</div>
                     </div>
                 </a>
             @endforeach
