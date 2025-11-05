@@ -400,6 +400,7 @@ class CompanyStarterSeeder extends Seeder
                 'excerpt' => Str::limit($news['content_en'], 150),
                 'body' => $news['content_en'],
                 'image' => 'assets/images/banner/21.webp',
+                'is_published' => true,
                 'locale' => 'en',
                 'published_at' => $news['published'],
             ]);
@@ -410,6 +411,7 @@ class CompanyStarterSeeder extends Seeder
                 'excerpt' => Str::limit($news['content_ar'], 150),
                 'body' => $news['content_ar'],
                 'image' => 'assets/images/banner/21.webp',
+                'is_published' => true,
                 'locale' => 'ar',
                 'published_at' => $news['published'],
             ]);
@@ -569,3 +571,5 @@ class CompanyStarterSeeder extends Seeder
         }
     }
 }
+
+

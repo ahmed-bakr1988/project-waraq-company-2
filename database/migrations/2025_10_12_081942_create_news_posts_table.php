@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('excerpt')->nullable();
             $table->longText('body')->nullable();
-            $table->string('cover')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
