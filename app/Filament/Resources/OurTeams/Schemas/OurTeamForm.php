@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Resources\Careers\Schemas;
+namespace App\Filament\Resources\OurTeams\Schemas;
 
 use Filament\Schemas\Schema;
 
-class CareerInfolist
+class OurTeamForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Career;
 use App\Models\NewsPost;
 use App\Models\Page;
 use App\Models\Product;

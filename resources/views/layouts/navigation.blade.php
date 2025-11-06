@@ -20,7 +20,7 @@
                                                 href="{{ route('company-history') }}">{{ __('words.company_history') }}</a>
                                         </li>
                                         {{-- <li><a href="{{ route('vision-mission') }}">{{ __('words.vision_mission') }}</a></li> --}}
-                                        <li><a href="{{ route('our-team') }}">{{ __('words.our_team') }}</a></li>
+                                        <li><a href="{{ route('our-team.index') }}">{{ __('words.our_team') }}</a></li>
                                         <li><a
                                                 href="{{ route('quality-certificates') }}">{{ __('words.quality_certificates_menu') }}</a>
                                         </li>
@@ -133,7 +133,7 @@
                                     <ul class="submenu parent-nav">
                                         <li><a href="{{ route('contact-info') }}">{{ __('words.contact_info') }}</a>
                                         </li>
-                                        <li><a href="{{ route('careers.index') }}">Careers</a></li>
+                                        <li><a href="{{ route('our-team.index') }}">Careers</a></li>
                                         <li><a href="{{ url('/news') }}">{{ __('words.company_news') }}</a>
                                         </li>
                                         <li><a href="{{ route('quote-request') }}">{{ __('words.quote_request') }}</a>

@@ -104,7 +104,7 @@
                         <ul class="submenu mm-collapse">
                             <li><a href="{{ route('company-history') }}">{{ __('words.company_history') }}</a></li>
                             <li><a href="{{ route('vision-mission') }}">{{ __('words.vision_mission') }}</a></li>
-                            <li><a href="{{ route('our-team') }}">{{ __('words.our_team') }}</a></li>
+                            <li><a href="{{ route('our-team.index') }}">{{ __('words.our_team') }}</a></li>
                             <li><a href="{{ route('quality-certificates') }}">{{ __('words.quality_certificates_menu') }}</a></li>
                             <li><a href="{{ route('social-responsibility') }}">{{ __('words.social_responsibility') }}</a></li>
                             <li><a href="{{ route('awards-recognition') }}">{{ __('words.awards_recognition') }}</a></li>
