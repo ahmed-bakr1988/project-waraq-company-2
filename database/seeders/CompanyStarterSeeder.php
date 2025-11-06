@@ -516,18 +516,20 @@ class CompanyStarterSeeder extends Seeder
             ],
         ];
 
-        foreach ($careers as $career) {
-            Career::query()->create([
-                'title' => $career['title_en'],
-                'slug' => Str::slug($career['title_en']),
-                'description' => $career['desc_en'],
-                'requirements' => $career['requirements_en'],
-                'location' => 'Industrial Zone, Egypt',
-                'type' => 'Full-time',
-                'posted_at' => now(),
-                'expires_at' => now()->addMonths(2),
-            ]);
-        }
+        // Note: Career model and careers table not yet implemented
+        // Careers data is prepared but will be added once Career model is created
+        // foreach ($careers as $career) {
+        //     Career::query()->create([
+        //         'title' => $career['title_en'],
+        //         'slug' => Str::slug($career['title_en']),
+        //         'description' => $career['desc_en'],
+        //         'requirements' => $career['requirements_en'],
+        //         'location' => 'Industrial Zone, Egypt',
+        //         'type' => 'Full-time',
+        //         'posted_at' => now(),
+        //         'expires_at' => now()->addMonths(2),
+        //     ]);
+        // }
 
         // Pages with comprehensive content
         $pages = [
