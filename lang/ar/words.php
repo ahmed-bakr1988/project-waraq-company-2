@@ -293,5 +293,26 @@ return [
     'validation_error' => 'يرجى التحقق من البيانات المدخلة',
     'thank_you' => 'شكراً لك!',
     'we_will_contact_you' => 'سنتواصل معك قريباً',
+    
+    // Factory page translations
+    'our_factory' => 'مصنعنا',
+    'factory_section' => 'أقسام المصنع',
+    'facility_sections' => 'أقسام المنشأة',
+    'pulping' => 'العجن',
+    'paper_making' => 'صناعة الورق',
+    'our_workforce' => 'القوى العاملة',
+    'daily_capacity' => 'الطاقة اليومية',
+    
+    // Environment/Sustainability page translations
+    'environmental_initiatives' => 'مبادراتنا البيئية',
+    'environmental_impact' => 'تأثيرنا البيئي',
+    'environmental_certifications' => 'شهادات بيئية',
+    'recycled_fibers_100' => 'ألياف معاد تدويرها',
+    'tons_recycled_annually' => 'طن من الورق المعاد تدويره سنوياً',
+    'energy_reduction' => 'تقليل في استهلاك الطاقة',
+    'emission_reduction' => 'تقليل الانبعاثات',
+    'waste_management' => 'إدارة النفايات',
+    'energy_efficiency' => 'كفاءة الطاقة',
+    'recycling_100' => 'إعادة التدوير بنسبة 100٪',
 
 ];
