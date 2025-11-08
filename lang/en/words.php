@@ -298,4 +298,28 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'waste_management' => 'Waste Management',
     'energy_efficiency' => 'Energy Efficiency',
     'recycling_100' => '100% Recycling',
+
+    // Form translations
+    'quote_request' => 'Quote Request',
+    'company_name' => 'Company Name',
+    'project_type' => 'Project Type',
+    'budget_range' => 'Budget Range',
+    'timeline' => 'Timeline',
+    'project_description' => 'Project Description',
+    'requirements' => 'Requirements',
+    'subscribe' => 'Subscribe',
+    'email_placeholder' => 'Enter your email',
+    'apply_now' => 'Apply Now',
+    'upload_cv' => 'Upload CV',
+    'cover_letter' => 'Cover Letter',
+    'linkedin_profile' => 'LinkedIn Profile',
+    'years_experience' => 'Years of Experience',
+    'write_review' => 'Write a Review',
+    'rating' => 'Rating',
+    'review_title' => 'Review Title',
+    'review_comment' => 'Review Comment',
+    'submission_success' => 'Submitted Successfully',
+    'application_received' => 'Application Received',
+    'validation_errors' => 'Please correct the errors',
+
 ];

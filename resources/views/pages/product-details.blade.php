@@ -477,4 +477,106 @@
         </div>
     </div>
 
+    <!-- Product Reviews Section -->
+    <div class="rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="product-reviews bg-white p-4 rounded-3 shadow-sm">
+                        <h3 class="mb-4">{{ __('words.write_review') }}</h3>
+
+                        <!-- Success/Error Messages -->
+                        @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ session('success') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        @if(session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{ session('error') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <form action="{{ route('products.review', $product->id) }}" method="POST" class="review-form">
+                            @csrf
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <label class="form-label">{{ __('words.rating') }} *</label>
+                                    <div class="rating-input d-flex gap-2 mb-3">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            <label class="star-rating-label">
+                                                <input type="radio" name="rating" value="{{ $i }}" {{ old('rating') == $i ? 'checked' : '' }} required>
+                                                <span class="star" style="font-size: 2rem; cursor: pointer; color: #ddd;">★</span>
+                                            </label>
+                                        @endfor
+                                    </div>
+                                    @error('rating')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <input type="text" name="reviewer_name" value="{{ old('reviewer_name') }}" placeholder="{{ __('words.your_name') }} *" class="form-control" required>
+                                    @error('reviewer_name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <input type="email" name="reviewer_email" value="{{ old('reviewer_email') }}" placeholder="{{ __('words.email') }} *" class="form-control" required>
+                                    @error('reviewer_email')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <input type="text" name="title" value="{{ old('title') }}" placeholder="{{ __('words.review_title') }}" class="form-control">
+                                    @error('title')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <textarea name="comment" placeholder="{{ __('words.review_comment') }} *" rows="5" class="form-control" required>{{ old('comment') }}</textarea>
+                                    @error('comment')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <button type="submit" class="rts-btn btn-primary">
+                                        @if(app()->getLocale() === 'ar')
+                                            إرسال المراجعة
+                                        @else
+                                            Submit Review
+                                        @endif
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .star-rating-label input[type="radio"] {
+            display: none;
+        }
+        .star-rating-label input[type="radio"]:checked ~ .star,
+        .star-rating-label:hover .star {
+            color: #ffc107;
+        }
+        .star-rating-label input[type="radio"]:checked ~ .star {
+            color: #ffc107;
+        }
+        .rating-input label {
+            margin-bottom: 0;
+        }
+    </style>
+
 </x-app-layout>

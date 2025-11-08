@@ -108,23 +108,54 @@
                                 @endif
                             </p>
                         </div>
-                        <form action="#" method="POST" class="contact-form">
+
+                        <!-- Success/Error Messages -->
+                        @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ session('success') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        @if(session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{ session('error') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <form action="{{ route('contact.store') }}" method="POST" class="contact-form">
                             @csrf
                             <div class="row g-4">
                                 <div class="col-lg-6">
-                                    <input type="text" name="name" placeholder="{{ __('words.full_name') }} *" required>
+                                    <input type="text" name="name" value="{{ old('name') }}" placeholder="{{ __('words.full_name') }} *" required>
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="email" name="email" placeholder="{{ __('words.email') }} *" required>
+                                    <input type="email" name="email" value="{{ old('email') }}" placeholder="{{ __('words.email') }} *" required>
+                                    @error('email')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="tel" name="phone" placeholder="{{ __('words.phone_number') }}">
+                                    <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="{{ __('words.phone_number') }}">
+                                    @error('phone')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" name="subject" placeholder="{{ __('words.subject') }}">
+                                    <input type="text" name="subject" value="{{ old('subject') }}" placeholder="{{ __('words.subject') }}" required>
+                                    @error('subject')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea name="message" placeholder="{{ __('words.message') }} *" rows="6" required></textarea>
+                                    <textarea name="message" placeholder="{{ __('words.message') }} *" rows="6" required>{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-12">
                                     <button type="submit" class="rts-btn btn-primary">

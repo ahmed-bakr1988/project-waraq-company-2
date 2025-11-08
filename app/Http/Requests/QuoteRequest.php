@@ -39,19 +39,38 @@ class QuoteRequest extends FormRequest
      */
     public function messages(): array
     {
+        $locale = app()->getLocale();
+        
+        if ($locale === 'ar') {
+            return [
+                'name.required' => 'الاسم مطلوب',
+                'name.min' => 'الاسم يجب أن يكون أكثر من حرفين',
+                'name.max' => 'الاسم يجب أن يكون أقل من 100 حرف',
+                'email.required' => 'البريد الإلكتروني مطلوب',
+                'email.email' => 'البريد الإلكتروني غير صحيح',
+                'phone.required' => 'رقم الهاتف مطلوب',
+                'phone.regex' => 'رقم الهاتف غير صحيح',
+                'company.required' => 'اسم الشركة مطلوب',
+                'project_type.required' => 'نوع المشروع مطلوب',
+                'description.required' => 'وصف المشروع مطلوب',
+                'description.min' => 'وصف المشروع يجب أن يكون أكثر من 20 حرف',
+                'description.max' => 'وصف المشروع يجب أن يكون أقل من 3000 حرف',
+            ];
+        }
+        
         return [
-            'name.required' => 'الاسم مطلوب',
-            'name.min' => 'الاسم يجب أن يكون أكثر من حرفين',
-            'name.max' => 'الاسم يجب أن يكون أقل من 100 حرف',
-            'email.required' => 'البريد الإلكتروني مطلوب',
-            'email.email' => 'البريد الإلكتروني غير صحيح',
-            'phone.required' => 'رقم الهاتف مطلوب',
-            'phone.regex' => 'رقم الهاتف غير صحيح',
-            'company.required' => 'اسم الشركة مطلوب',
-            'project_type.required' => 'نوع المشروع مطلوب',
-            'description.required' => 'وصف المشروع مطلوب',
-            'description.min' => 'وصف المشروع يجب أن يكون أكثر من 20 حرف',
-            'description.max' => 'وصف المشروع يجب أن يكون أقل من 3000 حرف',
+            'name.required' => 'Name is required',
+            'name.min' => 'Name must be at least 2 characters',
+            'name.max' => 'Name must be less than 100 characters',
+            'email.required' => 'Email is required',
+            'email.email' => 'Email is invalid',
+            'phone.required' => 'Phone number is required',
+            'phone.regex' => 'Phone number is invalid',
+            'company.required' => 'Company name is required',
+            'project_type.required' => 'Project type is required',
+            'description.required' => 'Project description is required',
+            'description.min' => 'Project description must be at least 20 characters',
+            'description.max' => 'Project description must be less than 3000 characters',
         ];
     }
 }

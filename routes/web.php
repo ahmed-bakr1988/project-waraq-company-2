@@ -89,4 +89,14 @@ Route::group([
     Route::post('/newsletter', [ContactController::class, 'newsletter'])
         ->middleware('throttle:20,1')
         ->name('newsletter.store');
+    
+    // Job Application Route
+    Route::post('/careers/{career}/apply', [ContactController::class, 'applyJob'])
+        ->middleware('throttle:3,1')
+        ->name('careers.apply');
+    
+    // Product Review Route
+    Route::post('/products/{product}/review', [ProductController::class, 'storeReview'])
+        ->middleware('throttle:5,60')
+        ->name('products.review');
 });
