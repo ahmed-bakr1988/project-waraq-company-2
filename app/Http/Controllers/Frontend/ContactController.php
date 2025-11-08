@@ -171,4 +171,57 @@ class ContactController extends Controller
             return back()->with('error', $errorMessage);
         }
     }
+
+    /**
+     * Store job application
+     */
+    public function applyJob(\App\Http\Requests\JobApplicationRequest $request, $locale, $careerSlug)
+    {
+        try {
+            // Find career by slug
+            $career = \App\Models\Career::where('slug', $careerSlug)->firstOrFail();
+
+            // Handle CV file upload
+            $cvPath = $request->file('cv')->store('cvs', 'public');
+
+            // Save application to database
+            \App\Models\JobApplication::create([
+                'career_id' => $career->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'cv_path' => $cvPath,
+                'cover_letter' => $request->cover_letter,
+                'linkedin_url' => $request->linkedin_url,
+                'years_experience' => $request->years_experience,
+                'ip_address' => $request->ip(),
+                'status' => 'new',
+            ]);
+
+            // Log the application
+            Log::info('Job application submitted', [
+                'career_id' => $career->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'ip' => $request->ip(),
+            ]);
+
+            $appLocale = app()->getLocale();
+            $successMessage = $appLocale === 'ar'
+                ? 'تم إرسال طلبك بنجاح. سنتواصل معك قريباً.'
+                : 'Your application has been submitted successfully. We will contact you soon.';
+
+            return back()->with('success', $successMessage);
+
+        } catch (\Exception $e) {
+            Log::error('Job application error: '.$e->getMessage());
+
+            $appLocale = app()->getLocale();
+            $errorMessage = $appLocale === 'ar'
+                ? 'حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.'
+                : 'An error occurred while submitting the application. Please try again.';
+
+            return back()->withInput()->with('error', $errorMessage);
+        }
+    }
 }
