@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\OurTeam;
+use App\Models\TeamMember;
 use Illuminate\View\View;
 
 class OurTeamController extends Controller
@@ -13,12 +14,16 @@ class OurTeamController extends Controller
      */
     public function index(): View
     {
-        $teamMembers = OurTeam::where('is_active', true)
-            ->orderBy('display_order')
+        $teamMembers = TeamMember::where('is_active', true)
+            ->orderBy('order')
             ->orderBy('name')
-            ->paginate(12);
+            ->paginate(3);
+        $teamMembers2 = TeamMember::where('is_active', true)
+            ->orderBy('order' ,'desc')
+            ->orderBy('name')
+            ->paginate(3);
 
-        return view('pages.our-team.index', compact('teamMembers'));
+        return view('pages.our-team.index', compact('teamMembers' ,'teamMembers2'));
     }
 
     /**

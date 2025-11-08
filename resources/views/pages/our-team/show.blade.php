@@ -27,7 +27,7 @@
                 <div class="col-lg-4">
                     <div class="team-details-thumbnail">
                         @if($member->image)
-                            <img src="{{ Storage::url($member->image) }}" alt="{{ $member->name }}" loading="lazy">
+                            <img src="{{ asset($member->image) }}" alt="{{ $member->name }}" loading="lazy">
                         @else
                             <img src="{{ asset('assets/images/team/default-avatar.jpg') }}" alt="{{ $member->name }}" loading="lazy">
                         @endif
