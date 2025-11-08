@@ -277,4 +277,25 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'validation_error' => 'Please check the entered data',
     'thank_you' => 'Thank You!',
     'we_will_contact_you' => 'We will contact you soon',
+    
+    // Factory page translations
+    'our_factory' => 'Our Factory',
+    'factory_section' => 'Factory Sections',
+    'facility_sections' => 'Facility Sections',
+    'pulping' => 'Pulping',
+    'paper_making' => 'Paper Making',
+    'our_workforce' => 'Our Workforce',
+    'daily_capacity' => 'Daily Capacity',
+    
+    // Environment/Sustainability page translations
+    'environmental_initiatives' => 'Our Environmental Initiatives',
+    'environmental_impact' => 'Our Environmental Impact',
+    'environmental_certifications' => 'Environmental Certifications',
+    'recycled_fibers_100' => 'Recycled Fibers',
+    'tons_recycled_annually' => 'Tons of Paper Recycled Annually',
+    'energy_reduction' => 'Reduction in Energy Consumption',
+    'emission_reduction' => 'Emission Reduction',
+    'waste_management' => 'Waste Management',
+    'energy_efficiency' => 'Energy Efficiency',
+    'recycling_100' => '100% Recycling',
 ];

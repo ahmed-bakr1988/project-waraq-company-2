@@ -517,7 +517,7 @@ class CompanyStarterSeeder extends Seeder
         ];
 
         foreach ($careers as $career) {
-            Career::query()->create([
+            \App\Models\Career::query()->create([
                 'title' => $career['title_en'],
                 'slug' => Str::slug($career['title_en']),
                 'description' => $career['desc_en'],
