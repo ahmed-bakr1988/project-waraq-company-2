@@ -36,18 +36,36 @@ class ContactRequest extends FormRequest
      */
     public function messages(): array
     {
+        $locale = app()->getLocale();
+        
+        if ($locale === 'ar') {
+            return [
+                'name.required' => 'الاسم مطلوب',
+                'name.min' => 'الاسم يجب أن يكون أكثر من حرفين',
+                'name.max' => 'الاسم يجب أن يكون أقل من 100 حرف',
+                'email.required' => 'البريد الإلكتروني مطلوب',
+                'email.email' => 'البريد الإلكتروني غير صحيح',
+                'phone.regex' => 'رقم الهاتف غير صحيح',
+                'subject.required' => 'الموضوع مطلوب',
+                'subject.max' => 'الموضوع يجب أن يكون أقل من 200 حرف',
+                'message.required' => 'الرسالة مطلوبة',
+                'message.min' => 'الرسالة يجب أن تكون أكثر من 10 أحرف',
+                'message.max' => 'الرسالة يجب أن تكون أقل من 2000 حرف',
+            ];
+        }
+        
         return [
-            'name.required' => 'الاسم مطلوب',
-            'name.min' => 'الاسم يجب أن يكون أكثر من حرفين',
-            'name.max' => 'الاسم يجب أن يكون أقل من 100 حرف',
-            'email.required' => 'البريد الإلكتروني مطلوب',
-            'email.email' => 'البريد الإلكتروني غير صحيح',
-            'phone.regex' => 'رقم الهاتف غير صحيح',
-            'subject.required' => 'الموضوع مطلوب',
-            'subject.max' => 'الموضوع يجب أن يكون أقل من 200 حرف',
-            'message.required' => 'الرسالة مطلوبة',
-            'message.min' => 'الرسالة يجب أن تكون أكثر من 10 أحرف',
-            'message.max' => 'الرسالة يجب أن تكون أقل من 2000 حرف',
+            'name.required' => 'Name is required',
+            'name.min' => 'Name must be at least 2 characters',
+            'name.max' => 'Name must be less than 100 characters',
+            'email.required' => 'Email is required',
+            'email.email' => 'Email is invalid',
+            'phone.regex' => 'Phone number is invalid',
+            'subject.required' => 'Subject is required',
+            'subject.max' => 'Subject must be less than 200 characters',
+            'message.required' => 'Message is required',
+            'message.min' => 'Message must be at least 10 characters',
+            'message.max' => 'Message must be less than 2000 characters',
         ];
     }
 }

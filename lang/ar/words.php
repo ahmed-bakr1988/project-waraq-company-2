@@ -315,4 +315,27 @@ return [
     'energy_efficiency' => 'كفاءة الطاقة',
     'recycling_100' => 'إعادة التدوير بنسبة 100٪',
 
+    // Form translations
+    'quote_request' => 'طلب عرض سعر',
+    'company_name' => 'اسم الشركة',
+    'project_type' => 'نوع المشروع',
+    'budget_range' => 'الميزانية المتوقعة',
+    'timeline' => 'المدة الزمنية',
+    'project_description' => 'وصف المشروع',
+    'requirements' => 'المتطلبات',
+    'subscribe' => 'اشترك',
+    'email_placeholder' => 'أدخل بريدك الإلكتروني',
+    'apply_now' => 'تقدم الآن',
+    'upload_cv' => 'رفع السيرة الذاتية',
+    'cover_letter' => 'خطاب التغطية',
+    'linkedin_profile' => 'رابط LinkedIn',
+    'years_experience' => 'سنوات الخبرة',
+    'write_review' => 'اكتب مراجعة',
+    'rating' => 'التقييم',
+    'review_title' => 'عنوان المراجعة',
+    'review_comment' => 'تعليق المراجعة',
+    'submission_success' => 'تم الإرسال بنجاح',
+    'application_received' => 'تم استلام طلبك',
+    'validation_errors' => 'يرجى تصحيح الأخطاء',
+
 ];
