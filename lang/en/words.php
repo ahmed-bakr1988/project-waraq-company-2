@@ -257,6 +257,11 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'read_full_article' => 'Read Full Article',
     'published_on' => 'Published on',
     'related_news' => 'Related News',
+    'search_news' => 'Search news...',
+    'news_items' => 'news items',
+    'no_news_found' => 'No News Found',
+    'try_different_search' => 'Try searching with different keywords',
+    'view_all_news' => 'View All News',
     
     // Job/Career related
     'career_opportunities' => 'Career Opportunities',
@@ -270,6 +275,13 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'part_time' => 'Part Time',
     'upload_cv' => 'Upload CV',
     'cover_letter' => 'Cover Letter',
+    'join_our_team' => 'Join Our Team',
+    'posted_on' => 'Posted on',
+    'apply_for_position' => 'Apply for this Position',
+    'submit_application' => 'Submit Application',
+    'accepted_formats' => 'Accepted Formats',
+    'no_openings_currently' => 'No Current Openings',
+    'check_back_later' => 'Please check back later for new opportunities',
     
     // Form messages
     'success_message' => 'Success!',

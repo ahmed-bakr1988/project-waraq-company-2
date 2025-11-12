@@ -66,7 +66,15 @@ class ProductController extends Controller
     {
         $product->loadMissing(['translation', 'productCategory']);
 
-        return view('pages.product-details', compact('product'));
+        // Load related products from the same category
+        $relatedProducts = Product::with(['translation', 'productCategory'])
+            ->active()
+            ->where('id', '!=', $product->id)
+            ->where('product_category_id', $product->product_category_id)
+            ->limit(3)
+            ->get();
+
+        return view('pages.product-details', compact('product', 'relatedProducts'));
     }
 
     /**

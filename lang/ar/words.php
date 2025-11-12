@@ -273,6 +273,11 @@ return [
     'read_full_article' => 'اقرأ المقال كاملاً',
     'published_on' => 'نُشر في',
     'related_news' => 'أخبار ذات صلة',
+    'search_news' => 'ابحث في الأخبار...',
+    'news_items' => 'خبر',
+    'no_news_found' => 'لم يتم العثور على أخبار',
+    'try_different_search' => 'حاول البحث بكلمات مختلفة',
+    'view_all_news' => 'عرض جميع الأخبار',
     
     // Job/Career related
     'career_opportunities' => 'فرص العمل',
@@ -286,6 +291,13 @@ return [
     'part_time' => 'دوام جزئي',
     'upload_cv' => 'رفع السيرة الذاتية',
     'cover_letter' => 'خطاب التقديم',
+    'join_our_team' => 'انضم إلى فريقنا',
+    'posted_on' => 'نُشر في',
+    'apply_for_position' => 'قدم على هذه الوظيفة',
+    'submit_application' => 'إرسال الطلب',
+    'accepted_formats' => 'الصيغ المقبولة',
+    'no_openings_currently' => 'لا توجد وظائف متاحة حالياً',
+    'check_back_later' => 'يرجى المتابعة لاحقاً للاطلاع على الفرص الجديدة',
     
     // Form messages
     'success_message' => 'تم بنجاح!',
