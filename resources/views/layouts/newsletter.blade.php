@@ -75,14 +75,52 @@
                             @endif
                         </h3>
                     </div>
-                    <div class="right-area">
-                        <div class="inpur-area-main">
-                            <input type="text" placeholder="Enter Email Address">
-                            <button class="rts-btn btn-primary">Subscribe Now</button>
+
+                    <form action="{{ route('newsletter.store') }}" method="POST">
+                        @csrf
+                        <div class="right-area">
+                            <div class="inpur-area-main">
+                                <input type="text" placeholder="{{ __('words.email_placeholder') }}" required
+                                    name="email" />
+                                <button id="subscribe-button"
+                                    class="rts-btn btn-primary">{{ __('words.subscribe') }}</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+
+                $('body').on('click', '#subscribe-button', function(event) {
+                        alert('Subscribe button clicked');
+                        event.preventDefault();
+
+                        let deleteUrl = $(this).attr('href');
+
+
+                        $.ajax({
+                            type: 'POST',
+                            url: {{ rout('newsletter.store') }},
+
+                            success: function(data) {
+
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(error);
+                            }
+                        })
+                    }
+                })
+</script>

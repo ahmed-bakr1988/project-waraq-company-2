@@ -24,18 +24,18 @@ class ContactController extends Controller
             ]);
 
             if ($validator->fails()) {
-                flash()->error(__('messages.validation_error'));
+                flash()->error(__('words.validation_error'));
                 return back()->withInput()->withErrors($validator);
             }
 
             ContactMessage::create($validator->validated());
 
-            $successMessage = __('messages.contact_success');
+            $successMessage = __('words.contact_success');
             flash()->success($successMessage);
             return back();
 
         } catch (\Exception $e) {
-            $errorMessage = __('messages.contact_error');
+            $errorMessage = __('words.contact_error');
             flash()->error($errorMessage);
             return back()->withInput();
         }
@@ -55,18 +55,18 @@ class ContactController extends Controller
             ]);
 
             if ($validator->fails()) {
-                flash()->error(__('messages.validation_error'));
+                flash()->error(__('words.validation_error'));
                 return back()->withInput()->withErrors($validator);
             }
 
             QuoteRequestSubmission::create($validator->validated());
 
-            $successMessage = __('messages.quote_success');
+            $successMessage = __('words.quote_success');
             flash()->success($successMessage);
             return back();
 
         } catch (\Exception $e) {
-            $errorMessage = __('messages.quote_error');
+            $errorMessage = __('words.quote_error');
             flash()->error($errorMessage);
             return back()->withInput();
         }
@@ -80,7 +80,7 @@ class ContactController extends Controller
             ]);
 
             if ($validator->fails()) {
-                flash()->error(__('messages.validation_error'));
+                flash()->error(__('words.validation_error'));
                 return back()->withInput()->withErrors($validator);
             }
 
@@ -89,12 +89,12 @@ class ContactController extends Controller
 
             if ($existing) {
                 if ($existing->is_active) {
-                    $message = __('messages.newsletter_already_subscribed');
+                    $message = __('words.newsletter_already_subscribed');
                     flash()->info($message);
                     return back();
                 } else {
                     $existing->update(['is_active' => true]);
-                    $successMessage = __('messages.newsletter_reactivated');
+                    $successMessage = __('words.newsletter_reactivated');
                     flash()->success($successMessage);
                     return back();
                 }
@@ -105,12 +105,12 @@ class ContactController extends Controller
                 'is_active' => true,
             ]);
 
-            $successMessage = __('messages.newsletter_success');
+            $successMessage = __('words.newsletter_success');
             flash()->success($successMessage);
             return back();
 
         } catch (\Exception $e) {
-            $errorMessage = __('messages.newsletter_error');
+            $errorMessage = __('words.newsletter_error');
             flash()->error($errorMessage);
             return back()->withInput();
         }
@@ -129,7 +129,7 @@ class ContactController extends Controller
             ]);
 
             if ($validator->fails()) {
-                flash()->error(__('messages.validation_error'));
+                flash()->error(__('words.validation_error'));
                 return back()->withInput()->withErrors($validator);
             }
 
@@ -143,12 +143,12 @@ class ContactController extends Controller
 
             JobApplication::create($data);
 
-            $successMessage = __('messages.job_application_success');
+            $successMessage = __('words.job_application_success');
             flash()->success($successMessage);
             return back();
 
         } catch (\Exception $e) {
-            $errorMessage = __('messages.job_application_error');
+            $errorMessage = __('words.job_application_error');
             flash()->error($errorMessage);
             return back()->withInput();
         }

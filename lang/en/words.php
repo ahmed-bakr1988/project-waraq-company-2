@@ -222,7 +222,7 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'invalid_email' => 'Invalid email address',
     'message_sent' => 'Your message has been sent successfully',
     'message_error' => 'An error occurred while sending your message',
-    
+
     // Company History & About
     'since_2006' => 'Since 2006',
     'our_mission' => 'Our Mission',
@@ -239,7 +239,7 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'monthly_capacity' => 'Monthly Capacity: 15,000 tons',
     'employees' => 'Employees',
     'over_300_employees' => 'Over 300 skilled employees',
-    
+
     // Product specifications
     'specifications' => 'Specifications',
     'gsm' => 'GSM (Grams per Square Meter)',
@@ -250,14 +250,14 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'download_specs' => 'Download Specifications',
     'request_sample' => 'Request Sample',
     'get_price' => 'Get Price',
-    
+
     // News categories
     'latest_news' => 'Latest News',
     'all_news' => 'All News',
     'read_full_article' => 'Read Full Article',
     'published_on' => 'Published on',
     'related_news' => 'Related News',
-    
+
     // Job/Career related
     'career_opportunities' => 'Career Opportunities',
     'job_openings' => 'Job Openings',
@@ -270,14 +270,14 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'part_time' => 'Part Time',
     'upload_cv' => 'Upload CV',
     'cover_letter' => 'Cover Letter',
-    
+
     // Form messages
     'success_message' => 'Success!',
     'error_message' => 'An error occurred, please try again',
     'validation_error' => 'Please check the entered data',
     'thank_you' => 'Thank You!',
     'we_will_contact_you' => 'We will contact you soon',
-    
+
     // Factory page translations
     'our_factory' => 'Our Factory',
     'factory_section' => 'Factory Sections',
@@ -286,7 +286,7 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'paper_making' => 'Paper Making',
     'our_workforce' => 'Our Workforce',
     'daily_capacity' => 'Daily Capacity',
-    
+
     // Environment/Sustainability page translations
     'environmental_initiatives' => 'Our Environmental Initiatives',
     'environmental_impact' => 'Our Environmental Impact',
@@ -339,5 +339,22 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'no_products_found' => 'No Products Found',
     'try_different_filters' => 'Try different filters or clear your search',
     'view_all_products' => 'View All Products',
+
+
+    // Flash messages for ContactController
+    'contact_success' => 'Your message has been sent successfully. We will get back to you soon.',
+    'contact_error' => 'There was an error sending your message. Please try again later.',
+    'quote_success' => 'Your quote request has been submitted successfully. We will contact you soon.',
+    'quote_error' => 'There was an error submitting your quote request. Please try again later.',
+    'newsletter_already_subscribed' => 'You are already subscribed to our newsletter.',
+    'newsletter_reactivated' => 'Your newsletter subscription has been reactivated successfully.',
+    'newsletter_success' => 'Thank you for subscribing to our newsletter!',
+    'newsletter_error' => 'There was an error subscribing to the newsletter. Please try again later.',
+    'job_application_success' => 'Your job application has been submitted successfully. We will review it and contact you soon.',
+    'job_application_error' => 'There was an error submitting your job application. Please try again later.',
+
+    // Product review messages
+    'review_success' => 'Thank you for your review! It will be published after approval.',
+    'review_error' => 'There was an error submitting your review. Please try again later.',
 
 ];
