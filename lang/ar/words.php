@@ -338,4 +338,22 @@ return [
     'application_received' => 'تم استلام طلبك',
     'validation_errors' => 'يرجى تصحيح الأخطاء',
 
+    // Products page filters and search
+    'search' => 'بحث',
+    'search_products' => 'ابحث عن المنتجات...',
+    'category' => 'الفئة',
+    'all_categories' => 'جميع الفئات',
+    'sort_by' => 'ترتيب حسب',
+    'newest_first' => 'الأحدث أولاً',
+    'name_a_z' => 'الاسم (أ - ي)',
+    'name_z_a' => 'الاسم (ي - أ)',
+    'apply_filters' => 'تطبيق التصفية',
+    'clear_filters' => 'مسح التصفية',
+    'showing' => 'عرض',
+    'of' => 'من',
+    'view_details' => 'عرض التفاصيل',
+    'no_products_found' => 'لم يتم العثور على منتجات',
+    'try_different_filters' => 'جرب تصفية مختلفة أو قم بمسح البحث',
+    'view_all_products' => 'عرض جميع المنتجات',
+
 ];

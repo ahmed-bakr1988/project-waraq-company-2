@@ -322,4 +322,22 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'application_received' => 'Application Received',
     'validation_errors' => 'Please correct the errors',
 
+    // Products page filters and search
+    'search' => 'Search',
+    'search_products' => 'Search products...',
+    'category' => 'Category',
+    'all_categories' => 'All Categories',
+    'sort_by' => 'Sort By',
+    'newest_first' => 'Newest First',
+    'name_a_z' => 'Name (A - Z)',
+    'name_z_a' => 'Name (Z - A)',
+    'apply_filters' => 'Apply Filters',
+    'clear_filters' => 'Clear Filters',
+    'showing' => 'Showing',
+    'of' => 'of',
+    'view_details' => 'View Details',
+    'no_products_found' => 'No Products Found',
+    'try_different_filters' => 'Try different filters or clear your search',
+    'view_all_products' => 'View All Products',
+
 ];

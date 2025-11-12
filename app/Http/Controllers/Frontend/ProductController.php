@@ -5,16 +5,61 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductReviewRequest;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\ProductReview;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::with(['translation', 'productCategory'])->active()->ordered()->get();
+        $query = Product::with(['translation', 'productCategory'])->active();
 
-        return view('pages.products', compact('products'));
+        // Search
+        if ($request->filled('search')) {
+            $searchTerm = $request->search;
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('summary', 'LIKE', "%{$searchTerm}%")
+                  ->orWhereHas('translation', function($subQ) use ($searchTerm) {
+                      $subQ->where('name', 'LIKE', "%{$searchTerm}%")
+                           ->orWhere('description', 'LIKE', "%{$searchTerm}%");
+                  });
+            });
+        }
+
+        // Category Filter
+        if ($request->filled('category')) {
+            $query->where('product_category_id', $request->category);
+        }
+
+        // Sorting
+        $sort = $request->get('sort', 'newest');
+        switch ($sort) {
+            case 'name_asc':
+                $query->join('product_translations', function($join) {
+                    $join->on('products.id', '=', 'product_translations.product_id')
+                         ->where('product_translations.locale', '=', app()->getLocale());
+                })->orderBy('product_translations.name', 'asc')
+                  ->select('products.*');
+                break;
+            case 'name_desc':
+                $query->join('product_translations', function($join) {
+                    $join->on('products.id', '=', 'product_translations.product_id')
+                         ->where('product_translations.locale', '=', app()->getLocale());
+                })->orderBy('product_translations.name', 'desc')
+                  ->select('products.*');
+                break;
+            case 'newest':
+            default:
+                $query->latest();
+                break;
+        }
+
+        $products = $query->paginate(12)->withQueryString();
+        $categories = ProductCategory::active()->ordered()->get();
+
+        return view('pages.products', compact('products', 'categories'));
     }
 
     public function show(?string $locale, Product $product)
