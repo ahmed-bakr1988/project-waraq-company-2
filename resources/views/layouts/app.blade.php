@@ -42,6 +42,8 @@
         {{ $slot }}
     </main>
 
+    <!-- Newsletter Section -->
+    @include('layouts.newsletter')
     <!-- rts footer area start -->
     @include('layouts.footer')
     <!-- rts footer area end -->
