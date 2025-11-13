@@ -1,6 +1,6 @@
 <div>
     <!-- Newsletter Section -->
-    <div class="row pt--60 pb--40">
+    {{-- <div class="row pt--60 pb--40">
         <div class="col-12">
             <div class="newsletter-wrapper text-center">
                 <h4 class="title" style="color: #fff; margin-bottom: 15px;">
@@ -52,7 +52,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <div class="rts-cta-area-one rts-section-gapBottom">
     <div class="container">
@@ -76,8 +76,8 @@
                         </h3>
                     </div>
 
-                    <form action="{{ route('newsletter.store') }}" method="POST">
-                        @csrf
+                    {{-- <form action="{{ route('newsletter.store') }}" method="POST">
+                        @csrf --}}
                         <div class="right-area">
                             <div class="inpur-area-main">
                                 <input type="text" placeholder="{{ __('words.email_placeholder') }}" required
@@ -86,7 +86,7 @@
                                     class="rts-btn btn-primary">{{ __('words.subscribe') }}</button>
                             </div>
                         </div>
-                    </form>
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>
@@ -104,15 +104,13 @@
 
 
                 $('body').on('click', '#subscribe-button', function(event) {
-                        alert('Subscribe button clicked');
-                        event.preventDefault();
+                    event.preventDefault();
+                    console.log('Subscribe button clicked');
 
-                        let deleteUrl = $(this).attr('href');
-
-
+                        let subscribeUrl = $(this).attr('href');
                         $.ajax({
                             type: 'POST',
-                            url: {{ rout('newsletter.store') }},
+                            url: '{{ route('newsletter.store') }}',
 
                             success: function(data) {
 
@@ -123,4 +121,5 @@
                         })
                     }
                 })
+
 </script>
