@@ -36,15 +36,14 @@ class ProductController extends Controller
 
     public function show($slug)
     {
-        $product = Product::with(['category', 'translations', 'reviews.user'])
-            ->where('slug', $slug)
-            ->where('is_active', true)
-            ->firstOrFail();
+        $product->loadMissing(['translation', 'productCategory']);
 
-        $relatedProducts = Product::where('category_id', $product->category_id)
+        // Load related products from the same category
+        $relatedProducts = Product::with(['translation', 'productCategory'])
+            ->active()
             ->where('id', '!=', $product->id)
-            ->where('is_active', true)
-            ->limit(4)
+            ->where('product_category_id', $product->product_category_id)
+            ->limit(3)
             ->get();
 
         return view('pages.product-details', compact('product', 'relatedProducts'));

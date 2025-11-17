@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\OurTeamController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\EnvironmentController;
@@ -38,6 +39,12 @@ Route::group([
     Route::prefix('news')->name('news.')->group(function () {
         Route::get('/', [NewsController::class, 'index'])->name('index');
         Route::get('/{slug}', [NewsController::class, 'show'])->name('show');
+    });
+    
+    // Careers Routes
+    Route::prefix('careers')->name('careers.')->group(function () {
+        Route::get('/', [CareerController::class, 'index'])->name('index');
+        Route::get('/{slug}', [CareerController::class, 'show'])->name('show');
     });
     
     // Our Team Routes
