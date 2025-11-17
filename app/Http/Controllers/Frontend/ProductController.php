@@ -3,66 +3,38 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductReviewRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductReview;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Product::with(['translation', 'productCategory'])->active();
+        $query = Product::with(['category', 'translations'])
+            ->where('is_active', true);
 
-        // Search
-        if ($request->filled('search')) {
-            $searchTerm = $request->search;
-            $query->where(function($q) use ($searchTerm) {
-                $q->where('summary', 'LIKE', "%{$searchTerm}%")
-                  ->orWhereHas('translation', function($subQ) use ($searchTerm) {
-                      $subQ->where('name', 'LIKE', "%{$searchTerm}%")
-                           ->orWhere('description', 'LIKE', "%{$searchTerm}%");
-                  });
+        if ($request->has('category')) {
+            $query->where('category_id', $request->category);
+        }
+
+        if ($request->has('search')) {
+            $search = $request->search;
+            $query->whereHas('translations', function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
             });
         }
 
-        // Category Filter
-        if ($request->filled('category')) {
-            $query->where('product_category_id', $request->category);
-        }
-
-        // Sorting
-        $sort = $request->get('sort', 'newest');
-        switch ($sort) {
-            case 'name_asc':
-                $query->join('product_translations', function($join) {
-                    $join->on('products.id', '=', 'product_translations.product_id')
-                         ->where('product_translations.locale', '=', app()->getLocale());
-                })->orderBy('product_translations.name', 'asc')
-                  ->select('products.*');
-                break;
-            case 'name_desc':
-                $query->join('product_translations', function($join) {
-                    $join->on('products.id', '=', 'product_translations.product_id')
-                         ->where('product_translations.locale', '=', app()->getLocale());
-                })->orderBy('product_translations.name', 'desc')
-                  ->select('products.*');
-                break;
-            case 'newest':
-            default:
-                $query->latest();
-                break;
-        }
-
-        $products = $query->paginate(12)->withQueryString();
-        $categories = ProductCategory::active()->ordered()->get();
+        $products = $query->paginate(12);
+        $categories = ProductCategory::where('is_active', true)->get();
 
         return view('pages.products', compact('products', 'categories'));
     }
 
-    public function show(?string $locale, Product $product)
+    public function show($slug)
     {
         $product->loadMissing(['translation', 'productCategory']);
 
@@ -77,48 +49,35 @@ class ProductController extends Controller
         return view('pages.product-details', compact('product', 'relatedProducts'));
     }
 
-    /**
-     * Store product review
-     */
-    public function storeReview(ProductReviewRequest $request, $locale, Product $product)
+    public function storeReview(Request $request, Product $product)
     {
         try {
-            // Save review to database
-            ProductReview::create([
-                'product_id' => $product->id,
-                'rating' => $request->rating,
-                'title' => $request->title,
-                'comment' => $request->comment,
-                'reviewer_name' => $request->reviewer_name,
-                'reviewer_email' => $request->reviewer_email,
-                'ip_address' => $request->ip(),
-                'status' => 'pending', // Reviews need approval
+            $validator = Validator::make($request->all(), [
+                'rating' => 'required|integer|min:1|max:5',
+                'comment' => 'nullable|string|max:1000',
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
             ]);
 
-            // Log the review
-            Log::info('Product review submitted', [
-                'product_id' => $product->id,
-                'rating' => $request->rating,
-                'reviewer_email' => $request->reviewer_email,
-                'ip' => $request->ip(),
-            ]);
+            if ($validator->fails()) {
+                flash()->error(__('messages.validation_error'));
+                return back()->withInput()->withErrors($validator);
+            }
 
-            $appLocale = app()->getLocale();
-            $successMessage = $appLocale === 'ar'
-                ? 'شكراً لمراجعتك. سيتم نشرها بعد الموافقة.'
-                : 'Thank you for your review. It will be published after approval.';
+            $data = $validator->validated();
+            $data['product_id'] = $product->id;
+            $data['is_approved'] = false;
 
-            return back()->with('success', $successMessage);
+            ProductReview::create($data);
+
+            $successMessage = __('messages.review_success');
+            flash()->success($successMessage);
+            return back();
 
         } catch (\Exception $e) {
-            Log::error('Product review error: '.$e->getMessage());
-
-            $appLocale = app()->getLocale();
-            $errorMessage = $appLocale === 'ar'
-                ? 'حدث خطأ أثناء إرسال المراجعة. يرجى المحاولة مرة أخرى.'
-                : 'An error occurred while submitting the review. Please try again.';
-
-            return back()->withInput()->with('error', $errorMessage);
+            $errorMessage = __('messages.review_error');
+            flash()->error($errorMessage);
+            return back()->withInput();
         }
     }
 }

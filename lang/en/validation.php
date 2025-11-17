@@ -163,7 +163,13 @@ return [
     'url' => 'The :attribute field must be a valid URL.',
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
-
+    'contact_success' => 'Your message has been sent successfully. We will get back to you soon.',
+    'contact_error' => 'There was an error sending your message. Please try again later.',
+    'newsletter_success' => 'You have successfully subscribed to the newsletter.',
+    'newsletter_reactivated' => 'Your newsletter subscription has been reactivated.',
+    'newsletter_already_subscribed' => 'You are already subscribed to the newsletter.',
+    'newsletter_error' => 'There was an error subscribing to the newsletter. Please try again later.',
+    'validation_error' => 'There were validation errors. Please correct them and try again.',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

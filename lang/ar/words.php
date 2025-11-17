@@ -238,7 +238,7 @@ return [
     'invalid_email' => 'البريد الإلكتروني غير صحيح',
     'message_sent' => 'تم إرسال رسالتك بنجاح',
     'message_error' => 'حدث خطأ أثناء إرسال الرسالة',
-    
+
     // Company History & About
     'since_2006' => 'منذ عام 2006',
     'our_mission' => 'رسالتنا',
@@ -255,7 +255,7 @@ return [
     'monthly_capacity' => 'الطاقة الشهرية: 15,000 طن',
     'employees' => 'الموظفون',
     'over_300_employees' => 'أكثر من 300 موظف ماهر',
-    
+
     // Product specifications
     'specifications' => 'المواصفات',
     'gsm' => 'الوزن (جرام/متر مربع)',
@@ -266,7 +266,7 @@ return [
     'download_specs' => 'تحميل المواصفات',
     'request_sample' => 'طلب عينة',
     'get_price' => 'الحصول على السعر',
-    
+
     // News categories
     'latest_news' => 'آخر الأخبار',
     'all_news' => 'جميع الأخبار',
@@ -305,7 +305,7 @@ return [
     'validation_error' => 'يرجى التحقق من البيانات المدخلة',
     'thank_you' => 'شكراً لك!',
     'we_will_contact_you' => 'سنتواصل معك قريباً',
-    
+
     // Factory page translations
     'our_factory' => 'مصنعنا',
     'factory_section' => 'أقسام المصنع',
@@ -314,7 +314,7 @@ return [
     'paper_making' => 'صناعة الورق',
     'our_workforce' => 'القوى العاملة',
     'daily_capacity' => 'الطاقة اليومية',
-    
+
     // Environment/Sustainability page translations
     'environmental_initiatives' => 'مبادراتنا البيئية',
     'environmental_impact' => 'تأثيرنا البيئي',
@@ -367,5 +367,21 @@ return [
     'no_products_found' => 'لم يتم العثور على منتجات',
     'try_different_filters' => 'جرب تصفية مختلفة أو قم بمسح البحث',
     'view_all_products' => 'عرض جميع المنتجات',
+
+    // Flash messages for ContactController
+    'contact_success' => 'تم إرسال رسالتك بنجاح. سنتواصل معك قريبا.',
+    'contact_error' => 'حدث خطأ أثناء إرسال رسالتك. يرجى المحاولة مرة أخرى لاحقا.',
+    'quote_success' => 'تم إرسال طلب عرض السعر بنجاح. سنتواصل معك قريبا.',
+    'quote_error' => 'حدث خطأ أثناء إرسال طلب عرض السعر. يرجى المحاولة مرة أخرى لاحقا.',
+    'newsletter_already_subscribed' => 'أنت مشترك بالفعل في النشرة الإخبارية.',
+    'newsletter_reactivated' => 'تم إعادة تفعيل اشتراكك في النشرة الإخبارية بنجاح.',
+    'newsletter_success' => 'شكرا لك على الاشتراك في نشرتنا الإخبارية!',
+    'newsletter_error' => 'حدث خطأ أثناء الاشتراك في النشرة الإخبارية. يرجى المحاولة مرة أخرى لاحقا.',
+    'job_application_success' => 'تم إرسال طلب التوظيف بنجاح. سنقوم بمراجعته والتواصل معك قريبا.',
+    'job_application_error' => 'حدث خطأ أثناء إرسال طلب التوظيف. يرجى المحاولة مرة أخرى لاحقا.',
+
+    // Product review messages
+    'review_success' => 'شكرا لك على تقييمك! سيتم نشره بعد الموافقة عليه.',
+    'review_error' => 'حدث خطأ أثناء إرسال تقييمك. يرجى المحاولة مرة أخرى لاحقا.',
 
 ];
