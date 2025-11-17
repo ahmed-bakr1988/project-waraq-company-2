@@ -11,6 +11,10 @@ class LocalizedPagesTest extends TestCase
 
     public function test_localized_news_pages_return_200(): void
     {
-        $this->followingRedirects()->get('/news')->assertStatus(200);
+        // Set locale for the test
+        app()->setLocale('en');
+        
+        $response = $this->followingRedirects()->get(route('news.index', [], false));
+        $response->assertStatus(200);
     }
 }

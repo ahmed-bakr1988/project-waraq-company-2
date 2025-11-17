@@ -21,7 +21,7 @@ class NewsPostFactory extends Factory
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->sentence(12),
             'body' => $this->faker->paragraphs(3, true),
-            'cover' => null,
+            'image' => null,
             'is_published' => true,
             'published_at' => now()->subDays($this->faker->numberBetween(0, 10)),
         ];

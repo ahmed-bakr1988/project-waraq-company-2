@@ -25,8 +25,11 @@ class NewsListingTest extends TestCase
         $post->published_at = now()->subDay();
         $post->save();
 
-        $this->followingRedirects()->get('/news')
-            ->assertStatus(200)
+        // Set locale for the test
+        app()->setLocale('en');
+
+        $response = $this->followingRedirects()->get(route('news.index', [], false));
+        $response->assertStatus(200)
             ->assertSee('Hello World');
     }
 
