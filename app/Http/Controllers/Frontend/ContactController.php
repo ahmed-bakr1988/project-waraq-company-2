@@ -80,6 +80,13 @@ class ContactController extends Controller
             ]);
 
             if ($validator->fails()) {
+                if ($request->ajax() || $request->wantsJson()) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => __('words.validation_error'),
+                        'errors' => $validator->errors()
+                    ], 422);
+                }
                 flash()->error(__('words.validation_error'));
                 return back()->withInput()->withErrors($validator);
             }
@@ -90,6 +97,13 @@ class ContactController extends Controller
             if ($existing) {
                 if ($existing->status === 'active') {
                     $message = __('words.newsletter_already_subscribed');
+                    if ($request->ajax() || $request->wantsJson()) {
+                        return response()->json([
+                            'success' => true,
+                            'message' => $message,
+                            'type' => 'info'
+                        ]);
+                    }
                     flash()->info($message);
                     return back();
                 } else {
@@ -98,6 +112,13 @@ class ContactController extends Controller
                         'subscribed_at' => now(),
                     ]);
                     $successMessage = __('words.newsletter_reactivated');
+                    if ($request->ajax() || $request->wantsJson()) {
+                        return response()->json([
+                            'success' => true,
+                            'message' => $successMessage,
+                            'type' => 'success'
+                        ]);
+                    }
                     flash()->success($successMessage);
                     return back();
                 }
@@ -110,11 +131,24 @@ class ContactController extends Controller
             ]);
 
             $successMessage = __('words.newsletter_success');
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => $successMessage,
+                    'type' => 'success'
+                ]);
+            }
             flash()->success($successMessage);
             return back();
 
         } catch (\Exception $e) {
             $errorMessage = __('words.newsletter_error');
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $errorMessage
+                ], 500);
+            }
             flash()->error($errorMessage);
             return back()->withInput();
         }
