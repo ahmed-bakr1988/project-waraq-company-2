@@ -3,6 +3,35 @@
 ## Overview
 This implementation adds Ajax functionality to the newsletter subscription form, allowing users to subscribe without page reload.
 
+## Flow Diagram
+```
+User enters email → Click Subscribe Button
+         ↓
+JavaScript validates email (client-side)
+         ↓
+         ├─ Empty? → Show error message
+         ↓
+Button disabled + Loading text shown
+         ↓
+Ajax POST request to /newsletter route
+         ↓
+Laravel Controller receives request
+         ↓
+         ├─ Validates email format
+         ├─ Checks database
+         │    ├─ New email → Create subscription → Success response
+         │    ├─ Active subscription → Info response
+         │    └─ Inactive subscription → Reactivate → Success response
+         ↓
+JSON response returned to frontend
+         ↓
+Button re-enabled + Original text restored
+         ↓
+         ├─ Success → Show success message + Clear input
+         ├─ Info → Show info message (already subscribed)
+         └─ Error → Show error message
+```
+
 ## Files Modified
 
 ### 1. ContactController.php (`app/Http/Controllers/Frontend/ContactController.php`)
