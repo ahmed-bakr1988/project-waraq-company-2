@@ -88,12 +88,15 @@ class ContactController extends Controller
             $existing = NewsletterSubscription::where('email', $email)->first();
 
             if ($existing) {
-                if ($existing->is_active) {
+                if ($existing->status === 'active') {
                     $message = __('words.newsletter_already_subscribed');
                     flash()->info($message);
                     return back();
                 } else {
-                    $existing->update(['is_active' => true]);
+                    $existing->update([
+                        'status' => 'active',
+                        'subscribed_at' => now(),
+                    ]);
                     $successMessage = __('words.newsletter_reactivated');
                     flash()->success($successMessage);
                     return back();
@@ -102,7 +105,8 @@ class ContactController extends Controller
 
             NewsletterSubscription::create([
                 'email' => $email,
-                'is_active' => true,
+                'status' => 'active',
+                'subscribed_at' => now(),
             ]);
 
             $successMessage = __('words.newsletter_success');
