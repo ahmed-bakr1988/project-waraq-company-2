@@ -90,82 +90,84 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        // Set up CSRF token for all Ajax requests
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        // Handle newsletter subscription
-        $('#subscribe-button').on('click', function(event) {
-            event.preventDefault();
-            
-            // Get email value from input
-            var email = $('#newsletter-email').val();
-            var button = $(this);
-            var messageDiv = $('#newsletter-message');
-            
-            // Clear previous messages
-            messageDiv.html('');
-            
-            // Validate email is not empty
-            if (!email || email.trim() === '') {
-                messageDiv.html('<div class="alert alert-danger">@if (app()->getLocale() === "ar") الرجاء إدخال البريد الإلكتروني @else Please enter your email @endif</div>');
-                return;
-            }
-            
-            // Disable button and show loading state
-            button.prop('disabled', true);
-            button.html('@if (app()->getLocale() === "ar") جاري الإرسال... @else Sending... @endif');
-            
-            // Send Ajax request
-            $.ajax({
-                type: 'POST',
-                url: '{{ route('newsletter.store') }}',
-                data: {
-                    email: email
-                },
-                success: function(response) {
-                    // Re-enable button
-                    button.prop('disabled', false);
-                    button.html('{{ __('words.subscribe') }}');
-                    
-                    if (response.success) {
-                        // Show success message
-                        var alertClass = response.type === 'info' ? 'alert-info' : 'alert-success';
-                        messageDiv.html('<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">' +
-                            '<strong>' + response.message + '</strong>' +
-                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                            '</div>');
-                        
-                        // Clear input on success
-                        if (response.type !== 'info') {
-                            $('#newsletter-email').val('');
-                        }
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Re-enable button
-                    button.prop('disabled', false);
-                    button.html('{{ __('words.subscribe') }}');
-                    
-                    var errorMessage = '@if (app()->getLocale() === "ar") حدث خطأ. الرجاء المحاولة مرة أخرى @else An error occurred. Please try again @endif';
-                    
-                    if (xhr.responseJSON && xhr.responseJSON.message) {
-                        errorMessage = xhr.responseJSON.message;
-                    }
-                    
-                    // Show error message
-                    messageDiv.html('<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
-                        '<strong>' + errorMessage + '</strong>' +
-                        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                        '</div>');
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // Set up CSRF token for all Ajax requests
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            // Handle newsletter subscription
+            $('#subscribe-button').on('click', function(event) {
+                event.preventDefault();
+
+                // Get email value from input
+                var email = $('#newsletter-email').val();
+                var button = $(this);
+                var messageDiv = $('#newsletter-message');
+
+                // Clear previous messages
+                messageDiv.html('');
+
+                // Validate email is not empty
+                if (!email || email.trim() === '') {
+                    messageDiv.html('<div class="alert alert-danger">@if (app()->getLocale() === "ar") الرجاء إدخال البريد الإلكتروني @else Please enter your email @endif</div>');
+                    return;
+                }
+
+                // Disable button and show loading state
+                button.prop('disabled', true);
+                button.html('@if (app()->getLocale() === "ar") جاري الإرسال... @else Sending... @endif');
+
+                // Send Ajax request
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('newsletter.store') }}',
+                    data: {
+                        email: email
+                    },
+                    success: function(response) {
+                        // Re-enable button
+                        button.prop('disabled', false);
+                        button.html('{{ __('words.subscribe') }}');
+
+                        if (response.success) {
+                            // Show success message
+                            var alertClass = response.type === 'info' ? 'alert-info' : 'alert-success';
+                            messageDiv.html('<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">' +
+                                '<strong>' + response.message + '</strong>' +
+                                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                                '</div>');
+
+                            // Clear input on success
+                            if (response.type !== 'info') {
+                                $('#newsletter-email').val('');
+                            }
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Re-enable button
+                        button.prop('disabled', false);
+                        button.html('{{ __('words.subscribe') }}');
+
+                        var errorMessage = '@if (app()->getLocale() === "ar") حدث خطأ. الرجاء المحاولة مرة أخرى @else An error occurred. Please try again @endif';
+
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage = xhr.responseJSON.message;
+                        }
+
+                        // Show error message
+                        messageDiv.html('<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                            '<strong>' + errorMessage + '</strong>' +
+                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                            '</div>');
+                    }
+                });
+            });
         });
-    });
-</script>
+    </script>
+@endpush
+

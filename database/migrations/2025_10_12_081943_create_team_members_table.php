@@ -21,6 +21,12 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->integer('order')->default(0);
+            // $table->string('slug')->unique();
+            $table->text('qualifications')->nullable();
+            $table->string('specialty')->nullable();
+            $table->string('linkedin_url')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->integer('display_order')->default(0);
             $table->timestamps();
         });
     }
@@ -33,4 +39,3 @@ return new class extends Migration
         Schema::dropIfExists('team_members');
     }
 };
-
