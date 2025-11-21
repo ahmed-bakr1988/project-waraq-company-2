@@ -15,6 +15,15 @@ class CompanyStarterSeeder extends Seeder
 {
     public function run(): void
     {
+        // Clear existing data to avoid duplicates
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        \DB::table('product_translations')->truncate();
+        \DB::table('products')->truncate();
+        \DB::table('product_categories')->truncate();
+        \DB::table('news_posts')->truncate();
+        \DB::table('pages')->truncate();
+        \DB::table('team_members')->truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1');
         // Product Categories with Arabic and English names
         $categories = [
             [
@@ -471,6 +480,7 @@ class CompanyStarterSeeder extends Seeder
         foreach ($teamMembers as $i => $member) {
             TeamMember::query()->create([
                 'name' => $member['name'],
+                'slug' => Str::slug($member['name_en']),
                 'position' => $member['position_ar'],
                 'bio' => $member['bio_ar'],
                 'image' => 'assets/images/team/team-'.(($i % 6) + 1).'.jpg',
