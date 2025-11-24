@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ContactMessage extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'email',
@@ -15,10 +18,16 @@ class ContactMessage extends Model
         'ip_address',
         'user_agent',
         'status',
+        'is_read',
         'read_at',
     ];
 
-    protected $casts = [
-        'read_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'is_read' => 'boolean',
+            'read_at' => 'datetime',
+            'created_at' => 'datetime',
+        ];
+    }
 }
