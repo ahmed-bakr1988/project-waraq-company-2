@@ -19,8 +19,7 @@ class ContactFormMail extends Mailable implements ShouldQueue
      */
     public function __construct(
         public ContactMessage $contactMessage
-    ) {
-    }
+    ) {}
 
     /**
      * Get the message envelope.
@@ -28,7 +27,7 @@ class ContactFormMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Contact Form Submission - ' . $this->contactMessage->subject,
+            subject: 'New Contact Form Submission - '.$this->contactMessage->subject,
             replyTo: [$this->contactMessage->email],
         );
     }

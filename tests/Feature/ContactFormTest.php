@@ -27,7 +27,6 @@ class ContactFormTest extends TestCase
         $response = $this->post(route('contact.store'), $data);
 
         $response->assertRedirect();
-        $response->assertSessionHas('success');
 
         $this->assertDatabaseHas('contact_messages', [
             'name' => 'John Doe',

@@ -19,7 +19,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -41,11 +40,13 @@ class ContactController extends Controller
             Mail::to($adminEmail)->queue(new ContactFormMail($contactMessage));
 
             flash()->success(__('words.contact_success'));
+
             return back();
 
         } catch (\Exception $e) {
-            \Log::error('Contact form error: ' . $e->getMessage());
+            \Log::error('Contact form error: '.$e->getMessage());
             flash()->error(__('words.contact_error'));
+
             return back()->withInput();
         }
     }
@@ -67,11 +68,13 @@ class ContactController extends Controller
             Mail::to($adminEmail)->queue(new QuoteRequestMail($quoteRequest));
 
             flash()->success(__('words.quote_success'));
+
             return back();
 
         } catch (\Exception $e) {
-            \Log::error('Quote request error: ' . $e->getMessage());
+            \Log::error('Quote request error: '.$e->getMessage());
             flash()->error(__('words.quote_error'));
+
             return back()->withInput();
         }
     }
@@ -88,16 +91,17 @@ class ContactController extends Controller
             if ($existing) {
                 if ($existing->is_active || $existing->status === 'active') {
                     $message = __('words.newsletter_already_subscribed');
-                    
+
                     if ($request->ajax() || $request->wantsJson()) {
                         return response()->json([
                             'success' => true,
                             'message' => $message,
-                            'type' => 'info'
+                            'type' => 'info',
                         ]);
                     }
-                    
+
                     flash()->info($message);
+
                     return back();
                 } else {
                     // Reactivate subscription
@@ -107,18 +111,19 @@ class ContactController extends Controller
                         'subscribed_at' => now(),
                         'unsubscribed_at' => null,
                     ]);
-                    
+
                     $successMessage = __('words.newsletter_reactivated');
-                    
+
                     if ($request->ajax() || $request->wantsJson()) {
                         return response()->json([
                             'success' => true,
                             'message' => $successMessage,
-                            'type' => 'success'
+                            'type' => 'success',
                         ]);
                     }
-                    
+
                     flash()->success($successMessage);
+
                     return back();
                 }
             }
@@ -136,30 +141,32 @@ class ContactController extends Controller
             Mail::to($email)->queue(new NewsletterWelcomeMail($subscription));
 
             $successMessage = __('words.newsletter_success');
-            
+
             if ($request->ajax() || $request->wantsJson()) {
                 return response()->json([
                     'success' => true,
                     'message' => $successMessage,
-                    'type' => 'success'
+                    'type' => 'success',
                 ]);
             }
-            
+
             flash()->success($successMessage);
+
             return back();
 
         } catch (\Exception $e) {
-            \Log::error('Newsletter subscription error: ' . $e->getMessage());
+            \Log::error('Newsletter subscription error: '.$e->getMessage());
             $errorMessage = __('words.newsletter_error');
-            
+
             if ($request->ajax() || $request->wantsJson()) {
                 return response()->json([
                     'success' => false,
-                    'message' => $errorMessage
+                    'message' => $errorMessage,
                 ], 500);
             }
-            
+
             flash()->error($errorMessage);
+
             return back()->withInput();
         }
     }
@@ -177,7 +184,7 @@ class ContactController extends Controller
             // Handle CV upload
             if ($request->hasFile('cv')) {
                 $cv = $request->file('cv');
-                $filename = time() . '_' . $cv->getClientOriginalName();
+                $filename = time().'_'.$cv->getClientOriginalName();
                 $cvPath = $cv->storeAs('cvs', $filename, 'private');
                 $data['cv_path'] = $cvPath;
                 // Also save to resume_path for backward compatibility
@@ -191,11 +198,13 @@ class ContactController extends Controller
             Mail::to($adminEmail)->queue(new JobApplicationMail($jobApplication));
 
             flash()->success(__('words.job_application_success'));
+
             return back();
 
         } catch (\Exception $e) {
-            \Log::error('Job application error: ' . $e->getMessage());
+            \Log::error('Job application error: '.$e->getMessage());
             flash()->error(__('words.job_application_error'));
+
             return back()->withInput();
         }
     }

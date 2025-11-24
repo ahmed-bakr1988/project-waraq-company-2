@@ -19,8 +19,7 @@ class NewsletterWelcomeMail extends Mailable implements ShouldQueue
      */
     public function __construct(
         public NewsletterSubscription $subscription
-    ) {
-    }
+    ) {}
 
     /**
      * Get the message envelope.

@@ -19,8 +19,7 @@ class QuoteRequestMail extends Mailable implements ShouldQueue
      */
     public function __construct(
         public QuoteRequestSubmission $quoteRequest
-    ) {
-    }
+    ) {}
 
     /**
      * Get the message envelope.
@@ -28,7 +27,7 @@ class QuoteRequestMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Quote Request from ' . $this->quoteRequest->company,
+            subject: 'New Quote Request from '.$this->quoteRequest->company,
             replyTo: [$this->quoteRequest->email],
         );
     }

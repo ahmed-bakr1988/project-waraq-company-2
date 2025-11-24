@@ -21,8 +21,7 @@ class JobApplicationMail extends Mailable implements ShouldQueue
      */
     public function __construct(
         public JobApplication $jobApplication
-    ) {
-    }
+    ) {}
 
     /**
      * Get the message envelope.
@@ -30,9 +29,9 @@ class JobApplicationMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         $careerTitle = $this->jobApplication->career?->title ?? 'Position';
-        
+
         return new Envelope(
-            subject: 'New Job Application for ' . $careerTitle,
+            subject: 'New Job Application for '.$careerTitle,
             replyTo: [$this->jobApplication->email],
         );
     }
@@ -58,13 +57,13 @@ class JobApplicationMail extends Mailable implements ShouldQueue
     public function attachments(): array
     {
         $attachments = [];
-        
+
         if ($this->jobApplication->cv_path && Storage::disk('private')->exists($this->jobApplication->cv_path)) {
             $attachments[] = Attachment::fromStorageDisk('private', $this->jobApplication->cv_path)
-                ->as('CV_' . $this->jobApplication->name . '.pdf')
+                ->as('CV_'.$this->jobApplication->name.'.pdf')
                 ->withMime('application/pdf');
         }
-        
+
         return $attachments;
     }
 }
