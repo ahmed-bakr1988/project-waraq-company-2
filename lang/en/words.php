@@ -365,6 +365,16 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'job_application_success' => 'Your job application has been submitted successfully. We will review it and contact you soon.',
     'job_application_error' => 'There was an error submitting your job application. Please try again later.',
 
+    // Additional form translations
+    'sending' => 'Sending...',
+    'send' => 'Send',
+    'validation_error' => 'Please check the entered data.',
+    'required_fields' => 'Required fields',
+    'optional' => 'Optional',
+    'upload_cv' => 'Upload CV',
+    'max_file_size' => 'Maximum file size',
+    'allowed_formats' => 'Allowed formats',
+
     // Product review messages
     'review_success' => 'Thank you for your review! It will be published after approval.',
     'review_error' => 'There was an error submitting your review. Please try again later.',
