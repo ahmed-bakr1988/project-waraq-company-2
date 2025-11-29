@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             CompanyStarterSeeder::class,
+            OurTeamSeeder::class,
+            CareerSeeder::class,
+            JobApplicationSeeder::class,
+
         ]);
     }
 }

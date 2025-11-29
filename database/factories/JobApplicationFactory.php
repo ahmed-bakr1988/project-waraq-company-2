@@ -22,12 +22,12 @@ class JobApplicationFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->phoneNumber(),
             'cover_letter' => fake()->paragraphs(3, true),
-            'resume_path' => 'resumes/'.fake()->uuid().'.pdf',
+
             'cv_path' => 'resumes/'.fake()->uuid().'.pdf',
             'linkedin_url' => fake()->optional()->url(),
             'years_experience' => fake()->numberBetween(0, 20),
-            'status' => fake()->randomElement(['pending', 'reviewed', 'shortlisted', 'rejected', 'hired']),
-            'notes' => fake()->optional()->sentence(),
+            'status' => fake()->randomElement(['new', 'reviewed', 'shortlisted', 'rejected']),
+
             'ip_address' => fake()->ipv4(),
         ];
     }

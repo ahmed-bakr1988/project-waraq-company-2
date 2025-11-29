@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->integer('order')->default(0);
-            // $table->string('slug')->unique();
+            $table->string('slug')->unique();
             $table->text('qualifications')->nullable();
             $table->string('specialty')->nullable();
             $table->string('linkedin_url')->nullable();

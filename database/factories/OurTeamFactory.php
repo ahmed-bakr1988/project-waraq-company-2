@@ -12,21 +12,44 @@ class OurTeamFactory extends Factory
 
     public function definition(): array
     {
-        $name = $this->faker->name();
-        
+        $name = fake()->name();
+
         return [
             'name' => $name,
-            'slug' => Str::slug($name) . '-' . $this->faker->unique()->numberBetween(1, 9999),
-            'position' => $this->faker->jobTitle(),
-            'bio' => $this->faker->paragraphs(3, true),
-            'qualifications' => $this->faker->paragraphs(2, true),
-            'specialty' => $this->faker->randomElement(['Management', 'Engineering', 'Sales', 'Operations', 'Quality Control']),
-            'email' => Str::slug($name) . '@waraqco.com',
-            'phone' => $this->faker->phoneNumber(),
-            'linkedin_url' => 'https://linkedin.com/in/' . Str::slug($name),
+            'slug' => Str::slug($name).'-'.fake()->unique()->numberBetween(1, 9999),
+            'position' => fake()->randomElement([
+                'CEO',
+                'COO',
+                'Production Manager',
+                'Quality Control Manager',
+                'Sales Director',
+                'Marketing Manager',
+                'Technical Director',
+                'Supply Chain Manager',
+            ]),
+            'bio' => fake()->paragraphs(3, true),
+            'qualifications' => fake()->paragraphs(2, true),
+            'specialty' => fake()->randomElement(['Management', 'Engineering', 'Sales', 'Operations', 'Quality Control']),
+            'email' => Str::slug($name).'@waraqco.com',
+            'phone' => fake()->phoneNumber(),
+            'linkedin_url' => 'https://linkedin.com/in/'.Str::slug($name),
             'image' => null,
             'is_active' => true,
-            'display_order' => $this->faker->numberBetween(1, 100),
+            'display_order' => fake()->numberBetween(1, 100),
         ];
+    }
+
+    public function active(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'is_active' => true,
+        ]);
+    }
+
+    public function inactive(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'is_active' => false,
+        ]);
     }
 }

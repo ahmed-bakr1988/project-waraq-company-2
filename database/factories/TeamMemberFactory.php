@@ -14,10 +14,12 @@ class TeamMemberFactory extends Factory
     {
         return [
             'locale' => $this->faker->randomElement(['en', 'ar']),
+            'slug' => Str::slug($name).'-'.fake()->unique()->numberBetween(1, 9999),
             'name' => $this->faker->name(),
             'role' => $this->faker->jobTitle(),
             'photo' => null,
             'bio' => $this->faker->sentence(12),
+
             'order' => $this->faker->numberBetween(0, 10),
         ];
     }
