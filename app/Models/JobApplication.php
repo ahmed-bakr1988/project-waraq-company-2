@@ -21,6 +21,7 @@ class JobApplication extends Model
         'linkedin_url',
         'years_experience',
         'status',
+        'is_read',
         'ip_address',
         'notes',
     ];
@@ -29,6 +30,8 @@ class JobApplication extends Model
     {
         return [
             'years_experience' => 'integer',
+            'is_read' => 'boolean',
+            'created_at' => 'datetime',
         ];
     }
 

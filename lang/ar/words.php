@@ -380,6 +380,16 @@ return [
     'job_application_success' => 'تم إرسال طلب التوظيف بنجاح. سنقوم بمراجعته والتواصل معك قريبا.',
     'job_application_error' => 'حدث خطأ أثناء إرسال طلب التوظيف. يرجى المحاولة مرة أخرى لاحقا.',
 
+    // Additional form translations
+    'sending' => 'جاري الإرسال...',
+    'send' => 'إرسال',
+    'validation_error' => 'يرجى التحقق من البيانات المدخلة.',
+    'required_fields' => 'الحقول المطلوبة',
+    'optional' => 'اختياري',
+    'upload_cv' => 'رفع السيرة الذاتية',
+    'max_file_size' => 'الحجم الأقصى للملف',
+    'allowed_formats' => 'الصيغ المسموحة',
+
     // Product review messages
     'review_success' => 'شكرا لك على تقييمك! سيتم نشره بعد الموافقة عليه.',
     'review_error' => 'حدث خطأ أثناء إرسال تقييمك. يرجى المحاولة مرة أخرى لاحقا.',
