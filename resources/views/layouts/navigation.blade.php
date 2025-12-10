@@ -41,7 +41,7 @@
                                                             ->take(4)
                                                             ->get();
                                                     @endphp
-                                                    
+
                                                     @if($categories->count() > 0)
                                                         <div class="col-lg-4">
                                                             <ul class="mega-menu-item parent-nav">
@@ -90,7 +90,7 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    
+
                                                     <div class="col-lg-4">
                                                         <div class="menu-thumb pl--20">
                                                             <img src="{{ asset('assets/images/project/products/waraq-co-photo_1.jpg') }}"
@@ -155,12 +155,12 @@
                             <div class="loader-section section-right"></div>
                         </div>
                         <div class="button-area">
-                            <a href="#" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn"
+                            <a href="{{ route('quote-request') }}" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn"
                                 data-analytics-event="cta_get_quote" data-analytics-location="header">
                                 {{ __('words.get_quote') }}
                             </a>
                             <button id="menu-btn" class="menu menu-btn ml--20 ml_sm--5">
-                                @svg('heroicon-o-bars-3', 'w-6 h-6')
+                                <img class="menu-light" src="{{ asset('assets/images/icons/01.svg') }}" alt="Menu-icon">
                             </button>
                         </div>
                         <div class="nav-area"

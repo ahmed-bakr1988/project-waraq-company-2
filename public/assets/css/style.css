@@ -12688,6 +12688,12 @@ section.main-wrapper-sticky .sticky-statement.narrow .left-side img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #5D666F;
+  padding: 8px 20px;
+  border: 1px solid #999999;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 15px;
+  max-width: max-content;
 }
 @media only screen and (max-width: 575px) {
   .title-style-five span.pre {

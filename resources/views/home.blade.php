@@ -5,11 +5,9 @@
 
 
 
-    <!-- tectimonisl-area start -->
-    @include('sections.products-gallery', ['products' => $products])
-    <!-- tectimonisl-area end -->
-
-
+    <!-- Products-company start -->
+    @include('sections.products-gallery', ['products' => $featuredProducts])
+    <!-- Products-company end -->
 
 
     <!-- rts business case area start -->

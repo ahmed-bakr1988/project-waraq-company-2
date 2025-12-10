@@ -69,7 +69,7 @@
                 <div class="swiper mySwiper-testimonials-5" dir="ltr">
                     <div class="swiper-wrapper">
                         @foreach ($products as $product)
-                        
+
                             <div class="swiper-slide">
                                 <div class="single-testimonials-style-five">
                                     <div class="thumbnail">

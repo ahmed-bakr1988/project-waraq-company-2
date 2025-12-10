@@ -163,14 +163,22 @@ return [
     // banner
     'welcome_banner' => 'Global quality products from locally recycled fibers',
     'banner_title_1' => 'Start your green transformation journey with us!',
-    'banner_title_2' => 'Discover with us ',
-    'banner_title_2_2' => 'from beginning to end',
-    'banner_title_2_3' => 'at WARAQCO',
+    'banner_title_2' => 'Paper\'s',
+    'banner_title_2_1' => 'Journey',
+    'banner_title_2_2' => 'Starts',
+    'banner_title_2_3' => 'Here...',
+    'banner_title_2_4' => 'Discover',
+    'banner_title_2_5' => 'It With Us',
     'banner_desc' => 'At WARAQCO, we give used papers a new opportunity to become part of a sustainable environmental solution, leading change towards a conscious society and a circular economy that advances industry while preserving nature.',
 
     // Button Text banner
     'get_quote_banner' => 'Discover Our Message',
     'Read_More' => 'Read More',
+
+    // Our Trusted Clients Our customers trust us.
+    'Our_Trusted_Clients' => 'Our customers trust us.',
+
+
 
     // section 2 banner
     'Our_process' => 'Our process is simple',
@@ -262,7 +270,7 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'no_news_found' => 'No News Found',
     'try_different_search' => 'Try searching with different keywords',
     'view_all_news' => 'View All News',
-    
+
     // Job/Career related
     'career_opportunities' => 'Career Opportunities',
     'job_openings' => 'Job Openings',
@@ -282,7 +290,7 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'accepted_formats' => 'Accepted Formats',
     'no_openings_currently' => 'No Current Openings',
     'check_back_later' => 'Please check back later for new opportunities',
-    
+
     // Form messages
     'success_message' => 'Success!',
     'error_message' => 'An error occurred, please try again',

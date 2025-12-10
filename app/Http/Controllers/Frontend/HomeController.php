@@ -10,11 +10,19 @@ class HomeController extends Controller
     public function index()
     {
         try {
-            $products = ProductCategory::active()->ordered()->get();
+            $productCategories = ProductCategory::active()->ordered()->get();
+            $featuredProducts = \App\Models\Product::active()->ordered()->take(6)->get();
+            $latestNews = \App\Models\NewsPost::where('is_published', true)
+                ->where('published_at', '<=', now())
+                ->latest('published_at')
+                ->take(3)
+                ->get();
         } catch (\Throwable $e) {
-            $products = collect();
+            $productCategories = collect();
+            $featuredProducts = collect();
+            $latestNews = collect();
         }
 
-        return view('home', compact('products'));
+        return view('home', compact('productCategories', 'featuredProducts', 'latestNews'));
     }
 }

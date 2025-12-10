@@ -177,11 +177,15 @@ return [
     'get_quote' => 'طلب عينة الان',
 
     // banner
+    //"رحلة الورق تبدأ هنا… اكتشفها معنا."
     'welcome_banner' => 'منتجات بجودة عالمية من ألياف محلية معاد تدويرها ',
     'banner_title_1' => 'ابدأ معنا رحلة التغيير الأخضر!',
-    'banner_title_2' => 'معنا اكتشف  ',
-    'banner_title_2_2' => 'النهاية  الى من',
-    'banner_title_2_3' => 'WARAQCO في',
+    'banner_title_2' => 'رحلة',
+    'banner_title_2_1' => 'الورق',
+    'banner_title_2_2' => 'تبدأ',
+    'banner_title_2_3' => '...هنا',
+    'banner_title_2_4' => 'اكتشفها',
+    'banner_title_2_5' => '.معنا',
     'banner_desc' => 'في WARAQCO، نمنح الأوراق المستعملة فرصة جديدة لتُصبح جزءًا من حل بيئي مستدام، ونقود التغيير نحو مجتمع واعٍ، واقتصاد دائري ينهض بالصناعة ويصون الطبيعة.',
 
     // Button Text banner
@@ -205,6 +209,11 @@ return [
     // side bar area
     'side_bar_area_desc' => 'ورق هي شركة متخصصة في إعادة تدوير الورق، تأسست برؤية واضحة: تحويل النفايات الورقية إلى منتجات ذات قيمة، وبناء نموذج صناعي يحترم البيئة ويخدم الإنسان.
 نعمل بشغف منذ أكثر من 30 عامًا، نعيد تشكيل الورق المستعمل بعمليات تقنية متقدمة، وننتج مواد تغليف عالية الجودة تدعم الاستدامة في سلاسل التوريد والصناعات المتنوعة.',
+
+    // Our Trusted Clients Our customers trust us.
+    'Our_Trusted_Clients' => 'عملائنا الواثقون بنا .',
+    'Our_Trusted_Clients_desc' => 'نحن نؤمن بأن العملاء يثقون فينا.',
+
 
     // Products Section
     'our_products' => 'منتجاتنا',
@@ -278,7 +287,7 @@ return [
     'no_news_found' => 'لم يتم العثور على أخبار',
     'try_different_search' => 'حاول البحث بكلمات مختلفة',
     'view_all_news' => 'عرض جميع الأخبار',
-    
+
     // Job/Career related
     'career_opportunities' => 'فرص العمل',
     'job_openings' => 'الوظائف الشاغرة',
@@ -298,7 +307,7 @@ return [
     'accepted_formats' => 'الصيغ المقبولة',
     'no_openings_currently' => 'لا توجد وظائف متاحة حالياً',
     'check_back_later' => 'يرجى المتابعة لاحقاً للاطلاع على الفرص الجديدة',
-    
+
     // Form messages
     'success_message' => 'تم بنجاح!',
     'error_message' => 'حدث خطأ، يرجى المحاولة مرة أخرى',

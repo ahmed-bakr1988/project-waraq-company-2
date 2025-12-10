@@ -2,14 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\NewsPost;
+use DB;
 use App\Models\Page;
+use App\Models\Career;
 use App\Models\Product;
-use App\Models\ProductCategory;
-use App\Models\ProductTranslation;
+use App\Models\NewsPost;
 use App\Models\TeamMember;
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use App\Models\ProductCategory;
+use Illuminate\Database\Seeder;
+use App\Models\ProductTranslation;
 
 class CompanyStarterSeeder extends Seeder
 {
@@ -126,7 +128,7 @@ class CompanyStarterSeeder extends Seeder
                 ],
                 'features' => ['Maximum strength', 'Enhanced durability', 'Superior stacking strength'],
             ],
-            
+
             // Fluting Medium Products
             [
                 'category' => 'Fluting Medium',
@@ -158,7 +160,7 @@ class CompanyStarterSeeder extends Seeder
                 ],
                 'features' => ['Superior cushioning', 'High compression strength', 'Moisture resistant'],
             ],
-            
+
             // Kraft Paper Products
             [
                 'category' => 'Kraft Paper',
@@ -190,7 +192,7 @@ class CompanyStarterSeeder extends Seeder
                 ],
                 'features' => ['Extra strength', 'Weather resistant', 'High load capacity'],
             ],
-            
+
             // Corrugated Sheets Products
             [
                 'category' => 'Corrugated Sheets',
@@ -222,7 +224,7 @@ class CompanyStarterSeeder extends Seeder
                 ],
                 'features' => ['Extra protection', 'High stacking strength', 'Superior durability'],
             ],
-            
+
             // Packaging Solutions Products
             [
                 'category' => 'Packaging Solutions',
@@ -253,7 +255,7 @@ class CompanyStarterSeeder extends Seeder
                 ],
                 'features' => ['Perfect fit', 'Enhanced protection', 'Professional appearance'],
             ],
-            
+
             // Custom Paper Products
             [
                 'category' => 'Custom Paper Products',
@@ -289,7 +291,7 @@ class CompanyStarterSeeder extends Seeder
         foreach ($products as $i => $productData) {
             $catId = collect($catIds)->firstWhere('name_en', $productData['category'])['id'] ?? $catIds[0]['id'];
             $catNameAr = collect($catIds)->firstWhere('name_en', $productData['category'])['name_ar'] ?? $catIds[0]['name_ar'];
-            
+
             $p = Product::query()->create([
                 'product_category_id' => $catId,
                 'image' => 'assets/images/banner/21.webp',
