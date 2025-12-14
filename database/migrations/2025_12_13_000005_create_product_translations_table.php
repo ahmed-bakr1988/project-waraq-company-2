@@ -8,9 +8,9 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('product_translations', function (Blueprint $table) {
+        Schema::create('product_translations', function (Blueprint $table): void {
             $table->id();
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->string('locale', 5)->index();
             $table->string('slug');
             $table->string('name');
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->timestamps();
-            
+
             $table->unique(['product_id', 'locale']);
             $table->unique(['locale', 'slug']);
             $table->index(['product_id', 'locale']);

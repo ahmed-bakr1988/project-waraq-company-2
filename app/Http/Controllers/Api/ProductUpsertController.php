@@ -34,13 +34,14 @@ class ProductUpsertController extends Controller
             $base = [
                 'product_category_id' => $payload['product_category_id'] ?? null,
                 'image' => $payload['image'] ?? 'assets/images/placeholder.webp',
+                'gallery' => isset($payload['gallery']) ? (array) $payload['gallery'] : null,
                 'logo' => $payload['logo'] ?? null,
                 'url' => $payload['url'] ?? null,
-                'summary' => $payload['summary'] ?? null,
                 'specs' => isset($payload['specs']) ? (array) $payload['specs'] : null,
                 'downloads' => isset($payload['downloads']) ? (array) $payload['downloads'] : null,
                 'order' => $payload['order'] ?? 0,
                 'is_active' => (bool) ($payload['is_active'] ?? true),
+                'is_featured' => (bool) ($payload['is_featured'] ?? false),
             ];
 
             $product = null;
@@ -71,9 +72,11 @@ class ProductUpsertController extends Controller
                     [
                         'slug' => (string) ($t['slug'] ?? ''),
                         'name' => (string) ($t['name'] ?? ''),
-                        'category' => (string) ($t['category'] ?? ''),
                         'description' => (string) ($t['description'] ?? ''),
+                        'short_description' => $t['short_description'] ?? null,
                         'features' => isset($t['features']) ? (array) $t['features'] : null,
+                        'meta_title' => $t['meta_title'] ?? null,
+                        'meta_description' => $t['meta_description'] ?? null,
                     ],
                 );
             }

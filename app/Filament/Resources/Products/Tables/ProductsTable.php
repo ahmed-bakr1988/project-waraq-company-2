@@ -18,13 +18,16 @@ class ProductsTable
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
-                TextColumn::make('productCategory.name')->label('Category')->sortable()->toggleable(),
-                ImageColumn::make('avatar')
+                TextColumn::make('translation.name')->label('Name'),
+                TextColumn::make('translation.slug')->label('Slug'),
+                TextColumn::make('productCategory.translation.name')->label('Category'),
+                ImageColumn::make('image')
                     ->imageHeight(40)
                     ->square(true)
                     ->label('Image'),
                 TextColumn::make('order')->sortable(),
                 IconColumn::make('is_active')->boolean(),
+                IconColumn::make('is_featured')->boolean(),
                 TextColumn::make('updated_at')->dateTime()->label('Updated'),
             ])
             ->filters([

@@ -21,9 +21,11 @@ class SitemapRobotsTest extends TestCase
             'locale' => 'en',
             'slug' => 'p1',
             'name' => 'P1',
-            'category' => 'Cat',
             'description' => 'Desc',
+            'short_description' => 'Short',
             'features' => [],
+            'meta_title' => null,
+            'meta_description' => null,
         ]);
 
         NewsPost::factory()->create(['locale' => 'en']);

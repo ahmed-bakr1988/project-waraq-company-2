@@ -18,8 +18,8 @@ class ProductTranslationFactory extends Factory
             'locale' => fake()->randomElement(['en', 'ar']),
             'slug' => fake()->unique()->slug(),
             'name' => fake()->words(3, true),
-            'category' => fake()->randomElement(['Packaging', 'Flute', 'Liner', 'Corrugated']),
             'description' => fake()->paragraph(3),
+            'short_description' => fake()->sentence(16),
             'features' => [
                 'gsm' => fake()->numberBetween(80, 400),
                 'width' => fake()->numberBetween(100, 250).' cm',
@@ -30,6 +30,8 @@ class ProductTranslationFactory extends Factory
                 'strength' => fake()->randomElement(['High', 'Medium', 'Standard']),
                 'moisture_resistant' => fake()->boolean(60),
             ],
+            'meta_title' => null,
+            'meta_description' => null,
         ];
     }
 }

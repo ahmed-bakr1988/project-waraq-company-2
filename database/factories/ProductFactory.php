@@ -14,21 +14,16 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'product_category_id' => ProductCategory::query()->inRandomOrder()->value('id') ?? null,
-            'image' => 'assets/images/banner/21.webp',
+            'product_category_id' => ProductCategory::factory(),
+            'image' => null,
+            'gallery' => [],
             'logo' => null,
             'url' => null,
-            'summary' => $this->faker->sentence(12),
-            'specs' => [
-                'gsm_range' => [120, 300],
-                'fiber' => $this->faker->randomElement(['recycled', 'virgin']),
-                'width_mm' => [1200, 1800],
-            ],
-            'downloads' => [
-                'spec_pdf' => 'https://example.com/spec.pdf',
-            ],
+            'specs' => [],
+            'downloads' => [],
             'order' => $this->faker->numberBetween(0, 10),
             'is_active' => true,
+            'is_featured' => fake()->boolean(20),
         ];
     }
 }

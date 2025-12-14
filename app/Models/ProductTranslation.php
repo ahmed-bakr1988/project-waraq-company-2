@@ -14,9 +14,11 @@ class ProductTranslation extends Model
         'locale',
         'slug',
         'name',
-        'category',
         'description',
+        'short_description',
         'features',
+        'meta_title',
+        'meta_description',
     ];
 
     protected $casts = [

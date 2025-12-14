@@ -19,17 +19,19 @@ class ProductUpsertTest extends TestCase
             'product' => [
                 'product_category_id' => null,
                 'image' => 'assets/images/p1.webp',
-                'summary' => 'short summary',
                 'specs' => ['gsm_range' => [120, 300], 'width' => '1.2m'],
                 'downloads' => ['spec_pdf' => 'https://example.com/spec.pdf'],
+                'is_featured' => true,
                 'translations' => [
                     [
                         'locale' => 'en',
                         'slug' => 'test-liner-1',
                         'name' => 'Test Liner 1',
-                        'category' => 'Liner',
                         'description' => 'Desc EN',
+                        'short_description' => 'Short EN',
                         'features' => ['Strong', 'Durable'],
+                        'meta_title' => 'Test Liner 1',
+                        'meta_description' => 'Meta desc',
                     ],
                 ],
             ],

@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class Product extends Model
@@ -12,57 +15,80 @@ class Product extends Model
 
     protected $fillable = [
         'image',
+        'gallery',
         'logo',
         'url',
         'order',
         'is_active',
+        'is_featured',
         'product_category_id',
-        'summary',
         'specs',
         'downloads',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'is_featured' => 'boolean',
+        'gallery' => 'array',
         'specs' => 'array',
         'downloads' => 'array',
     ];
 
-    public function translations()
+    public function translations(): HasMany
     {
         return $this->hasMany(ProductTranslation::class);
     }
 
-    public function translation()
+    public function translation(): HasOne
     {
         return $this->hasOne(ProductTranslation::class)
             ->where('locale', LaravelLocalization::getCurrentLocale())
             ->withDefault([
                 'name' => '',
-                'category' => '',
-                'description' => '',
-                'features' => [],
+                'slug' => '',
+                'description' => null,
+                'short_description' => null,
+                'features' => null,
+                'meta_title' => null,
+                'meta_description' => null,
             ]);
     }
 
-    public function getNameAttribute()
+    public function variations(): HasMany
     {
-        return $this->translation->name;
+        return $this->hasMany(ProductVariation::class);
     }
 
-    public function getCategoryAttribute()
+    public function productCategory(): BelongsTo
     {
-        return $this->translation->category;
+        return $this->belongsTo(ProductCategory::class);
     }
 
-    public function getDescriptionAttribute()
+    public function getNameAttribute(): string
+    {
+        return (string) $this->translation->name;
+    }
+
+    public function getSlugAttribute(): string
+    {
+        return (string) $this->translation->slug;
+    }
+
+    public function getDescriptionAttribute(): ?string
     {
         return $this->translation->description;
     }
 
-    public function getFeaturesAttribute()
+    public function getShortDescriptionAttribute(): ?string
     {
-        return $this->translation->features;
+        return $this->translation->short_description;
+    }
+
+    public function getFeaturesAttribute(): array
+    {
+        $features = $this->translation->features;
+
+        return is_array($features) ? $features : [];
     }
 
     public function scopeActive($query)
@@ -73,10 +99,5 @@ class Product extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('order');
-    }
-
-    public function productCategory()
-    {
-        return $this->belongsTo(ProductCategory::class);
     }
 }

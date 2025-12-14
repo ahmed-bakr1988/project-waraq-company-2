@@ -8,21 +8,21 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('product_category_translations', function (Blueprint $table) {
+        Schema::create('product_variation_translations', function (Blueprint $table): void {
             $table->id();
-            $table->foreignId('product_category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_variation_id')->constrained('product_variations')->cascadeOnDelete();
             $table->string('locale', 5)->index();
             $table->string('name');
             $table->text('description')->nullable();
             $table->timestamps();
-            
-            $table->unique(['product_category_id', 'locale']);
-            $table->index(['locale', 'product_category_id']);
+
+            $table->unique(['product_variation_id', 'locale'], 'pvt_variation_locale_unique');
+            $table->index(['locale', 'product_variation_id'], 'pvt_locale_variation_idx');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('product_category_translations');
+        Schema::dropIfExists('product_variation_translations');
     }
 };

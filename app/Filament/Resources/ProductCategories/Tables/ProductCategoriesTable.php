@@ -2,15 +2,15 @@
 
 namespace App\Filament\Resources\ProductCategories\Tables;
 
-use Filament\Tables\Table;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 
 class ProductCategoriesTable
 {
@@ -18,9 +18,10 @@ class ProductCategoriesTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')->searchable()->sortable(),
-                ImageColumn::make('avatar'),
-                TextColumn::make('slug')->sortable(),
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('translation.name')->label('Name'),
+                TextColumn::make('translation.slug')->label('Slug'),
+                ImageColumn::make('image')->label('Image'),
                 TextColumn::make('order')->sortable(),
                 IconColumn::make('is_active')->boolean(),
                 TextColumn::make('updated_at')->dateTime()->label('Updated'),

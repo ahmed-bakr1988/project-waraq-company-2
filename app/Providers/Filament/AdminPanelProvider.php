@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Settings;
+use App\Http\Middleware\SetFilamentLocale;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -64,7 +65,8 @@ class AdminPanelProvider extends PanelProvider
             ->resourceCreatePageRedirect('index')
             ->resourceEditPageRedirect('index')
             ->authMiddleware([
+                SetFilamentLocale::class,
                 Authenticate::class,
-            ]);
+            ], isPersistent: true);
     }
 }

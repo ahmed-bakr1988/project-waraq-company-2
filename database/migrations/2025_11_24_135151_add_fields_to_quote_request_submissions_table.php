@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('quote_request_submissions', function (Blueprint $table) {
-            $table->foreignId('product_id')->nullable()->after('company')->constrained('products')->onDelete('set null');
+            $table->foreignId('product_id')->nullable()->after('company');
             $table->string('product_type', 255)->nullable()->after('product_id');
             $table->integer('quantity')->nullable()->after('product_type');
             $table->text('message')->nullable()->after('requirements');
