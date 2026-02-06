@@ -42,7 +42,12 @@ class ProductForm
                             Toggle::make('is_featured')->default(false),
                         ]),
                         FileUpload::make('image')
-                            ->label('Image')
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorViewportWidth('520')
+                            ->imageEditorViewportHeight('622')
+                            ->disk('public')
+                            ->directory('storage/app/public/assets/images/products/main-Floating/Treated-Deluxe-Floating')
                             ->nullable(),
                         FileUpload::make('gallery')
                             ->label('Gallery')
@@ -96,57 +101,6 @@ class ProductForm
                                     TextInput::make('meta_title')->nullable()->maxLength(255),
                                     Textarea::make('meta_description')->rows(3)->nullable(),
                                 ]),
-                            ]),
-                    ]),
-                Section::make('Variations')
-                    ->schema([
-                        Repeater::make('variations')
-                            ->relationship('variations')
-                            ->schema([
-                                Grid::make(4)->schema([
-                                    TextInput::make('sku')
-                                        ->nullable()
-                                        ->maxLength(255)
-                                        ->unique(ignoreRecord: true),
-                                    TextInput::make('price')
-                                        ->numeric()
-                                        ->nullable(),
-                                    TextInput::make('stock')
-                                        ->numeric()
-                                        ->default(0),
-                                    TextInput::make('order')
-                                        ->numeric()
-                                        ->default(0),
-                                ]),
-                                Grid::make(2)->schema([
-                                    Toggle::make('is_active')->default(true),
-                                    FileUpload::make('image')->label('Image')->nullable(),
-                                ]),
-                                KeyValue::make('options')->keyLabel('Option')->valueLabel('Value')->nullable(),
-                                Repeater::make('translations')
-                                    ->relationship('translations')
-                                    ->default([
-                                        ['locale' => 'en'],
-                                        ['locale' => 'ar'],
-                                    ])
-                                    ->minItems(2)
-                                    ->maxItems(2)
-                                    ->schema([
-                                        Grid::make(3)->schema([
-                                            Select::make('locale')
-                                                ->options([
-                                                    'en' => 'English',
-                                                    'ar' => 'العربية',
-                                                ])
-                                                ->required()
-                                                ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
-                                            TextInput::make('name')
-                                                ->required()
-                                                ->maxLength(255)
-                                                ->columnSpan(2),
-                                        ]),
-                                        Textarea::make('description')->rows(3)->nullable(),
-                                    ]),
                             ]),
                     ]),
             ]);

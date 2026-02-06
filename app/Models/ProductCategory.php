@@ -28,6 +28,11 @@ class ProductCategory extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function subProducts(): HasMany
+    {
+        return $this->hasMany(SubProduct::class);
+    }
+
     public function translations(): HasMany
     {
         return $this->hasMany(ProductCategoryTranslation::class);
