@@ -123,7 +123,6 @@
                         <ul class="submenu mm-collapse">
                             <li><a href="{{ route('company-news') }}">{{ __('words.company_news') }}</a></li>
                             <li><a href="{{ route('technical-articles') }}">{{ __('words.technical_articles') }}</a></li>
-                            <li><a href="{{ route('tips-guidelines') }}">{{ __('words.tips_guidelines') }}</a></li>
                             <li><a href="{{ route('exhibitions-events') }}">{{ __('words.exhibitions_events') }}</a></li>
                         </ul>
                     </li>
@@ -138,8 +137,6 @@
                         <ul class="submenu mm-collapse">
                             <li><a href="{{ route('contact-info') }}">{{ __('words.contact_info') }}</a></li>
                             <li><a href="{{ route('quote-request') }}">{{ __('words.quote_request') }}</a></li>
-                            <li><a href="{{ route('customer-service') }}">{{ __('words.customer_service') }}</a></li>
-                            <li><a href="{{ route('complaints-suggestions') }}">{{ __('words.complaints_suggestions') }}</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -94,6 +94,7 @@ return [
     'nav_about' => 'About Us',
     'nav_news' => 'News & Articles',
     'nav_sustainability' => 'Sustainability',
+    'nav_sustainability_activities' => 'Sustainability Activities',
     'nav_Work' => 'Careers',
     'nav_contact' => 'Contact Us',
 

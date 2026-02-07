@@ -41,9 +41,7 @@ class NewsletterAjaxTest extends TestCase
         ]);
 
         $response->assertStatus(422)
-            ->assertJson([
-                'success' => false,
-            ]);
+            ->assertJsonValidationErrors(['email']);
     }
 
     /**
@@ -56,9 +54,7 @@ class NewsletterAjaxTest extends TestCase
         ]);
 
         $response->assertStatus(422)
-            ->assertJson([
-                'success' => false,
-            ]);
+            ->assertJsonValidationErrors(['email']);
     }
 
     /**
@@ -89,10 +85,11 @@ class NewsletterAjaxTest extends TestCase
      */
     public function test_newsletter_subscription_reactivation_via_ajax(): void
     {
-        // Create an inactive subscription
+        // Create an unsubscribed subscription (valid enum value per migration)
         NewsletterSubscription::create([
             'email' => 'inactive@example.com',
-            'status' => 'inactive',
+            'status' => 'unsubscribed',
+            'is_active' => false,
             'subscribed_at' => now()->subMonth(),
         ]);
 

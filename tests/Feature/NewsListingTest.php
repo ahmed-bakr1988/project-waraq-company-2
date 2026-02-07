@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use App\Models\NewsPost;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter;
+use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
 use Tests\TestCase;
 
 /**
@@ -15,6 +17,9 @@ class NewsListingTest extends TestCase
 
     public function test_news_index_lists_published_posts(): void
     {
+        // Set the app locale to English
+        app()->setLocale('en');
+
         $post = new NewsPost;
         $post->locale = 'en';
         $post->title = 'Hello World';
@@ -25,13 +30,13 @@ class NewsListingTest extends TestCase
         $post->published_at = now()->subDay();
         $post->save();
 
-        // Set locale for the test
-        app()->setLocale('en');
+        // Disable localization redirects for testing
+        $response = $this->withoutMiddleware([
+            LocaleSessionRedirect::class,
+            LaravelLocalizationRedirectFilter::class,
+        ])->get('/news');
 
-        $response = $this->followingRedirects()->get(route('news.index', [], false));
         $response->assertStatus(200)
             ->assertSee('Hello World');
     }
-
-    // Additional show page tests can be added later if needed
 }

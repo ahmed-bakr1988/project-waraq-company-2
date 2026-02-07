@@ -111,6 +111,7 @@ return [
     'nav_about' => 'من نحن - ورق',
     'nav_news' => 'الأخبار والمقالات',
     'nav_sustainability' => 'الاستدامة',
+    'nav_sustainability_activities' => 'انشطة الاستدامة',
     'nav_contact' => 'تواصل معنا',
 
     // Products Menu

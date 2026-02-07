@@ -34,15 +34,15 @@ class ProductController extends Controller
         return view('pages.products', compact('products', 'categories'));
     }
 
-    public function show($slug)
+    public function show(Product $product)
     {
-        $product->loadMissing(['translation', 'productCategory']);
+        $product->loadMissing(['translations', 'category']);
 
         // Load related products from the same category
-        $relatedProducts = Product::with(['translation', 'productCategory'])
-            ->active()
+        $relatedProducts = Product::with(['translations', 'category'])
+            ->where('is_active', true)
             ->where('id', '!=', $product->id)
-            ->where('product_category_id', $product->product_category_id)
+            ->where('category_id', $product->category_id)
             ->limit(3)
             ->get();
 
@@ -61,6 +61,7 @@ class ProductController extends Controller
 
             if ($validator->fails()) {
                 flash()->error(__('messages.validation_error'));
+
                 return back()->withInput()->withErrors($validator);
             }
 
@@ -72,11 +73,13 @@ class ProductController extends Controller
 
             $successMessage = __('messages.review_success');
             flash()->success($successMessage);
+
             return back();
 
         } catch (\Exception $e) {
             $errorMessage = __('messages.review_error');
             flash()->error($errorMessage);
+
             return back()->withInput();
         }
     }
