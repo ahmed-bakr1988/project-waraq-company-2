@@ -13,19 +13,18 @@ class NewsController extends Controller
         $locale = app()->getLocale();
         $query = NewsPost::query()
             ->where('locale', $locale)
+            ->where('is_published', true)
             ->where(function ($q) {
-                $q->where('is_published', true)
-                    ->orWhereNull('published_at')
+                $q->whereNull('published_at')
                     ->orWhere('published_at', '<=', now());
             });
 
-        // Search functionality
         if (request()->filled('search')) {
             $searchTerm = request('search');
-            $query->where(function($q) use ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
                 $q->where('title', 'LIKE', "%{$searchTerm}%")
-                  ->orWhere('excerpt', 'LIKE', "%{$searchTerm}%")
-                  ->orWhere('content', 'LIKE', "%{$searchTerm}%");
+                    ->orWhere('excerpt', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('body', 'LIKE', "%{$searchTerm}%");
             });
         }
 

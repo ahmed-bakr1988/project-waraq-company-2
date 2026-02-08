@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Products\Tables;
 
+use App\Models\ProductCategory;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -9,6 +10,8 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class ProductsTable
@@ -31,7 +34,26 @@ class ProductsTable
                 TextColumn::make('updated_at')->dateTime()->label('Updated'),
             ])
             ->filters([
-                //
+                SelectFilter::make('product_category_id')
+                    ->options(fn (): array => ProductCategory::query()
+                        ->with('translation')
+                        ->orderBy('order')
+                        ->get(['id'])
+                        ->mapWithKeys(fn (ProductCategory $category): array => [
+                            $category->id => $category->name,
+                        ])
+                        ->all())
+                    ->label('Category'),
+                TernaryFilter::make('is_active')
+                    ->label('Active')
+                    ->placeholder('All')
+                    ->trueLabel('Active')
+                    ->falseLabel('Inactive'),
+                TernaryFilter::make('is_featured')
+                    ->label('Featured')
+                    ->placeholder('All')
+                    ->trueLabel('Featured')
+                    ->falseLabel('Not featured'),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -41,6 +63,7 @@ class ProductsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('order');
     }
 }

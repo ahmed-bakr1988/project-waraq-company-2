@@ -47,11 +47,13 @@ class ProductForm
                             ->imageEditorViewportWidth('520')
                             ->imageEditorViewportHeight('622')
                             ->disk('public')
-                            ->directory('storage/app/public/assets/images/products/main-Floating/Treated-Deluxe-Floating')
+                            ->directory('products')
                             ->nullable(),
                         FileUpload::make('gallery')
                             ->label('Gallery')
                             ->multiple()
+                            ->disk('public')
+                            ->directory('products/gallery')
                             ->nullable(),
                         Grid::make(2)->schema([
                             TextInput::make('logo')->label('Logo Path')->nullable(),

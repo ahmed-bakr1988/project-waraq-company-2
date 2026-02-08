@@ -1,6 +1,7 @@
 /* Arabic Text Animation Support */
 
 /* Ensure proper RTL text direction for Arabic animated elements */
+[dir="rtl"] .rts-text-anime-style-1,
 .rts-text-anime-style-1[dir="rtl"],
 .rts-text-anime-style-1:lang(ar) {
     direction: rtl;
@@ -28,22 +29,27 @@
     transition: all 0.3s ease;
 }
 
-/* Arabic line styling */
+/* Arabic line styling - CRITICAL for RTL word order */
+[dir="rtl"] .rts-text-anime-style-1 .split-line,
 .rts-text-anime-style-1 .split-line {
     display: block;
     overflow: hidden;
 }
 
+[dir="rtl"] .rts-text-anime-style-1 .split-line {
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: bidi-override;
+}
+
 /* Ensure proper spacing for Arabic words during animation */
-.rts-text-anime-style-1[dir="rtl"] .split-word-ar,
-.rts-text-anime-style-1:lang(ar) .split-word-ar {
-    margin-left: 0.2em;
+[dir="rtl"] .rts-text-anime-style-1 .split-word-ar {
+    margin-left: 0.25em;
     margin-right: 0;
 }
 
-/* First word in RTL should not have right margin */
-.rts-text-anime-style-1[dir="rtl"] .split-word-ar:first-child,
-.rts-text-anime-style-1:lang(ar) .split-word-ar:first-child {
+/* Last word in RTL line should not have left margin */
+[dir="rtl"] .rts-text-anime-style-1 .split-word-ar:last-child {
     margin-left: 0;
 }
 
@@ -67,13 +73,12 @@
 
 /* Responsive adjustments for Arabic text */
 @media (max-width: 768px) {
-    .rts-text-anime-style-1:lang(ar) {
+    [dir="rtl"] .rts-text-anime-style-1 {
         font-size: 0.9em;
         line-height: 1.5;
     }
-    
-    .rts-text-anime-style-1[dir="rtl"] .split-word-ar,
-    .rts-text-anime-style-1:lang(ar) .split-word-ar {
+
+    [dir="rtl"] .rts-text-anime-style-1 .split-word-ar {
         margin-left: 0.15em;
     }
 }

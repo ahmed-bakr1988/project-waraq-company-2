@@ -1,22 +1,40 @@
 <x-app-layout>
     <!-- Breadcrumb -->
-    <div class="rts-breadcrumb-area breadcrumb-bg bg_image">
+    <!-- about us area wrapper main -->
+    <div class="rts-breadcrumb-area">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 breadcrumb-1">
-                    <h1 class="title">{{ __('words.about_us') }}</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-area-left">
+                        <span class="pre">{{ __('words.since_2018') }}</span>
+                        <span class="bg-title">{{ __('words.company_name_title') }}</span>
+                        <h1 class="title rts-text-anime-style-1">
+                            {{ __('words.company_description+0') }}<br>
+                            {{ __('words.company_description+1') }}
+                        </h1>
+                    </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="bread-tag">
-                        <a href="{{ route('home') }}">{{ __('words.nav_home') }}</a>
-                        <span> / </span>
-                        <a href="#" class="active">{{ __('words.about_us') }}</a>
+            </div>
+        </div>
+        <div class="shape-area">
+            <img src="{{ asset('assets/images/about/shape/01.png') }}" alt="shape" class="one">
+            <img src="{{ asset('assets/images/about/shape/02.png') }}" alt="shape" class="two">
+            <img src="{{ asset('assets/images/about/shape/03.png') }}" alt="shape" class="three">
+        </div>
+    </div>
+    <!-- about us area wrapper main end -->
+
+        <div class="about-invena-large-image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="large-image-bottm-breadcrumb">
+                        <img src="{{ asset('assets/images/about/16.webp') }}" alt="about">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- About Section -->
     <div class="rts-about-area rts-section-gap">
         <div class="container">
@@ -29,7 +47,7 @@
                 <div class="col-lg-6">
                     <div class="about-progress-inner">
                         <div class="title-area">
-                            <span>{{ __('words.since_2006') }}</span>
+                            <span>{{ __('words.since_2018') }}</span>
                             <h2 class="title">{{ __('words.company_name') }}</h2>
                         </div>
                         <p class="disc">
@@ -37,9 +55,9 @@
                         </p>
                         <p class="disc">
                             @if(app()->getLocale() === 'ar')
-                                شركة ورق لصناعة الورق هي شركة مصرية رائدة في تصنيع المنتجات الورقية، تأسست في عام 2006. نحن متخصصون في إنتاج منتجات ورقية معاد تدويرها عالية الجودة للتغليف المموج والتطبيقات الصناعية. نلتزم بتقديم أعلى مستويات الجودة مع الحفاظ على البيئة من خلال استخدام ألياف معاد تدويرها بنسبة 100%.
+                                شركة ورق لصناعة الورق هي شركة مصرية رائدة في تصنيع المنتجات الورقية، تأسست في عام 2018. نحن متخصصون في إنتاج منتجات ورقية معاد تدويرها عالية الجودة للتغليف المموج والتطبيقات الصناعية. نلتزم بتقديم أعلى مستويات الجودة مع الحفاظ على البيئة من خلال استخدام ألياف معاد تدويرها بنسبة 100%.
                             @else
-                                Waraq for Paper Industries is a leading Egyptian manufacturer of paper products, established in 2006. We specialize in producing high-quality recycled paper products for corrugated packaging and industrial applications. We are committed to delivering the highest quality standards while protecting the environment through 100% recycled fiber usage.
+                                Waraq for Paper Industries is a leading Egyptian manufacturer of paper products, established in 2018. We specialize in producing high-quality recycled paper products for corrugated packaging and industrial applications. We are committed to delivering the highest quality standards while protecting the environment through 100% recycled fiber usage.
                             @endif
                         </p>
                     </div>
@@ -197,7 +215,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text-center mb--40">
-                        <p class="pre-title">{{ __('words.since_2006') }}</p>
+                        <p class="pre-title">{{ __('words.since_2018') }}</p>
                         <h2 class="title">{{ __('words.achievements') }}</h2>
                     </div>
                 </div>

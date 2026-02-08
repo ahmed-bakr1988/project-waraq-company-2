@@ -33,6 +33,8 @@ class SubProductResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+
+
     public static function getNavigationLabel(): string
     {
         return __('filament.sub_products.navigation');

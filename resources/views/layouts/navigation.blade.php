@@ -32,10 +32,12 @@
                                             <div class="container">
                                                 <div class="row g-5">
                                                     @php
-                                                    $categories = \App\Models\ProductCategory::active()
-                                                    ->ordered()
-                                                    ->take(4)
-                                                    ->get();
+                                                    $categories = \App\Models\ProductCategory::query()
+                                                        ->with('translation')
+                                                        ->active()
+                                                        ->ordered()
+                                                        ->take(4)
+                                                        ->get();
                                                     @endphp
 
                                                     @if($categories->count() > 0)
@@ -46,7 +48,14 @@
                                                                 <a href="{{ route('product-categories.show', $category->slug) }}">
                                                                     <div class="single-service-menu">
                                                                         <div class="icon">
-                                                                            <img src="{{ asset('assets/images/project/HP-FLUTE/MG_1728-2-copy-2-150x150.jpg') }}" alt="{{ $category->name }}">
+                                                                            @php
+                                                                                $categoryImage = $category->image
+                                                                                    ? (Str::startsWith($category->image, ['http://', 'https://', '/'])
+                                                                                        ? $category->image
+                                                                                        : asset('storage/' . ltrim($category->image, '/')))
+                                                                                    : asset('assets/images/project/HP-FLUTE/MG_1728-2-copy-2-150x150.jpg');
+                                                                            @endphp
+                                                                            <img src="{{ $categoryImage }}" alt="{{ $category->name }}">
                                                                         </div>
                                                                         <div class="info">
                                                                             <h5 class="title">{{ $category->name }}</h5>
@@ -65,7 +74,14 @@
                                                                 <a href="{{ route('product-categories.show', $category->slug) }}">
                                                                     <div class="single-service-menu">
                                                                         <div class="icon">
-                                                                            <img src="{{ asset('assets/images/project/Picture5.jpg') }}" alt="{{ $category->name }}">
+                                                                            @php
+                                                                                $categoryImage = $category->image
+                                                                                    ? (Str::startsWith($category->image, ['http://', 'https://', '/'])
+                                                                                        ? $category->image
+                                                                                        : asset('storage/' . ltrim($category->image, '/')))
+                                                                                    : asset('assets/images/project/Picture5.jpg');
+                                                                            @endphp
+                                                                            <img src="{{ $categoryImage }}" alt="{{ $category->name }}">
                                                                         </div>
                                                                         <div class="info">
                                                                             <h5 class="title">{{ $category->name }}</h5>
@@ -108,7 +124,7 @@
                                     </ul>
                                 </li>
                                 <li class="main-nav has-dropdown">
-                                    <a href="{{ route('sustainability-activities') }}">{{ __('words.nav_sustainability_activities') }}</a>
+                                    <a href="{{ route('sustainability-activities') }}">{{ __('words.nav_sustainability') }}</a>
                                     <ul class="submenu parent-nav">
                                         <li><a href="{{ route('sustainability-activities') }}">{{ __('words.nav_sustainability_activities') }}</a></li>
                                         <li><a href="{{ route('vision-mission') }}">{{ __('words.vision_mission') }}</a></li>

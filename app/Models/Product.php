@@ -69,6 +69,11 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class);
     }
 
+    public function category(): BelongsTo
+    {
+        return $this->productCategory();
+    }
+
     public function getNameAttribute(): string
     {
         return (string) $this->translation->name;
@@ -82,6 +87,11 @@ class Product extends Model
     public function getDescriptionAttribute(): ?string
     {
         return $this->translation->description;
+    }
+
+    public function getCategoryAttribute(): string
+    {
+        return (string) optional($this->productCategory)->name;
     }
 
     public function getShortDescriptionAttribute(): ?string

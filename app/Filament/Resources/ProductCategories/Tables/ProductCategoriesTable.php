@@ -10,6 +10,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class ProductCategoriesTable
@@ -27,7 +28,11 @@ class ProductCategoriesTable
                 TextColumn::make('updated_at')->dateTime()->label('Updated'),
             ])
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Status')
+                    ->placeholder('All')
+                    ->trueLabel('Active')
+                    ->falseLabel('Inactive'),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -38,6 +43,7 @@ class ProductCategoriesTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('order');
     }
 }

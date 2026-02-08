@@ -14352,6 +14352,7 @@ section.main-wrapper-sticky .sticky-statement.narrow .left-side img {
   align-items: center;
   padding: 80px;
   justify-content: space-between;
+  margin-block-start: 60px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .cta-main-area-wrapper-one {
@@ -23407,7 +23408,7 @@ body.contact-page .rts-breadcrumb-area .title-area-left {
   left: 10px;
 }
 [dir=rtl] .rts-breadcrumb-area .title-area-left .title {
-  direction: ltr;
+  direction: rtl;
 }
 [dir=rtl] .rts-single-wized .single-categories li a i::before {
   content: "\f177";
@@ -23856,8 +23857,9 @@ body.contact-page .rts-breadcrumb-area .title-area-left {
   direction: rtl;
 }
 [dir=rtl] .rts-breadcrumb-area .title-area-left .title .split-line {
-  direction: ltr;
+  direction: rtl;
   text-align: right !important;
+  unicode-bidi: bidi-override;
 }
 [dir=rtl] .blog-single-post-listing .blog-listing-content .user-info .single {
   margin-left: 30px;
@@ -30992,5 +30994,235 @@ header.header-transparent.in-full-screen .action-area .menu-btn {
   .map-information-2-footer {
       padding: 20px;
   }
+}
+
+/* =============================================
+   COMPREHENSIVE RTL OVERRIDES FOR ARABIC
+   ============================================= */
+
+/* --- Breadcrumb Title Area --- */
+[dir=rtl] .rts-breadcrumb-area .title-area-left {
+    text-align: right;
+}
+
+[dir=rtl] .rts-breadcrumb-area .title-area-left .bg-title {
+    left: auto;
+    right: -90px;
+}
+
+@media only screen and (max-width: 575px) {
+    [dir=rtl] .rts-breadcrumb-area .title-area-left .bg-title {
+        left: auto;
+        right: 0;
+    }
+}
+
+[dir=rtl] .rts-breadcrumb-area .title-area-left.center .bg-title {
+    right: 50%;
+    left: auto;
+    transform: translateX(50%);
+}
+
+[dir=rtl] .rts-breadcrumb-area .title-area-left .bg-title::after {
+    left: auto;
+    right: 0;
+}
+
+[dir=rtl] .rts-breadcrumb-area .title-area-left .pre,
+[dir=rtl] .rts-breadcrumb-area .title-area-left .title,
+[dir=rtl] .rts-breadcrumb-area .title-area-left p {
+    text-align: right;
+}
+
+/* --- Shape Positioning --- */
+[dir=rtl] .rts-breadcrumb-area .shape-area .one {
+    left: auto;
+    right: 80px;
+}
+
+/* --- About Section --- */
+[dir=rtl] .about-progress-inner {
+    text-align: right;
+}
+
+[dir=rtl] .about-progress-inner .title-area {
+    text-align: right;
+}
+
+[dir=rtl] .about-progress-inner .disc {
+    text-align: right;
+    direction: rtl;
+}
+
+/* --- Feature / Mission & Vision Cards --- */
+[dir=rtl] .single-feature-area-start {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir=rtl] .single-feature-area-start .icon {
+    text-align: right;
+}
+
+[dir=rtl] .single-feature-area-start .title,
+[dir=rtl] .single-feature-area-start .disc {
+    text-align: right;
+}
+
+/* --- Service/Value Cards --- */
+[dir=rtl] .service-one-inner-four {
+    direction: rtl;
+}
+
+[dir=rtl] .service-one-inner-four .service-details {
+    text-align: right;
+}
+
+[dir=rtl] .service-one-inner-four .service-details .title,
+[dir=rtl] .service-one-inner-four .service-details .disc {
+    text-align: right;
+}
+
+/* --- Counter/Achievements Section --- */
+[dir=rtl] .single-counterup {
+    direction: rtl;
+}
+
+[dir=rtl] .single-counterup .info {
+    text-align: right;
+}
+
+[dir=rtl] .single-counterup .info .disc {
+    text-align: right;
+}
+
+/* --- CTA Area --- */
+[dir=rtl] .rts-callto-acation-area {
+    direction: rtl;
+}
+
+[dir=rtl] .rts-callto-acation-area .title,
+[dir=rtl] .rts-callto-acation-area .disc,
+[dir=rtl] .rts-callto-acation-area p {
+    text-align: right;
+}
+
+/* --- Title Styles --- */
+[dir=rtl] .title-area {
+    text-align: right;
+}
+
+[dir=rtl] .pre-title {
+    text-align: right;
+}
+
+/* --- General Content RTL --- */
+[dir=rtl] .disc {
+    text-align: right;
+    direction: rtl;
+}
+
+/* --- Service Details (generic) --- */
+[dir=rtl] .service-details {
+    text-align: right;
+}
+
+/* --- Banner Service Details --- */
+[dir=rtl] .banner-inner-service-details-1 .bg-title {
+    left: auto;
+    right: 0;
+}
+
+/* --- Title Style 3 --- */
+[dir=rtl] .title-style-three .bg-title,
+[dir=rtl] .title-style-three.left .bg-title {
+    left: auto;
+    right: -25px;
+}
+
+/* --- Flex Containers RTL --- */
+[dir=rtl] .d-flex {
+    flex-direction: row-reverse;
+}
+
+[dir=rtl] .d-flex.flex-column {
+    flex-direction: column;
+}
+
+/* --- List Items --- */
+[dir=rtl] ul,
+[dir=rtl] ol {
+    padding-left: 0;
+    padding-right: 2rem;
+}
+
+/* --- Form Elements --- */
+[dir=rtl] input,
+[dir=rtl] textarea,
+[dir=rtl] select {
+    text-align: right;
+    direction: rtl;
+}
+
+/* --- Breadcrumb Navigation --- */
+[dir=rtl] .breadcrumb {
+    direction: rtl;
+}
+
+[dir=rtl] .breadcrumb-item + .breadcrumb-item::before {
+    float: right;
+    padding-left: 0.5rem;
+    padding-right: 0;
+}
+
+/* --- Margin/Padding Utility Flips --- */
+[dir=rtl] .ms-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+[dir=rtl] .me-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+
+/* --- Icon Before/After Arrows --- */
+[dir=rtl] .rts-btn i,
+[dir=rtl] .rts-btn svg {
+    transform: scaleX(-1);
+}
+
+/* --- Text Alignment Override --- */
+[dir=rtl] .text-start {
+    text-align: right !important;
+}
+
+[dir=rtl] .text-end {
+    text-align: left !important;
+}
+
+/* --- Progress Bar --- */
+[dir=rtl] .progress-bar {
+    direction: ltr;
+}
+
+/* --- Timeline Section --- */
+[dir=rtl] .timeline-area {
+    direction: rtl;
+}
+
+/* --- Contact Page --- */
+[dir=rtl] .contact-form-area input,
+[dir=rtl] .contact-form-area textarea {
+    text-align: right;
+}
+
+/* --- Footer --- */
+[dir=rtl] .footer-wrapper {
+    text-align: right;
+}
+
+[dir=rtl] .footer-wrapper .disc {
+    text-align: right;
 }
 

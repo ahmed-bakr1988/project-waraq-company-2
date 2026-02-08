@@ -20,6 +20,10 @@ class ContactMessageResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+
+
+    protected static ?string $navigationLabel = 'Contact Messages';
+
     public static function form(Schema $schema): Schema
     {
         return ContactMessageForm::configure($schema);
@@ -32,9 +36,7 @@ class ContactMessageResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

@@ -27,7 +27,11 @@
     </noscript>
 
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
+    @if(app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.rtl.min.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
+    @endif
     <!-- Defer non-critical vendor styles to reduce blocking -->
     <link rel="preload" as="style" href="{{ asset('assets/css/vendor/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/animate.css') }}">
@@ -65,7 +69,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/contact-section.css') }}" />
     </noscript>
 
-    
+
     <!-- Preload Critical Images -->
     <link rel="preload" as="image" href="{{ asset('assets/images/banner/30.webp') }}" fetchpriority="high">
 

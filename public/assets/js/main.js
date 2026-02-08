@@ -1206,17 +1206,30 @@
 
           if (isArabicText) {
             // Arabic text animation - word by word with RTL direction
+            // Set RTL direction on the element BEFORE splitting
+            element.style.direction = 'rtl';
+            element.style.textAlign = 'right';
+
             element.split = new SplitText(element, {
               type: "lines,words",
               linesClass: "split-line",
               wordsClass: "split-word-ar"
             });
+
+            // Ensure all split-line wrappers maintain RTL direction
+            var splitLines = element.querySelectorAll('.split-line');
+            for (var i = 0; i < splitLines.length; i++) {
+              splitLines[i].style.direction = 'rtl';
+              splitLines[i].style.textAlign = 'right';
+              splitLines[i].style.unicodeBidi = 'bidi-override';
+            }
+
             gsap.set(element, { perspective: 400 });
 
             gsap.set(element.split.words, {
               opacity: 0,
-              x: "-50", // RTL direction for Arabic
-              rotateY: "45"
+              x: "50",       // RTL: words slide in from the RIGHT
+              rotateY: "-45"  // Flip rotation direction for RTL
             });
 
             element.animation = gsap.to(element.split.words, {
@@ -1227,7 +1240,7 @@
               opacity: 1,
               duration: 1.2,
               ease: Back.easeOut,
-              stagger: 0.08, // Slower stagger for words
+              stagger: 0.08,
             });
           } else {
             // English text animation - character by character with LTR direction
@@ -1396,7 +1409,7 @@
           }
         });
       }
-      // To check If it is in Viewport 
+      // To check If it is in Viewport
       var $window = $(window);
       function check_if_in_view() {
         $('.countervalue').each(function () {

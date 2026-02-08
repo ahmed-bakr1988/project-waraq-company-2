@@ -8,6 +8,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class MediaItemsTable
@@ -18,28 +19,47 @@ class MediaItemsTable
             ->columns([
                 TextColumn::make('locale')
                     ->label('Locale')
-                    ->searchable(),
+                    ->badge()
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('title')
                     ->label('Title')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('type')
                     ->label('Type')
-                    ->searchable(),
+                    ->badge()
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('url')
                     ->label('URL')
-                    ->searchable(),
+                    ->url(fn ($record): ?string => $record->url)
+                    ->openUrlInNewTab()
+                    ->toggleable(),
                 TextColumn::make('file')
                     ->label('File')
-                    ->searchable(),
+                    ->toggleable(),
                 TextColumn::make('thumbnail')
                     ->label('Thumbnail')
-                    ->searchable(),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('published_at')
                     ->label('Published At')
-                    ->searchable(),
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('type')
+                    ->options([
+                        'image' => 'Image',
+                        'video' => 'Video',
+                        'pdf' => 'PDF',
+                        'link' => 'Link',
+                    ]),
+                SelectFilter::make('locale')
+                    ->options([
+                        'en' => 'English',
+                        'ar' => 'العربية',
+                    ]),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -50,6 +70,7 @@ class MediaItemsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('published_at', 'desc');
     }
 }

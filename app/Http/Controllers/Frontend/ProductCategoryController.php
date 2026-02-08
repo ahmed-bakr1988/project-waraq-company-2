@@ -11,8 +11,9 @@ class ProductCategoryController extends Controller
     public function index(): View
     {
         $categories = ProductCategory::query()
-            ->where('is_active', true)
-            ->orderBy('order')
+            ->with('translation')
+            ->active()
+            ->ordered()
             ->get();
 
         return view('pages.product-categories.index', compact('categories'));
@@ -20,8 +21,22 @@ class ProductCategoryController extends Controller
 
     public function show(string $slug): View
     {
-        $category = ProductCategory::query()->where('slug', $slug)->firstOrFail();
-        $products = $category->products()->with('translation')->active()->ordered()->get();
+        $locale = app()->getLocale();
+
+        $category = ProductCategory::query()
+            ->whereHas('translations', function ($query) use ($locale, $slug) {
+                $query
+                    ->where('locale', $locale)
+                    ->where('slug', $slug);
+            })
+            ->with('translation')
+            ->firstOrFail();
+
+        $products = $category->products()
+            ->with('translation')
+            ->active()
+            ->ordered()
+            ->get();
 
         return view('pages.product-categories.show', compact('category', 'products'));
     }

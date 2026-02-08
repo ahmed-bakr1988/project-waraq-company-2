@@ -36,28 +36,9 @@
                                 <span class="pre">
                                     {{ __('words.Our_process') }}
                                 </span>
-                                @if (app()->getLocale() == 'ar')
-                                    <h2 class="title rts-text-anime-style-1" dir="rtl" lang="ar">
-
-                                        {{ __('words.banner_title_2_5') }}
-                                        {{ __('words.banner_title_2_4') }}
-                                        {{ __('words.banner_title_2_3') }}
-                                        {{ __('words.banner_title_2_2') }}
-                                        {{ __('words.banner_title_2_1') }}
-                                        {{ __('words.banner_title_2') }}
-                                    </h2>
-                                @else
-                                    <h2 class="title rts-text-anime-style-1">
-                                        {{ __('words.banner_title_2') }}
-                                        {{ __('words.banner_title_2_1') }}
-                                        {{ __('words.banner_title_2_2') }}
-                                        {{ __('words.banner_title_2_3') }}
-                                        {{ __('words.banner_title_2_4') }}
-                                        {{ __('words.banner_title_2_5') }}
-
-
-                                    </h2>
-                                @endif
+                                <h2 class="title rts-text-anime-style-1" >
+                                    {{ __('words.banner_title_2') }}
+                                </h2>
                             </div>
                             {{-- <a href="#" class="rts-btn btn-primary btn-border">View All Service</a> --}}
                         </div>
@@ -141,7 +122,9 @@
                 <div class="row">
                     <div class="col-12 mb--40">
                         <div class="title-area-client-client text-center">
-                            <p  class="client-title" @if(app()->getLocale() == 'ar') style="font-size: 3rem!important;" @endif>{{ __('words.Our_Trusted_Clients') }}</p>
+                            <p class="client-title"
+                                @if (app()->getLocale() == 'ar') style="font-size: 3rem!important;" @endif>
+                                {{ __('words.Our_Trusted_Clients') }}</p>
                         </div>
                     </div>
                 </div>

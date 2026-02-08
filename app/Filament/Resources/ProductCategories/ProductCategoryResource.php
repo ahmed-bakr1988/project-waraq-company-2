@@ -22,6 +22,10 @@ class ProductCategoryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+
+
+    protected static ?string $navigationLabel = 'Product Categories';
+
     public static function form(Schema $schema): Schema
     {
         return ProductCategoryForm::configure($schema);

@@ -65,7 +65,7 @@
 }
 
 .contact-information-main-wrapper .signle-contact-information:hover .icon {
-    background: hsl(116, 86%, 20%) !important;  
+    background: hsl(116, 86%, 20%) !important;
     color: #fff !important;
 }
 
@@ -93,11 +93,11 @@
     .map-area-main-wrapper {
         margin-top: 0;
     }
-    
+
     .map-area-main-footer-two {
         min-height: 400px;
     }
-    
+
     .map-information-2-footer {
         padding: 30px;
     }
@@ -107,13 +107,36 @@
     .map-area-main-wrapper {
         padding: 15px;
     }
-    
+
     .map-area-main-footer-two {
         min-height: 300px;
     }
-    
+
     .map-information-2-footer {
         padding: 20px;
     }
-} 
+}
 
+/* RTL Support */
+[dir=rtl] .contact-information-main-wrapper .signle-contact-information {
+    flex-direction: row-reverse;
+}
+
+[dir=rtl] .contact-information-main-wrapper .icon {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+[dir=rtl] .contact-information-main-wrapper .information-wrapper {
+    text-align: right;
+}
+
+[dir=rtl] .map-information-2-footer .title-main {
+    text-align: right;
+}
+
+[dir=rtl] .contact-form-area input,
+[dir=rtl] .contact-form-area textarea {
+    text-align: right;
+    direction: rtl;
+}

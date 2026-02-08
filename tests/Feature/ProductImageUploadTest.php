@@ -56,7 +56,7 @@ class ProductImageUploadTest extends TestCase
         $product = \App\Models\Product::query()->latest('id')->firstOrFail();
 
         $this->assertIsString($product->image);
-        $this->assertStringContainsString('assets/images/products/main-Floating/Treated-Deluxe-Floating', $product->image);
+        $this->assertStringContainsString('products/', $product->image);
 
         Storage::disk('public')->assertExists($product->image);
     }

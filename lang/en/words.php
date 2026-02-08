@@ -164,12 +164,12 @@ return [
     // banner
     'welcome_banner' => 'Global quality products from locally recycled fibers',
     'banner_title_1' => 'Start your green transformation journey with us!',
-    'banner_title_2' => 'Paper\'s',
-    'banner_title_2_1' => 'Journey',
-    'banner_title_2_2' => 'Starts',
-    'banner_title_2_3' => 'Here...',
-    'banner_title_2_4' => 'Discover',
-    'banner_title_2_5' => 'It With Us',
+    'banner_title_2' => 'Paper\'s journey starts here… Discover it with us.',
+    // 'banner_title_2_1' => '',
+    // 'banner_title_2_2' => 'Starts',
+    // 'banner_title_2_3' => 'Here...',
+    // 'banner_title_2_4' => 'Discover',
+    // 'banner_title_2_5' => 'It With Us',
     'banner_desc' => 'At WARAQCO, we give used papers a new opportunity to become part of a sustainable environmental solution, leading change towards a conscious society and a circular economy that advances industry while preserving nature.',
 
     // Button Text banner
@@ -211,9 +211,14 @@ We have been working passionately for over 30 years, reshaping used paper with a
     // Additional translations
     'no_categories_available' => 'No categories available',
     'company_info' => 'Company Information',
-    'company_name' => 'Waraq for Paper Industries',
-    'company_name_en' => 'Waraq for Paper Industries',
-    'company_description' => 'Leading Egyptian manufacturer of paper products since 2006',
+    'company_name_this' => 'Waraq for Paper Industries',
+    'company_name_title' => 'Waraq',
+
+
+    'company_description' => 'Leading Egyptian manufacturer of paper products since 2018',
+    'company_description+0' => 'Leading Egyptian manufacturing ',
+    'company_description+1' => 'of Paper products since 2018',
+
     'industrial_zone' => 'Industrial Zone, Egypt',
     'phone_1' => '+20 100 156 8862',
     'phone_2' => '+20 111 666 0665',
@@ -233,7 +238,7 @@ We have been working passionately for over 30 years, reshaping used paper with a
     'message_error' => 'An error occurred while sending your message',
 
     // Company History & About
-    'since_2006' => 'Since 2006',
+    'since_2018' => 'Since 2018',
     'our_mission' => 'Our Mission',
     'our_vision' => 'Our Vision',
     'core_values' => 'Core Values',

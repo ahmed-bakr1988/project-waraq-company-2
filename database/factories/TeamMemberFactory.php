@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\TeamMember;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /** @extends Factory<TeamMember> */
 class TeamMemberFactory extends Factory
@@ -12,15 +13,23 @@ class TeamMemberFactory extends Factory
 
     public function definition(): array
     {
-        return [
-            'locale' => $this->faker->randomElement(['en', 'ar']),
-            'slug' => Str::slug($name).'-'.fake()->unique()->numberBetween(1, 9999),
-            'name' => $this->faker->name(),
-            'role' => $this->faker->jobTitle(),
-            'photo' => null,
-            'bio' => $this->faker->sentence(12),
+        $name = fake()->name();
 
-            'order' => $this->faker->numberBetween(0, 10),
+        return [
+            'locale' => fake()->randomElement(['en', 'ar']),
+            'name' => $name,
+            'slug' => Str::slug($name).'-'.fake()->unique()->numberBetween(1, 9999),
+            'position' => fake()->jobTitle(),
+            'image' => null,
+            'bio' => fake()->sentence(12),
+            'email' => fake()->safeEmail(),
+            'phone' => fake()->phoneNumber(),
+            'qualifications' => fake()->paragraph(),
+            'specialty' => fake()->words(2, true),
+            'linkedin_url' => fake()->url(),
+            'order' => fake()->numberBetween(0, 10),
+            'display_order' => fake()->numberBetween(0, 10),
+            'is_active' => true,
         ];
     }
 }

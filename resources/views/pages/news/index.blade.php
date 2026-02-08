@@ -60,10 +60,10 @@
                 @foreach($posts as $post)
                     <article class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         {{-- Featured Image --}}
-                        @if($post->cover)
+                        @if($post->image)
                             <div class="relative h-48 overflow-hidden bg-gray-100">
                                 <img 
-                                    src="{{ asset($post->cover) }}" 
+                                    src="{{ asset($post->image) }}" 
                                     alt="{{ $post->title }}" 
                                     loading="lazy"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
@@ -133,4 +133,3 @@
         @endif
     </div>
 </x-app-layout>
-

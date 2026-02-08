@@ -105,8 +105,14 @@
                         <div class="single-team-area-one-start">
                             <a href="{{ route('our-team.show', $member->slug) }}" class="thumbnail">
                                 @if ($member->image)
-
-                                    <img src="{{  asset($member->image) }}" alt="{{ $member->name }}"
+                                    @php
+                                        $memberImage = Str::startsWith($member->image, ['http://', 'https://', '/'])
+                                            ? $member->image
+                                            : (Str::startsWith($member->image, 'assets/')
+                                                ? asset($member->image)
+                                                : Storage::url($member->image));
+                                    @endphp
+                                    <img src="{{ $memberImage }}" alt="{{ $member->name }}"
                                         loading="lazy">
                                 @else
                                     <img src="{{ asset('assets/images/team/01.webp') }}" alt="team">
@@ -138,46 +144,13 @@
                     </div>
                 @endforelse
             </div>
-            <div class="row mt--30 g-5 g-sm-30">
-                @forelse($teamMembers2 as $member)
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-animation="fadeInUp" data-delay="0.2"
-                        data-duration="1.2">
-                        <div class="single-team-area-one-start">
-                            <a href="{{ route('our-team.show', $member->slug) }}" class="thumbnail">
-                                @if ($member->image)
-                                    <img src="{{asset($member->image) }}" alt="{{ $member->name }}"
-                                        loading="lazy">
-                                @else
-                                    <img src="{{ asset('assets/images/team/01.webp') }}" alt="team">
-                                @endif
-                            </a>
-                            <div class="inner-content">
-                                <div class="text-top">
-                                    <a href="{{ route('our-team.show', $member->slug) }}">
-                                        <h5 class="title">{{ $member->name }}</h5>
-                                    </a>
-                                    <span>{{ $member->position }}</span>
-                                    @if ($member->specialty)
-                                        <p class="disc">{{ Str::limit($member->specialty, 60) }}</p>
-                                    @endif
-                                </div>
-                                <div class="social-one-wrapper">
-                                    <ul>
-                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+            @if ($teamMembers->hasPages())
+                <div class="row mt--30">
+                    <div class="col-12">
+                        {{ $teamMembers->links() }}
                     </div>
-                @empty
-                    <div class="col-12 text-center py-5">
-                        <p>{{ __('words.no_team_members') }}</p>
-                    </div>
-                @endforelse
-
-            </div>
+                </div>
+            @endif
         </div>
     </div>
 

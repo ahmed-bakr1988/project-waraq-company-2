@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class PagesTable
@@ -21,7 +22,11 @@ class PagesTable
                 TextColumn::make('published_at')->dateTime()->label('Published'),
             ])
             ->filters([
-                //
+                SelectFilter::make('locale')
+                    ->options([
+                        'en' => 'English',
+                        'ar' => 'العربية',
+                    ]),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -31,6 +36,7 @@ class PagesTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('updated_at', 'desc');
     }
 }

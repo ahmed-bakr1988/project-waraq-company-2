@@ -13,36 +13,44 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Product::with(['category', 'translations'])
+        $query = Product::query()
+            ->with(['productCategory.translation', 'translations'])
             ->where('is_active', true);
 
-        if ($request->has('category')) {
-            $query->where('category_id', $request->category);
+        if ($request->filled('category')) {
+            $query->where('product_category_id', $request->integer('category'));
         }
 
-        if ($request->has('search')) {
-            $search = $request->search;
+        if ($request->filled('search')) {
+            $search = $request->string('search')->toString();
             $query->whereHas('translations', function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
                     ->orWhere('description', 'like', "%{$search}%");
             });
         }
 
-        $products = $query->paginate(12);
-        $categories = ProductCategory::where('is_active', true)->get();
+        $products = $query
+            ->orderBy('order')
+            ->paginate(12)
+            ->withQueryString();
+        $categories = ProductCategory::query()
+            ->active()
+            ->ordered()
+            ->get();
 
         return view('pages.products', compact('products', 'categories'));
     }
 
     public function show(Product $product)
     {
-        $product->loadMissing(['translations', 'category']);
+        $product->loadMissing(['translations', 'productCategory.translation']);
 
-        // Load related products from the same category
-        $relatedProducts = Product::with(['translations', 'category'])
+        $relatedProducts = Product::query()
+            ->with(['translations', 'productCategory.translation'])
             ->where('is_active', true)
             ->where('id', '!=', $product->id)
-            ->where('category_id', $product->category_id)
+            ->where('product_category_id', $product->product_category_id)
+            ->orderBy('order')
             ->limit(3)
             ->get();
 

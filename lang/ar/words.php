@@ -181,12 +181,12 @@ return [
     //"رحلة الورق تبدأ هنا… اكتشفها معنا."
     'welcome_banner' => 'منتجات بجودة عالمية من ألياف محلية معاد تدويرها ',
     'banner_title_1' => 'ابدأ معنا رحلة التغيير الأخضر!',
-    'banner_title_2' => 'رحلة',
-    'banner_title_2_1' => 'الورق',
-    'banner_title_2_2' => 'تبدأ',
-    'banner_title_2_3' => '...هنا',
-    'banner_title_2_4' => 'اكتشفها',
-    'banner_title_2_5' => '.معنا',
+    'banner_title_2' => 'رحلة الورق تبدأ هنا… اكتشفها معنا.',
+    // 'banner_title_2_1' => '',
+    // 'banner_title_2_2' => 'تبدأ',
+    // 'banner_title_2_3' => '...هنا',
+    // 'banner_title_2_4' => 'اكتشفها',
+    // 'banner_title_2_5' => '.معنا',
     'banner_desc' => 'في WARAQCO، نمنح الأوراق المستعملة فرصة جديدة لتُصبح جزءًا من حل بيئي مستدام، ونقود التغيير نحو مجتمع واعٍ، واقتصاد دائري ينهض بالصناعة ويصون الطبيعة.',
 
     // Button Text banner
@@ -218,7 +218,7 @@ return [
 
     // Products Section
     'our_products' => 'منتجاتنا',
-    'company_products' => 'الشركة منتجات ',
+    'company_products' => 'منتجات الشركة',
     'learn_more' => 'اعرف المزيد',
 
     'features' => 'المميزات',
@@ -228,9 +228,14 @@ return [
     // Additional translations
     'no_categories_available' => 'لا توجد فئات متاحة',
     'company_info' => 'معلومات الشركة',
-    'company_name' => 'شركة ورق لصناعة الورق',
-    'company_name_en' => 'Waraq for Paper Industries',
-    'company_description' => 'شركة مصرية رائدة في تصنيع المنتجات الورقية منذ عام 2006',
+    'company_name_this' => 'شركة ورق لصناعة الورق',
+    'company_name_title' => 'شركة ورق ',
+
+    'company_description' => 'شركة مصرية رائدة في تصنيع المنتجات الورقية منذ عام 2018',
+
+    'company_description+0' => 'شركة مصرية رائدة في تصنيع ',
+    'company_description+1' => ' المنتجات الورقية منذ عام 2018',
+
     'industrial_zone' => 'المنطقة الصناعية، مصر',
     'phone_1' => '+20 100 156 8862',
     'phone_2' => '+20 111 666 0665',
@@ -250,7 +255,7 @@ return [
     'message_error' => 'حدث خطأ أثناء إرسال الرسالة',
 
     // Company History & About
-    'since_2006' => 'منذ عام 2006',
+    'since_2018' => 'منذ عام 2018',
     'our_mission' => 'رسالتنا',
     'our_vision' => 'رؤيتنا',
     'core_values' => 'قيمنا الأساسية',

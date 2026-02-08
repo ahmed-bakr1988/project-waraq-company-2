@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use DB;
-use App\Models\Page;
 use App\Models\Career;
-use App\Models\Product;
 use App\Models\NewsPost;
-use App\Models\TeamMember;
-use Illuminate\Support\Str;
+use App\Models\Page;
+use App\Models\Product;
 use App\Models\ProductCategory;
-use Illuminate\Database\Seeder;
+use App\Models\ProductCategoryTranslation;
 use App\Models\ProductTranslation;
+use App\Models\TeamMember;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CompanyStarterSeeder extends Seeder
 {
@@ -21,6 +21,7 @@ class CompanyStarterSeeder extends Seeder
         \DB::statement('SET FOREIGN_KEY_CHECKS=0');
         \DB::table('product_translations')->truncate();
         \DB::table('products')->truncate();
+        \DB::table('product_category_translations')->truncate();
         \DB::table('product_categories')->truncate();
         \DB::table('news_posts')->truncate();
         \DB::table('pages')->truncate();
@@ -68,15 +69,30 @@ class CompanyStarterSeeder extends Seeder
 
         $catIds = [];
         foreach ($categories as $i => $catData) {
-            $cat = ProductCategory::query()->updateOrCreate(
-                ['slug' => Str::slug($catData['name_en'])],
-                [
-                    'name' => $catData['name_en'],
-                    'description' => $catData['desc_en'],
-                    'order' => $i,
-                    'is_active' => true,
-                ],
-            );
+            // Create the category
+            $cat = ProductCategory::query()->create([
+                'order' => $i,
+                'is_active' => true,
+            ]);
+
+            // Create English translation
+            ProductCategoryTranslation::query()->create([
+                'product_category_id' => $cat->id,
+                'locale' => 'en',
+                'slug' => Str::slug($catData['name_en']),
+                'name' => $catData['name_en'],
+                'description' => $catData['desc_en'],
+            ]);
+
+            // Create Arabic translation
+            ProductCategoryTranslation::query()->create([
+                'product_category_id' => $cat->id,
+                'locale' => 'ar',
+                'slug' => Str::slug($catData['name_en']).'-ar',
+                'name' => $catData['name_ar'],
+                'description' => $catData['desc_ar'],
+            ]);
+
             $catIds[] = ['id' => $cat->id, 'name_en' => $catData['name_en'], 'name_ar' => $catData['name_ar']];
         }
 
@@ -290,14 +306,12 @@ class CompanyStarterSeeder extends Seeder
         // Create products
         foreach ($products as $i => $productData) {
             $catId = collect($catIds)->firstWhere('name_en', $productData['category'])['id'] ?? $catIds[0]['id'];
-            $catNameAr = collect($catIds)->firstWhere('name_en', $productData['category'])['name_ar'] ?? $catIds[0]['name_ar'];
 
             $p = Product::query()->create([
                 'product_category_id' => $catId,
                 'image' => 'assets/images/banner/21.webp',
                 'logo' => null,
                 'url' => null,
-                'summary' => $productData['desc_en'],
                 'specs' => $productData['specs'],
                 'downloads' => [],
                 'order' => $i,
@@ -310,7 +324,6 @@ class CompanyStarterSeeder extends Seeder
                 [
                     'slug' => Str::slug($productData['name_en']),
                     'name' => $productData['name_en'],
-                    'category' => $productData['category'],
                     'description' => $productData['desc_en'],
                     'features' => $productData['features'],
                 ],
@@ -322,7 +335,6 @@ class CompanyStarterSeeder extends Seeder
                 [
                     'slug' => Str::slug($productData['name_en']).'-ar',
                     'name' => $productData['name_ar'],
-                    'category' => $catNameAr,
                     'description' => $productData['desc_ar'],
                     'features' => $productData['features'],
                 ],
@@ -582,5 +594,3 @@ class CompanyStarterSeeder extends Seeder
         }
     }
 }
-
-

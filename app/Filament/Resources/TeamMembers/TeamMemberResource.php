@@ -22,6 +22,9 @@ class TeamMemberResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+
+    protected static ?string $navigationLabel = 'Team Members';
+
     public static function form(Schema $schema): Schema
     {
         return TeamMemberForm::configure($schema);
@@ -39,9 +42,7 @@ class TeamMemberResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
